@@ -1,0 +1,24 @@
+<section class="slide stage" id="fecho" data-t="Por que A&amp;M" data-chap="Fechamento" data-fx="40|Animated Shader / Hero|sutil" data-fxwhy="Fechamento: o mesmo fundo vivo da capa volta em dose sutil, atrás das razões e das portas de entrada. Fecha o ciclo visual sem competir com o texto." data-src="Deck comercial A&amp;M DTS (cases e equipe); A&amp;M PE Services e Interim Management; Mergermarket e LSEG (rankings de assessoria); benchmarks PwC, EY-Parthenon e Deloitte" data-desc="Por que a A&amp;M e por onde começar. Quatro razões que nenhum dos líderes de mercado combina ao mesmo tempo, e três portas de entrada no portfólio, uma para cada situação de deal. Cada porta abre a página do produto.">
+  <canvas class="shader" id="fechoShader" aria-hidden="true"></canvas>
+  <div class="shade fc-shade"></div>
+  <div class="body fc-body">
+    <div class="eyebrow" data-a="fade">Por que A&amp;M</div>
+    <h2 class="fc-h kin">Quem diagnostica <span class="hl">é quem executa.</span></h2>
+    <div class="fc-why">
+      <div data-a="up" style="--d:3"><span data-ico="hand"></span><b>Operadores, não só assessores</b><p>A firma nasceu assumindo a gestão de empresas. O achado da diligência chega a quem sabe executá-lo.</p></div>
+      <div data-a="up" style="--d:4"><span data-ico="shield"></span><b>Independência</b><p>Sem auditoria no mesmo grupo, sem conflito para assumir a execução depois do deal.</p></div>
+      <div data-a="up" style="--d:5"><span data-ico="people"></span><b>Sênior do começo ao fim</b><p>O time que diligencia é o que desenha o Day 1 e conduz a integração.</p></div>
+      <div data-a="up" style="--d:6"><span data-ico="link"></span><b>IA com evidência</b><p>O A&amp;M Deal Twin cita a fonte de cada afirmação. A IA propõe; o especialista assina.</p></div>
+    </div>
+    <div class="fc-doors" data-a="up" style="--d:8">
+      <span class="label">Por onde começar</span>
+      <button data-goto="prod-itdd"><em>Um deal na mesa</em><b>IT Due Diligence · Red Flag</b><i>→</i></button>
+      <button data-goto="prod-dayone"><em>Um carve-out em preparação</em><b>IT Separation &amp; TSA Design</b><i>→</i></button>
+      <button data-goto="prod-playbook"><em>Uma tese de buy-and-build</em><b>Tech M&amp;A Playbook</b><i>→</i></button>
+    </div>
+    <div class="fc-sign" data-a="fade" style="--d:10"><span>Da diligência à execução, <b>no mesmo fio.</b></span><span class="mono">Digital &amp; Technology Services · Alvarez &amp; Marsal Brasil</span></div>
+  </div>
+</section>
+<script data-slide>
+(function(){const sh=FX.shader($("fechoShader"),{amp:.55});ENTER.fecho=()=>sh.start();LEAVE.fecho=()=>sh.stop();})();
+</script>

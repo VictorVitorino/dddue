@@ -1,0 +1,58 @@
+<section class="slide paper" id="riscos" data-t="Riscos e impactos" data-chap="Contexto" data-fx="39|Node Network Motion|moderada" data-fxwhy="Risco e impacto são uma relação, não uma lista: ao tocar um risco, só as ligações dele acendem e o resto recua. Os anéis pulsantes marcam os riscos que não estavam no nosso deck." data-src="Riscos de TI do deck comercial A&amp;M DTS; LGPD (Lei 13.709/2018, art. 52); Lei 9.610/1998, art. 103; STF Tema 1.389; Lei 15.352/2026 (ANPD agência reguladora); Capital Aberto, jul/2026 (reforma tributária e M&amp;A) e guias de adequação de sistemas a CBS e IBS; ataques a fornecedores do Pix (C&amp;M Software e Sinqia, 2025); KPMG The AI blind spot in M&amp;A; PwC M&amp;A Integration Survey 2026; Flexera State of the Cloud 2026" data-desc="Mapa interativo de riscos e impactos. À esquerda, os cinco riscos de TI que já estavam no nosso deck, hoje maiores, e cinco riscos novos (marcados com anel pulsante). À direita, os cinco impactos que chegam à mesa do investidor. Ao tocar um risco, o painel mostra o que acontece e qual produto o antecipa.">
+  <div class="body">
+    <div class="r-head">
+      <div>
+        <div class="eyebrow" data-a="fade">Riscos e impactos</div>
+        <h2 class="h2 kin" style="margin-top:10px">Todo risco de TI vira <span class="hl">preço, multa ou valor perdido.</span></h2>
+      </div>
+      <div class="r-legend" data-a="fade" style="--d:5"><span><i class="lg-old"></i>Já estava no nosso radar, hoje maior</span><span><span class="beacon" style="width:8px;height:8px"></span>&nbsp;Risco novo</span><span class="small">Toque em um risco</span></div>
+    </div>
+    <div class="r-map" id="rMap">
+      <svg class="r-svg" id="rSvg" aria-hidden="true"></svg>
+      <div class="r-col r-left" id="rLeft"></div>
+      <div class="r-col r-right" id="rRight"></div>
+      <aside class="r-panel" id="rPanel" data-a="right" style="--d:8">
+        <span class="label" id="rpK">Risco</span>
+        <h3 class="h3" id="rpT"></h3>
+        <div class="r-sec"><span class="r-sh">O que acontece</span><p id="rpW"></p></div>
+        <div class="r-sec"><span class="r-sh">Sinal de alerta na diligência</span><p id="rpS"></p></div>
+        <div class="r-sec r-prod"><span class="r-sh">Quem antecipa</span><div id="rpP"></div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+<script data-slide>
+(function(){
+const R=[
+ {k:"infra",t:"Infraestrutura frágil e nuvem sem governança",old:1,i:["cont","plano","preco"],w:"Servidores depreciados, data center improvisado e uma migração para nuvem sem controle de custo viram investimento imediato que não estava no modelo.",s:"Faturas de nuvem crescendo mais rápido que a receita, ausência de plano de recuperação, ambiente sem dono.",p:["p_dd","p_code"]},
+ {k:"lic",t:"Licenças e software fora de compliance",old:1,i:["multa","preco"],w:"Auditorias de fabricantes e uso não licenciado geram indenizações que podem chegar ao valor de três mil exemplares quando o número de cópias não é conhecido.",s:"Inventário de software inexistente, contas compartilhadas, contratos de licença que não acompanham o crescimento.",p:["p_dd"]},
+ {k:"cyber",t:"Cyber e dados pessoais expostos",old:1,i:["multa","cli","cont","preco"],w:"Um incidente depois do closing vira passivo do comprador, inclusive quando entra por um fornecedor de TI: parada da operação, sanção da ANPD, hoje agência reguladora, e perda de confiança de clientes.",s:"Credenciais expostas, superfície de ataque aberta, base legal frágil para dados pessoais, incidentes não tratados.",p:["p_cyber","p_dd"]},
+ {k:"neg",t:"TI que não sustenta o plano de negócio",old:1,i:["plano","cont"],w:"O plano de crescimento depende de sistemas que não escalam, e a correção consome o capital que deveria financiar a tese.",s:"ERP descontinuado, integrações manuais, time de TI subdimensionado e reativo, roadmap sem orçamento.",p:["p_dd","p_value"]},
+ {k:"proj",t:"Projetos críticos no meio do deal",old:1,i:["plano","cont","cli"],w:"Uma troca de ERP ou de plataforma em andamento durante o deal vira projeto em crise, retrabalho e receita perdida.",s:"Projetos estruturantes atrasados, fornecedor único, escopo sem dono do lado do negócio.",p:["p_day1","p_office"]},
+ {k:"ia",t:"IA declarada que não se sustenta",old:0,i:["preco","plano","multa"],w:"A IA que justificou o múltiplo é um protótipo, depende de um único fornecedor, usa dados sem direito de uso ou custa mais por transação do que gera.",s:"Modelos sem dono técnico, contratos de API sem cláusulas, custo de inferência fora do P&L, nenhuma governança de IA.",p:["p_ai"]},
+ {k:"code",t:"Código e propriedade intelectual fora da empresa",old:0,i:["preco","plano"],w:"Código desenvolvido por terceiros sem cessão de direitos, licenças open source restritivas e dívida técnica alta reduzem valor ou viram condição suspensiva.",s:"Repositórios em contas pessoais, desenvolvedores sem contrato de cessão, dependências desatualizadas.",p:["p_code"]},
+ {k:"pess",t:"Pessoas-chave e contratos PJ",old:0,i:["multa","cont"],w:"O conhecimento crítico está em poucas pessoas, muitas em contrato PJ. A saída de uma delas para a operação; o vínculo reconhecido vira passivo trabalhista.",s:"Sistemas que só uma pessoa entende, alta rotatividade, times inteiros como pessoa jurídica.",p:["p_dd","p_day1"]},
+ {k:"fis",t:"Sistemas fiscais fora da reforma tributária",old:0,i:["multa","cont","preco"],w:"A reforma tributária muda notas, apuração, créditos e caixa, com o split payment. ERP, emissores e PDVs que não foram adaptados viram investimento imediato, risco de autuação e de parada no faturamento.",s:"ERP customizado ou descontinuado, emissor fiscal próprio, nenhum projeto de adequação a CBS e IBS.",p:["p_dd","p_day1"]},
+ {k:"sin",t:"Sinergias sem dono e sem linha de base",old:0,i:["plano","preco"],w:"As sinergias de TI do modelo não têm linha de base, dono, prazo nem verba. O comprador paga por um valor que ninguém vai executar.",s:"Sinergias estimadas de cima para baixo, sem iniciativas com responsável antes da integração.",p:["p_day1","p_office","p_value"]}
+];
+const I={preco:"Preço e condições do SPA",cont:"Continuidade da operação",cli:"Clientes e reputação",multa:"Multas e passivos",plano:"Valor do plano de negócio"};
+const ICO={preco:'<path d="M4 7h11l5 5-8 8-8-8z"/><circle cx="9" cy="10" r="1.4"/>',cont:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',cli:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11a3 3 0 1 0 0-6"/><path d="M18 20c0-2.4-1.1-4.5-3-5.6"/>',multa:'<path d="M12 3l9 16H3z"/><line x1="12" y1="10" x2="12" y2="14"/><line x1="12" y1="17" x2="12" y2="17.01"/>',plano:'<polyline points="3.5 17 9 11.5 13 15 20.5 7.5"/><polyline points="15 7.5 20.5 7.5 20.5 13"/>'};
+const L=$("rLeft"),Rr=$("rRight"),svg=$("rSvg"),map=$("rMap");
+const g1=H("div",{class:"r-grp","data-a":"left",style:"--d:3"},L);H("span",{class:"label"},g1,"Já estavam no radar");
+const g2=H("div",{class:"r-grp","data-a":"left",style:"--d:5"},L);H("span",{class:"label"},g2,"Novos em 2026");
+const rn={},in_={};
+R.forEach(r=>{const b=H("button",{class:"r-node"+(r.old?"":" new")},r.old?g1:g2);b.innerHTML=(r.old?'':'<span class="beacon"></span>')+`<span>${r.t}</span>`;rn[r.k]=b;b.addEventListener("pointerenter",()=>sel(r.k));b.addEventListener("click",()=>sel(r.k,true))});
+Object.keys(I).forEach((k,j)=>{const d=H("div",{class:"r-imp","data-a":"right",style:`--d:${4+j}`},Rr);d.innerHTML=`<svg class="ico" viewBox="0 0 24 24" style="--d:${5+j}">${ICO[k]}</svg><span>${I[k]}</span>`;in_[k]=d});
+let edges=[];
+function draw(){svg.innerHTML="";edges=[];const W=map.offsetWidth,Hh=map.offsetHeight;svg.setAttribute("viewBox",`0 0 ${W} ${Hh}`);svg.setAttribute("width",W);svg.setAttribute("height",Hh);
+  R.forEach(r=>{const a=rel(rn[r.k],map);r.i.forEach(ik=>{const b=rel(in_[ik],map);const x1=a.x+a.w,y1=a.cy,x2=b.x,y2=b.cy,mx=(x1+x2)/2;const p=S("path",{d:`M${x1} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`,class:"r-edge"},svg);p.dataset.r=r.k;p.dataset.i=ik;edges.push(p)})})}
+let curK=null,lock=false;
+function sel(k,click){if(lock&&!click)return;if(click)lock=true;curK=k;const r=R.find(x=>x.k===k);
+  Object.values(rn).forEach(b=>b.classList.toggle("on",b===rn[k]));Object.keys(in_).forEach(ik=>in_[ik].classList.toggle("on",r.i.includes(ik)));map.classList.add("focus");
+  edges.forEach(e=>e.classList.toggle("on",e.dataset.r===k));
+  $("rpK").textContent=r.old?"Risco que já estava no radar":"Risco novo em 2026";$("rpT").textContent=r.t;$("rpW").textContent=r.w;$("rpS").textContent=r.s;
+  const pp=$("rpP");pp.innerHTML="";r.p.forEach(pid=>{const P=(window.PRODS||{})[pid];if(!P)return;const a=H("button",{class:"r-pchip","data-goto":P.slide},pp);a.innerHTML=`<span>${P.name}</span><b>→</b>`})}
+map.addEventListener("pointerleave",()=>{if(!lock){}});
+ENTER.riscos=()=>{requestAnimationFrame(()=>{draw();lock=false;sel(curK||"ia")})};setTimeout(()=>fixPaths($("riscos")),0);
+})();
+</script>

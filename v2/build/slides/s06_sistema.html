@@ -1,0 +1,45 @@
+<section class="slide stage" id="sistema" data-t="O sistema de produtos" data-chap="Portfólio" data-fx="18|Connector / Flow Line|moderada" data-fxwhy="Os conectores se desenham de cada produto até o fio e passam a fluir: o slide mostra que os produtos não são um catálogo solto, e sim estações de uma mesma linha." data-src="Proposta de portfólio A&amp;M DTS; nomes alinhados à oferta global A&amp;M (IT Due Diligence; Software Product and Technology Diligence; Merger Integration &amp; Carve-Out)" data-desc="A página única do novo portfólio. Os produtos estão organizados pelos quatro momentos do deal e ligados ao A&amp;M Deal Twin, o gêmeo digital do parque tecnológico do alvo que acompanha o deal do pré-signing ao exit. Toque em um produto para abrir a página dele.">
+  <div class="body">
+    <div class="sy-head">
+      <div><div class="eyebrow" data-a="fade">O portfólio em uma página</div><h2 class="h2 kin" style="margin-top:10px">Um sistema, não um catálogo. <span class="hl">Cada produto entrega ao próximo.</span></h2></div>
+      <div class="sy-leg" data-a="fade" style="--d:6"><span class="tag t-keep">Mantido</span><span class="tag t-remodel">Remodelado</span><span class="tag t-new">Novo</span><span class="small">Toque para abrir</span></div>
+    </div>
+    <div class="sy-map" id="syMap">
+      <svg class="sy-svg" id="sySvg" aria-hidden="true"></svg>
+      <div class="sy-cols">
+        <div class="sy-col sy-wide" data-a="up" style="--d:2"><span class="sy-mo"><b>Decidir</b>estratégia e pré-deal</span>
+          <div class="sy-grid2">
+            <button class="sy-t" data-goto="prod-playbook" data-ico="book"><span><b>Tech M&amp;A Playbook</b><em>O método da A&amp;M dentro de casa</em></span><i class="tag t-keep">Mantido</i></button>
+            <button class="sy-t" data-goto="prod-itdd" data-ico="search"><span><b>IT Due Diligence</b><em>Red Flag em dias ou 360 completo</em></span><i class="tag t-remodel">Remodelado</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="code"><span><b>Software Product &amp; Technology Diligence</b><em>Código, produto e custo de escalar</em></span><i class="tag t-new">Novo</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="ai"><span><b>AI Due Diligence</b><em>A IA do alvo é real e defensável?</em></span><i class="tag t-new">Novo</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="shield"><span><b>Cyber &amp; Data Due Diligence</b><em>Exposição e dados antes do closing</em></span><i class="tag t-new">Novo</i></button>
+            <div class="sy-note">Lentes especializadas vendidas sozinhas ou somadas ao IT Due Diligence</div>
+          </div></div>
+        <div class="sy-col" data-a="up" style="--d:4"><span class="sy-mo"><b>Separar</b>do signing ao Day 1</span>
+          <button class="sy-t" data-goto="prod-dayone" data-ico="split"><span><b>IT Separation &amp; TSA Design</b><em>Dependências em grafo e TSA com saída</em></span><i class="tag t-remodel">Remodelado</i></button>
+          <button class="sy-t" data-goto="prod-dayone" data-ico="calendar"><span><b>Day One Blueprint</b><em>Do achado ao plano executável</em></span><i class="tag t-remodel">Remodelado</i></button>
+        </div>
+        <div class="sy-col" data-a="up" style="--d:6"><span class="sy-mo"><b>Integrar</b>Day 1 e 100 dias</span>
+          <button class="sy-t" data-goto="prod-office" data-ico="pulse"><span><b>Integration &amp; Separation Office</b><em>Execução com centro de comando e agentes</em></span><i class="tag t-keep">Mantido</i></button>
+          <div class="sy-note">IMO ou SMO num mesmo produto, também como serviço para plataformas de roll-up</div>
+        </div>
+        <div class="sy-col" data-a="up" style="--d:8"><span class="sy-mo"><b>Valorizar</b>hold e exit</span>
+          <button class="sy-t" data-goto="prod-valor" data-ico="chart"><span><b>Tech Value Creation</b><em>O valor que o hold precisa entregar</em></span><i class="tag t-remodel">Remodelado</i></button>
+          <button class="sy-t" data-goto="prod-valor" data-ico="rocket"><span><b>Exit Tech Readiness</b><em>Pronta para ser diligenciada</em></span><i class="tag t-remodel">Remodelado</i></button>
+        </div>
+      </div>
+      <button class="sy-twin" id="syTwin" data-goto="prod-twin" data-a="up" style="--d:10"><span class="sy-tw-l"><span class="label">A base de tudo</span><b>A&amp;M Deal Twin</b></span><span class="sy-tw-c">O gêmeo digital do parque tecnológico do alvo. Nasce na diligência e carrega cada achado, dependência e decisão até o exit.</span><i class="tag t-new">Novo</i></button>
+    </div>
+  </div>
+</section>
+<script data-slide>
+(function(){const map=$("syMap"),svg=$("sySvg"),twin=$("syTwin");
+function draw(){svg.innerHTML="";const W=map.offsetWidth,Hh=map.offsetHeight;svg.setAttribute("viewBox",`0 0 ${W} ${Hh}`);svg.setAttribute("width",W);svg.setAttribute("height",Hh);
+  const tw=rel(twin,map);const y=tw.y-26;
+  const base=S("path",{d:`M 10 ${y} L ${W-10} ${y}`,class:"sy-thread"},svg);
+  const groups={};map.querySelectorAll(".sy-t").forEach(t=>{const r=rel(t,map);const k=Math.round(r.cx/10);(groups[k]=groups[k]||[]).push({t,r})});
+  Object.values(groups).forEach((g,i)=>{const lo=g.reduce((a,b)=>b.r.y+b.r.h>a.r.y+a.r.h?b:a);const x=lo.r.cx,y0=lo.r.y+lo.r.h;const p=S("path",{d:`M ${x} ${y0} L ${x} ${y}`,class:"sy-con",pathLength:1},svg);p.style.setProperty("--d",i);S("circle",{cx:x,cy:y,r:4.5,class:"sy-dot"},svg);g.forEach(o=>{o.t.addEventListener("pointerenter",()=>p.classList.add("on"));o.t.addEventListener("pointerleave",()=>p.classList.remove("on"))})});
+  const tl=S("path",{d:`M ${tw.cx} ${y} L ${tw.cx} ${tw.y}`,class:"sy-con",pathLength:1},svg);tl.style.setProperty("--d",11)}
+ENTER.sistema=()=>requestAnimationFrame(()=>{draw();fixPaths($("sistema"))});})();
+</script>

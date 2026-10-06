@@ -1,0 +1,73 @@
+<section class="slide stage" id="prod-dayone" data-t="Separação e Day 1" data-chap="Produtos" data-fx="29|Morphing Shapes|moderada" data-fxwhy="O mesmo parque de TI muda de forma em três estados: emaranhado, Day 1 com TSA e independente. O cliente vê a separação acontecer, em vez de ler um diagrama estático; o fio laranja tracejado é o TSA, que some quando a saída acontece." data-src="Deck comercial A&amp;M DTS (IT Separation Strategy &amp; Design; IT Integration &amp; Separation Planning, Day 1 e 100 dias); A&amp;M Merger Integration &amp; Carve-Out; PwC Divestitures &amp; Separations e The Accelerated Transition; Deloitte M&amp;A Platform" data-desc="Dois produtos do signing ao Day 1. O IT Separation &amp; TSA Design mapeia o entrelaçamento em grafo, escolhe a estratégia de cada sistema e desenha TSAs que já nascem com saída. O Day One Blueprint transforma os achados da diligência em um plano executável para operar sem ruptura desde o primeiro dia. Use o seletor para ver o parque mudar de forma.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Separar · do signing ao Day 1</div><h2 class="h2 kin" style="margin-top:10px">Separar sem parar. <span class="hl">TSA com porta de saída.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Em carve-outs, a TI é o que mais prende o vendedor ao ativo. Os dois produtos tiram a NewCo do emaranhado sem que o cliente perceba.</p>
+    </div>
+    <div class="mo-wrap">
+      <div class="mo-panel" data-a="zoom" style="--d:2">
+        <div class="mo-bar"><div class="seg2 mo-seg" id="moSeg"><button class="on" data-s="0">Hoje</button><button data-s="1">Day 1</button><button data-s="2">Saída do TSA</button></div><div class="mo-leg"><span><i class="lg-s"></i>Vendedor</span><span><i class="lg-n"></i>NewCo</span><span><i class="lg-t"></i>TSA</span></div></div>
+        <svg class="mo-svg" id="moSvg" viewBox="0 0 760 440" aria-label="Parque de TI mudando de forma entre emaranhado, Day 1 e independente"></svg>
+        <p class="mo-cap" id="moCap"></p>
+      </div>
+      <div class="mo-prods">
+        <article class="mo-p" data-a="left" style="--d:4">
+          <div class="mo-ph"><span data-ico="split" class="mo-pico"></span><div><b>IT Separation &amp; TSA Design</b><span>Evolui de IT Separation Strategy &amp; Design</span></div><span class="tag t-remodel">Remodelado</span></div>
+          <p class="mo-prob">O emaranhado vira grafo; cada sistema ganha uma estratégia, e cada TSA, uma saída.</p>
+          <div class="mo-get"><span data-ico="graph">Mapa de entrelaçamento em grafo</span><span data-ico="route">Clonar, migrar, reconstruir ou contratar</span><span data-ico="contract">TSAs com escopo, nível de serviço e saída</span><span data-ico="coin">Custo stand-alone visível antes do preço</span></div>
+          <p class="mo-ai"><b>IA:</b> lê inventários, contratos e chamados para montar o grafo, sugere a estratégia de cada sistema e redige os anexos de TSA para a revisão jurídica.</p>
+        </article>
+        <article class="mo-p" data-a="left" style="--d:6">
+          <div class="mo-ph"><span data-ico="calendar" class="mo-pico"></span><div><b>Day One Blueprint</b><span>Evolui de IT Integration &amp; Separation Planning</span></div><span class="tag t-remodel">Remodelado</span></div>
+          <p class="mo-prob">O Day 1 falha nos detalhes: um acesso que não existe, uma nota que não sai, um cliente sem atendimento.</p>
+          <div class="mo-get"><span data-ico="check">Day 1 por processo crítico do negócio</span><span data-ico="layers">Runbook de cutover e ensaios</span><span data-ico="flag">Plano de 100 dias com dono por iniciativa</span><span data-ico="shield">Contingência para cada risco</span></div>
+          <p class="mo-ai"><b>IA:</b> transforma achados da diligência em iniciativas, gera runbooks e checklists e simula o Day 1 contra faturar, pagar, vender e atender.</p>
+        </article>
+      </div>
+    </div>
+    <div class="mo-out" data-a="up" style="--d:8"><span class="label">Resultado para o cliente</span><div><span>Day 1 sem ruptura em faturamento, clientes e folha</span><span>TSA com saída desenhada antes de assinar</span><span>Achados da diligência viram plano com dono</span></div></div>
+  </div>
+</section>
+<script data-slide>
+(function(){
+const svg=$("moSvg"),cap=$("moCap"),seg=$("moSeg");
+const LBL={hubS:["Empresa hoje","Vendedor","Vendedor"],hubN:"NewCo",erp:"ERP",crm:"CRM",dc:"Data center",idm:"Identidade",net:"Rede",data:"Dados e BI",lic:"Licenças",sd:"Service desk",mail:"Colaboração",ppl:"Pessoas de TI",erp2:"ERP NewCo",idm2:"Identidade",sd2:"Service desk",cld2:"Nuvem",data2:"Dados e BI"};
+const SYS=["erp","crm","dc","idm","net","data","lic","sd","mail","ppl"];
+const P=[{},{},{}];
+// estado 0: emaranhado em anel com desvio
+SYS.forEach((k,i)=>{const a=i/SYS.length*Math.PI*2-Math.PI/2+(i%2?.18:-.12);const r=i%2?1:.82;P[0][k]=[380+300*r*Math.cos(a),220+160*r*Math.sin(a),1,"m"]});
+P[0].hubS=[380,220,1,"h"];P[0].hubN=[380,220,0,"n"];
+const S1=["erp","dc","idm","net","data","lic","sd"],N1=["crm","mail","ppl"],N2=["crm","mail","ppl","erp2","idm2","sd2","cld2","data2"];
+function ring(arr,cx,cy,rx,ry,st,own,off){arr.forEach((k,i)=>{const a=i/arr.length*Math.PI*2-Math.PI/2+(off||0);P[st][k]=[cx+rx*Math.cos(a),cy+ry*Math.sin(a),1,own]})}
+ring(S1,190,220,135,165,1,"s",.2);P[1].crm=[655,95,1,"n"];P[1].ppl=[700,220,1,"n"];P[1].mail=[655,345,1,"n"];P[1].hubS=[190,220,1,"h"];P[1].hubN=[560,220,1,"n"];
+ring(S1,165,220,115,165,2,"s",.2);ring(N2,595,220,122,168,2,"n",.3);P[2].hubS=[165,220,1,"h"];P[2].hubN=[595,220,1,"n"];
+// clones nascem na posição do original
+[["erp2","erp"],["idm2","idm"],["sd2","sd"],["cld2","dc"],["data2","data"]].forEach(([c,o])=>{P[0][c]=[P[0][o][0],P[0][o][1],0,"n"];P[1][c]=[P[1][o][0],P[1][o][1],0,"n"]});
+const E=[[],[],[]];
+SYS.forEach(k=>E[0].push(["hubS",k,"m"]));[["erp","crm"],["erp","data"],["crm","data"],["idm","mail"],["idm","sd"],["dc","net"],["dc","erp"],["lic","erp"],["lic","crm"],["sd","ppl"],["mail","ppl"],["net","idm"],["data","mail"],["crm","ppl"]].forEach(([a,b])=>E[0].push([a,b,"m"]));
+[1,2].forEach(st=>{S1.forEach(k=>E[st].push(["hubS",k,"s"]));E[st].push(["erp","data","s"],["dc","net","s"])});
+N1.forEach(k=>E[1].push(["hubN",k,"n"]));["erp","dc","idm","sd","data"].forEach(k=>E[1].push([k,"hubN","t"]));
+N2.forEach(k=>E[2].push(["hubN",k,"n"]));E[2].push(["erp2","data2","n"]);
+const CAP=["Sistemas, dados, contratos e pessoas compartilhados. Ninguém sabe onde a NewCo começa nem quanto ela custa sozinha.","A NewCo opera desde o primeiro dia. O que ainda não é dela vira TSA, com escopo, nível de serviço e data de saída combinados antes do signing.","Cada TSA cumpre seu caminho de saída. A NewCo termina independente, com os próprios sistemas e sem custo escondido."];
+// construir
+const gE=S("g",{},svg),gN=S("g",{},svg);const EL={},NL={},D={},ED={};
+const keys=new Set();E.forEach(l=>l.forEach(e=>keys.add(e.join("|"))));
+keys.forEach(k=>{const [a,b,t]=k.split("|");EL[k]=S("line",{class:"mo-e mo-e-"+t},gE);ED[k]=0});
+Object.keys(LBL).forEach(k=>{const g=S("g",{class:"mo-n"+(k.startsWith("hub")?" hub":"")},gN);const r=S("rect",{rx:k.startsWith("hub")?12:9},g);const tx=S("text",{"text-anchor":"middle","dominant-baseline":"central"},g);NL[k]={g,r,tx};D[k]={x:380,y:220,o:0};setLabel(k,0)});
+function setLabel(k,st){const L=LBL[k];const s=Array.isArray(L)?L[st]:L;const n=NL[k];if(n.tx.textContent===s)return;n.tx.textContent=s;const hub=k.startsWith("hub");const w=Math.max(hub?96:70,s.length*(hub?9.4:7.2)+(hub?34:24));const h=hub?38:28;n.r.setAttribute("x",-w/2);n.r.setAttribute("y",-h/2);n.r.setAttribute("width",w);n.r.setAttribute("height",h)}
+function render(){Object.keys(NL).forEach(k=>{const d=D[k],n=NL[k];n.g.setAttribute("transform",`translate(${d.x.toFixed(1)},${d.y.toFixed(1)})`);n.g.style.opacity=d.o});
+  keys.forEach(k=>{const [a,b]=k.split("|");const l=EL[k];l.setAttribute("x1",D[a].x);l.setAttribute("y1",D[a].y);l.setAttribute("x2",D[b].x);l.setAttribute("y2",D[b].y);l.style.opacity=ED[k]*Math.min(D[a].o,D[b].o)})}
+let cur=-1,raf=0;
+function to(st,inst){cancelAnimationFrame(raf);const F={},FE={};Object.keys(D).forEach(k=>F[k]={...D[k]});keys.forEach(k=>FE[k]=ED[k]);
+  const TE=new Set(E[st].map(e=>e.join("|")));seg.querySelectorAll("button").forEach(b=>b.classList.toggle("on",+b.dataset.s===st));
+  cap.classList.remove("in");void cap.offsetWidth;cap.textContent=CAP[st];cap.classList.add("in");
+  const dur=inst||REDMO?1:1300,t0=performance.now();let sw=false;
+  (function step(now){const t=Math.min(1,(now-t0)/dur),e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    Object.keys(D).forEach(k=>{const p=P[st][k]||[F[k].x,F[k].y,0];D[k].x=F[k].x+(p[0]-F[k].x)*e;D[k].y=F[k].y+(p[1]-F[k].y)*e;D[k].o=F[k].o+(p[2]-F[k].o)*e});
+    keys.forEach(k=>{ED[k]=FE[k]+((TE.has(k)?1:0)-FE[k])*e});
+    if(!sw&&t>=.5){sw=true;Object.keys(NL).forEach(k=>{const p=P[st][k];NL[k].g.setAttribute("class","mo-n "+(p?p[3]:"m")+(k.startsWith("hub")?" hub":""));setLabel(k,st)})}
+    render();if(t<1)raf=requestAnimationFrame(step)})(t0+(inst?dur:0));cur=st}
+seg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>to(+b.dataset.s)));
+let tm;ENTER["prod-dayone"]=()=>{clearTimeout(tm);to(0,true);if(!REDMO)tm=setTimeout(()=>to(1),1500)};LEAVE["prod-dayone"]=()=>{clearTimeout(tm);cancelAnimationFrame(raf)};
+})();
+</script>

@@ -1,0 +1,49 @@
+<section class="slide stage" id="prod-valor" data-t="Valor no hold e no exit" data-chap="Produtos" data-fx="38|Timeline Motion|moderada" data-fxwhy="A linha é a jornada do investimento, não um cronograma: não há datas nem fases de projeto, só os momentos em que a TI cria valor e depois prova esse valor ao comprador. O fio se desenha e cada produto acende o seu trecho." data-src="Deck comercial A&amp;M DTS (IT Synergies &amp; Value Creation as a Service; IT DD Sell Side); A&amp;M PE Services (Value Creation, Exit Readiness); A&amp;M European PE Value Creation Report 2026; A&amp;M AI-ZBO (jun/2026); Bain Global Private Equity Report 2026; EY-Parthenon Sell-side tech" data-desc="Dois produtos para o período de hold e para a venda. O Tech Value Creation transforma a TI em alavancas de valor com dono e linha de base. O Exit Tech Readiness roda antes do comprador a diligência que ele vai rodar e prepara a tecnologia como argumento de preço. A linha mostra os momentos do investimento, sem datas.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Valorizar · hold e exit</div><h2 class="h2 kin" style="margin-top:10px">A TI entra na tese. <span class="hl">E aparece no preço.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Com prazos de hold mais longos, o valor precisa vir da operação. A tecnologia é onde boa parte desse valor está, e onde o comprador vai procurar.</p>
+    </div>
+    <div class="vj" id="vj">
+      <svg class="vj-svg" id="vjSvg" viewBox="0 0 1520 110" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="vj-st" id="vjSt"></div>
+    </div>
+    <div class="vj-cards">
+      <article class="vj-c" id="vjA" data-seg="a" data-a="up" style="--d:4">
+        <div class="mo-ph"><span data-ico="chart" class="mo-pico"></span><div><b>Tech Value Creation</b><span>Evolui de IT Synergies &amp; Value Creation as a Service</span></div><span class="tag t-remodel">Remodelado</span></div>
+        <p class="mo-prob">O plano de negócio promete eficiência e crescimento. Sem alavancas de TI com dono e linha de base, o valor fica no slide do comitê.</p>
+        <div class="vj-sec"><span class="label">Alavancas de valor da TI</span>
+          <div class="vj-lev"><span data-ico="coin">Custo de TI e contratos</span><span data-ico="cloud">Nuvem com FinOps</span><span data-ico="link">Sinergias de integração</span><span data-ico="ai">IA aplicada à operação</span><span data-ico="layers">Plataforma para buy-and-build</span><span data-ico="shield">Cyber e resiliência</span></div></div>
+        <p class="mo-ai"><b>IA:</b> agentes leem faturas, contratos e uso de licenças para achar valor; o painel de captura acompanha cada alavanca até o resultado no P&amp;L.</p>
+        <div class="p-tech"><span class="tech">AI-ZBO da A&amp;M</span><span class="tech">FinOps</span><span class="tech">Process mining</span><span class="tech">Clean room de sinergias</span><span class="tech">Painel de captura</span></div>
+        <div class="vj-out"><span>Valor de TI com dono e linha de base</span><span>Captura visível para o comitê de investimento</span></div>
+      </article>
+      <article class="vj-c" id="vjB" data-seg="b" data-a="up" style="--d:6">
+        <div class="mo-ph"><span data-ico="rocket" class="mo-pico"></span><div><b>Exit Tech Readiness</b><span>Evolui de IT Due Diligence Sell Side</span></div><span class="tag t-remodel">Remodelado</span></div>
+        <p class="mo-prob">O comprador vai diligenciar a TI. Achado sem resposta vira desconto e cláusula dura.</p>
+        <div class="vj-sec"><span class="label">O que o cliente recebe</span>
+          <div class="vj-lev vj-2"><span data-ico="doc">Vendor tech due diligence</span><span data-ico="db">Data room de tecnologia pronto</span><span data-ico="spark">Equity story de tecnologia e IA</span><span data-ico="check">Red flags resolvidos antes do processo</span></div></div>
+        <p class="mo-ai"><b>IA:</b> roda antes do comprador a mesma diligência que ele vai rodar e prepara cada resposta com a evidência citada.</p>
+        <div class="p-tech"><span class="tech">A&amp;M DiligenceGPT</span><span class="tech">Data room virtual</span><span class="tech">RAG com citação</span><span class="tech">A&amp;M Deal Twin</span></div>
+        <div class="vj-out"><span>Menos surpresa na negociação</span><span>Tecnologia como argumento de valor</span></div>
+      </article>
+    </div>
+    <div class="p-why vj-why" data-a="up" style="--d:8"><span data-ico="hand"></span><span><b>Por que A&amp;M:</b> a firma nasceu operando empresas. O plano de valor é conduzido por quem já respondeu por um P&amp;L, e a preparação para a venda usa o mesmo olhar de quem diligencia o lado comprador.</span></div>
+  </div>
+</section>
+<script data-slide>
+(function(){const svg=$("vjSvg"),st=$("vjSt");
+const ST=[["Closing","a"],["Plano de valor","a"],["Captura","a"],["Preparação da venda","b"],["Exit","b"]];
+const X=[60,420,780,1150,1460];
+const base=S("path",{d:"M 20 55 L 1500 55",class:"vj-base"},svg);
+const sa=S("path",{d:`M ${X[0]} 55 L ${X[2]} 55`,class:"vj-seg a",pathLength:1},svg);
+const sb=S("path",{d:`M ${X[2]+60} 55 L ${X[4]} 55`,class:"vj-seg b",pathLength:1},svg);
+ST.forEach((s,i)=>{const d=H("div",{class:"vj-node "+s[1],style:`left:${X[i]/15.2}%;--d:${i}`},st);d.innerHTML=`<i></i><b>${s[0]}</b>`});
+H("div",{class:"vj-lab a",style:`left:${X[0]/15.2}%;width:${(X[2]-X[0])/15.2}%`},st,"Tech Value Creation");
+H("div",{class:"vj-lab b",style:`left:${(X[2]+60)/15.2}%;width:${(X[4]-X[2]-60)/15.2}%`},st,"Exit Tech Readiness");
+const run=H("span",{class:"vj-run"},$("vj"));
+const vj=$("vj");
+["vjA","vjB"].forEach(id=>{const c=$(id);c.addEventListener("pointerenter",()=>vj.dataset.hi=c.dataset.seg);c.addEventListener("pointerleave",()=>delete vj.dataset.hi)});
+ENTER["prod-valor"]=()=>{delete vj.dataset.hi};
+})();
+</script>

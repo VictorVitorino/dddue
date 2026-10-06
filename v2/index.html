@@ -1,0 +1,1724 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DTS Tech M&amp;A</title>
+<meta name="description" content="Portfólio de produtos de IT M&A da Alvarez & Marsal Brasil (Digital & Technology Services): desafio, riscos, mercado e concorrência e a nova linha de produtos com IA, da diligência à execução.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: palco 1600×900 escalado; duas superfícies — "paper" (claro, grade fina) para contexto e "stage" (navy profundo) para produtos.
+   Tokens do Guia de Design DTS (A&M · Digital & Technology Services). */
+:root{
+  --navy-950:#04101F;--navy-900:#071A33;--navy-800:#0B2545;--navy-700:#13315C;--navy-600:#1B4479;--navy-500:#2A5A96;
+  --steel-600:#3D5F93;--steel-500:#4A6FA5;--steel-400:#6E8FBF;--steel-300:#A3B8D6;--steel-200:#C9D6E8;--steel-100:#E4EBF5;
+  --orange-600:#D9521A;--orange-500:#F26B21;--orange-400:#FF8A4C;--orange-200:#FFC7A6;--orange-100:#FDE8DC;
+  --white:#FFFFFF;--off:#F6F8FB;--surface-2:#EEF2F7;--surface-3:#E6EBF2;--line:#E2E7EF;--line-strong:#CBD4E1;
+  --grey-900:#1F2937;--grey-700:#3E4C5E;--grey-500:#6B7A90;--grey-400:#8A97A8;--grey-300:#B6C0CD;
+  --ink:var(--navy-900);--ink-2:var(--grey-700);--ink-3:var(--grey-500);
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  --ease-out:cubic-bezier(.22,.61,.36,1);--ease-in-out:cubic-bezier(.65,0,.35,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--navy-950);color:var(--ink);font-family:var(--font-sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--orange-500);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--font-mono);letter-spacing:.02em}
+#viewport{position:fixed;inset:0;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%);transform-origin:center;overflow:hidden;background:var(--off);box-shadow:0 40px 120px rgba(0,0,0,.55);border-radius:6px}
+.slide{position:absolute;inset:0;display:none;overflow:hidden}
+.slide.active{display:block}
+.slide.entering{animation:sIn .6s var(--ease-out) both}.slide.back.entering{animation-name:sInB}
+@keyframes sIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}@keyframes sInB{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+
+/* surfaces */
+.paper{background-color:var(--off);background-image:linear-gradient(rgba(11,37,69,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(11,37,69,.045) 1px,transparent 1px);background-size:44px 44px;color:var(--ink)}
+.stage{background:radial-gradient(1100px 700px at 75% 20%,rgba(27,68,121,.55),transparent 60%),radial-gradient(900px 600px at 10% 90%,rgba(242,107,33,.10),transparent 60%),linear-gradient(160deg,var(--navy-900),var(--navy-950));color:#fff}
+.stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(163,184,214,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(163,184,214,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(1200px 700px at 60% 40%,#000 30%,transparent 80%);pointer-events:none}
+
+/* entrance choreography */
+[data-a]{opacity:0}
+.play [data-a]{animation:.8s var(--ease-out) both;animation-delay:calc(var(--d,0)*90ms + 140ms)}
+.play [data-a=up]{animation-name:aUp}.play [data-a=fade]{animation-name:aF}.play [data-a=left]{animation-name:aL}.play [data-a=right]{animation-name:aR}.play [data-a=zoom]{animation-name:aZ}.play [data-a=blur]{animation-name:aBl}
+.play [data-a=mask]{animation-name:aMask;animation-duration:.9s}
+@keyframes aUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes aF{from{opacity:0}to{opacity:1}}@keyframes aL{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}@keyframes aR{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}@keyframes aZ{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}@keyframes aBl{from{opacity:0;filter:blur(12px)}to{opacity:1;filter:none}}
+@keyframes aMask{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+.kw{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .02em .12em;margin-bottom:-.12em}
+.kw>span{display:inline-block;transform:translateY(110%)}
+.play .kw>span{animation:kUp .8s var(--ease-out) both;animation-delay:calc(var(--k,0)*55ms + 200ms)}
+@keyframes kUp{to{transform:none}}
+.hl{position:relative;color:var(--orange-500);white-space:nowrap}
+.stage .hl{color:var(--orange-400)}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;height:.09em;border-radius:2px;background:currentColor;transform:scaleX(0);transform-origin:left}
+.play .hl::after{animation:ul .7s var(--ease-out) forwards;animation-delay:1.05s}
+@keyframes ul{to{transform:scaleX(1)}}
+
+/* ===== chrome ===== */
+.top{position:absolute;left:0;right:0;top:0;height:66px;display:flex;align-items:center;gap:18px;padding:0 40px;z-index:5;border-bottom:1px solid var(--line);background:rgba(255,255,255,.82);backdrop-filter:blur(10px)}
+.stage .top{background:rgba(4,16,31,.35);border-bottom-color:rgba(163,184,214,.14)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-am{display:flex;flex-direction:column;line-height:1.05}
+.brand-am b{font-weight:800;font-size:15px;letter-spacing:.14em;color:var(--navy-800);white-space:nowrap}
+.brand-am b i{font-style:normal;color:var(--orange-500)}
+.brand-am small{font-weight:500;font-size:8.5px;letter-spacing:.26em;color:var(--grey-500);margin-top:3px;white-space:nowrap}
+.stage .brand-am b{color:#fff}.stage .brand-am small{color:var(--steel-300)}
+.brand-div{width:1px;height:30px;background:var(--line-strong)}.stage .brand-div{background:rgba(163,184,214,.25)}
+.brand-dts{display:flex;align-items:center;gap:9px}
+.brand-dts b{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 9px;border-radius:7px;background:var(--navy-800);color:#fff;font-weight:800;font-size:13px;letter-spacing:.12em;position:relative}
+.stage .brand-dts b{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.brand-dts b::after{content:"";position:absolute;right:-3px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--orange-500);box-shadow:0 0 0 2px #fff}
+.stage .brand-dts b::after{box-shadow:0 0 0 2px var(--navy-900)}
+.brand-dts small{font-size:10.5px;font-weight:600;color:var(--grey-500);letter-spacing:.04em;line-height:1.15;max-width:120px}
+.stage .brand-dts small{color:var(--steel-300)}
+.top-title{margin-left:22px;display:flex;flex-direction:column;line-height:1.2}
+.top-title b{font-size:14px;font-weight:700;color:var(--navy-800)}.stage .top-title b{color:#fff}
+.top-title span{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-500)}.stage .top-title span{color:var(--steel-300)}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.chap-chip{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-700);background:var(--steel-100);border-radius:6px;padding:6px 10px}
+.stage .chap-chip{background:rgba(255,255,255,.08);color:var(--steel-200);border:1px solid rgba(255,255,255,.12)}
+.pg{font-family:var(--font-mono);font-size:12px;color:var(--grey-500)}.pg b{color:var(--navy-800);font-weight:600}
+.stage .pg{color:var(--steel-300)}.stage .pg b{color:#fff}
+.foot{position:absolute;left:40px;right:40px;bottom:0;height:42px;display:flex;align-items:center;gap:16px;z-index:5;border-top:1px solid var(--line);font-size:10.5px;color:var(--grey-500)}
+.stage .foot{border-top-color:rgba(163,184,214,.14);color:var(--steel-300)}
+.foot .src{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:1060px}
+.foot .src b{font-family:var(--font-mono);font-weight:600;letter-spacing:.1em;color:var(--navy-700);margin-right:6px}.stage .foot .src b{color:var(--steel-200)}
+.fxchip{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--grey-500);white-space:nowrap;cursor:help}
+.stage .fxchip{color:var(--steel-300)}
+.fxchip .dose{display:inline-flex;align-items:flex-end;gap:2px}
+.fxchip .dose i{display:block;width:4px;border-radius:1px;background:var(--grey-300)}
+.fxchip .dose i:nth-child(1){height:6px}.fxchip .dose i:nth-child(2){height:9px}.fxchip .dose i:nth-child(3){height:12px}
+.fxchip .dose i.on{background:var(--orange-500)}
+.stage .fxchip .dose i{background:rgba(163,184,214,.35)}.stage .fxchip .dose i.on{background:var(--orange-500)}
+.body{position:absolute;left:40px;right:40px;top:66px;bottom:42px;padding:26px 0 18px}
+
+/* ===== type ===== */
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-600)}
+.stage .eyebrow{color:var(--orange-400)}
+.h1{font-weight:800;font-size:58px;line-height:1.02;letter-spacing:-.035em;color:var(--navy-900);text-wrap:balance}
+.stage .h1{color:#fff}
+.h2{font-weight:800;font-size:40px;line-height:1.06;letter-spacing:-.03em;color:var(--navy-900);text-wrap:balance}
+.stage .h2{color:#fff}
+.h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.015em;color:var(--navy-800)}
+.stage .h3{color:#fff}
+.lead{font-size:17px;line-height:1.55;color:var(--ink-2);max-width:62ch}
+.stage .lead{color:var(--steel-200)}
+.small{font-size:12px;line-height:1.45;color:var(--ink-3)}
+.stage .small{color:var(--steel-300)}
+.label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-500)}
+.stage .label{color:var(--steel-300)}
+.tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:6px;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.t-keep{background:var(--steel-100);color:var(--navy-600)}.t-remodel{background:#E3EDFA;color:var(--navy-500)}.t-new{background:var(--orange-100);color:var(--orange-600)}.t-merge{background:#EEF2F7;color:var(--grey-700)}.t-out{background:#F3E8E6;color:#9A3B2A}
+.stage .t-keep{background:rgba(163,184,214,.16);color:var(--steel-200)}.stage .t-remodel{background:rgba(110,143,191,.22);color:#D6E3F5}.stage .t-new{background:rgba(242,107,33,.2);color:var(--orange-200)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);color:var(--navy-800)}
+.stage .chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+.chip svg{width:18px;height:18px;flex:none;stroke:var(--orange-500);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tech{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:7px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--steel-200);background:rgba(110,143,191,.12);border:1px solid rgba(163,184,214,.22);white-space:nowrap}
+.paper .tech{color:var(--navy-700);background:var(--steel-100);border-color:var(--steel-200)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(11,37,69,.06),0 4px 12px rgba(11,37,69,.06)}
+.glass{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:16px;backdrop-filter:blur(10px)}
+.lift{transition:transform .26s var(--ease-out),box-shadow .26s var(--ease-out),border-color .26s}
+.lift:hover{transform:translateY(-3px);box-shadow:0 2px 6px rgba(11,37,69,.08),0 12px 28px rgba(11,37,69,.12)}
+.stage .lift:hover{box-shadow:0 0 0 1px rgba(255,138,76,.35),0 18px 40px rgba(0,0,0,.35)}
+
+/* icons that draw */
+.ico{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico path,.ico circle,.ico rect,.ico line,.ico polyline,.ico polygon,.ico ellipse{stroke-dasharray:1;stroke-dashoffset:1}
+.play .ico path,.play .ico circle,.play .ico rect,.play .ico line,.play .ico polyline,.play .ico polygon,.play .ico ellipse{animation:draw 1.1s var(--ease-out) forwards;animation-delay:calc(var(--d,0)*90ms + 300ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* beacon */
+.beacon{position:relative;display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--orange-500)}
+.beacon::before,.beacon::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange-500);animation:bc 2.4s ease-out infinite}
+.beacon::after{animation-delay:1.2s}
+@keyframes bc{from{transform:scale(1);opacity:.85}to{transform:scale(3.4);opacity:0}}
+
+/* ===== UI outside stage ===== */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--steel-400),var(--orange-500));z-index:50;transition:width .5s var(--ease-out)}
+#controls{position:fixed;right:18px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;gap:8px;align-items:center}
+#controls button,#controls .c{height:40px;padding:0 14px;border-radius:10px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+#controls .g{background:rgba(255,255,255,.94);color:var(--navy-800)}
+#controls .p{background:var(--orange-500);color:#fff}#controls .p:hover{background:var(--orange-600)}
+#controls button:disabled{opacity:.35;cursor:not-allowed}
+#controls .c{background:rgba(11,37,69,.92);color:#fff;font-family:var(--font-mono);font-size:12px;cursor:pointer;border:1px solid rgba(255,255,255,.12)}
+#dots{position:fixed;left:18px;bottom:calc(28px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;gap:6px}
+#dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);padding:0}
+#dots button.on{background:var(--orange-500);width:24px;border-radius:99px}
+#idxP,#infoP{position:fixed;bottom:calc(66px + env(safe-area-inset-bottom,0px));z-index:70;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.4);display:none}
+#idxP{right:18px;width:400px;max-height:72vh;overflow:auto}
+#infoP{left:18px;width:480px;padding:16px 18px}
+#idxP.on,#infoP.on{display:block}
+#idxP .xh,#infoP .ih{display:flex;justify-content:space-between;align-items:center}
+#idxP .xh{padding:12px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;font-weight:800;color:var(--navy-800)}
+#idxP .xg{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-500);padding:12px 16px 4px}
+#idxP .xi{display:grid;grid-template-columns:34px 1fr;gap:8px;width:100%;text-align:left;padding:8px 16px;font-size:13px;color:var(--grey-700)}
+#idxP .xi:hover{background:var(--off)}#idxP .xi.cur{background:var(--steel-100);color:var(--navy-800);font-weight:700}
+#idxP .xi b{font-family:var(--font-mono);color:var(--orange-600);font-weight:600}
+#idxP .ix,#infoP .ix{font-size:20px;color:var(--grey-500);padding:0 4px}
+#infoP .ie{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-600)}
+#infoP .it{font-weight:800;font-size:17px;color:var(--navy-800);margin-top:6px}
+#infoP .id{font-size:13px;line-height:1.55;color:var(--grey-700);margin-top:6px}
+#infoP .ifx{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--grey-700);line-height:1.5}
+#infoP .ifx b{color:var(--navy-800)}
+#infoP .isrc{margin-top:8px;font-size:11.5px;color:var(--grey-500);line-height:1.5}
+#tip{position:fixed;z-index:99;pointer-events:none;background:var(--navy-900);color:#fff;border-radius:10px;padding:9px 12px;font:12.5px/1.45 var(--font-sans);max-width:320px;opacity:0;transition:opacity .15s;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+#tip.on{opacity:1}#tip b{display:block;font-size:13px;color:var(--orange-200);margin-bottom:2px}
+#wipe{position:absolute;inset:0;z-index:90;pointer-events:none;overflow:hidden;visibility:hidden}
+#wipe i{position:absolute;top:-5%;bottom:-5%;left:-10%;width:120%;transform:translateX(-110%) skewX(-10deg)}
+#wipe i:nth-child(1){background:var(--orange-500)}#wipe i:nth-child(2){background:var(--steel-500)}#wipe i:nth-child(3){background:var(--navy-900)}
+.rp{position:absolute;border-radius:50%;background:rgba(242,107,33,.22);transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}@keyframes rp{to{transform:scale(1);opacity:0}}
+@media (max-width:760px){#dots{display:none}#controls .lb{display:none}#infoP,#idxP{left:8px;right:8px;width:auto}}
+@media (prefers-reduced-motion:reduce){[data-a]{opacity:1!important;animation:none!important;clip-path:none!important}.kw>span{transform:none!important;animation:none!important}.slide.entering{animation:none}.hl::after{transform:none}.ico *{stroke-dashoffset:0!important;animation:none!important}.beacon::before,.beacon::after{animation:none}}
+@media print{html,body{overflow:visible;background:#fff}#controls,#progress,#dots,#tip,#idxP,#infoP{display:none!important}#viewport{position:static}#stage{position:relative;left:auto!important;top:auto!important;transform:none!important;box-shadow:none}.slide{position:relative;display:block!important;height:900px;break-after:page}[data-a]{opacity:1!important;animation:none!important}.kw>span{transform:none!important}@page{size:1600px 900px;margin:0}}
+
+/* ===== chapter card (fx 08 Animated Gradient) ===== */
+#chap{position:absolute;inset:0;z-index:85;display:none;overflow:hidden;cursor:pointer;background:linear-gradient(160deg,var(--navy-800),var(--navy-950));color:#fff}
+#chap.on{display:block}
+#chap .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75}
+#chap .o1{width:720px;height:720px;left:-120px;top:-160px;background:radial-gradient(circle,rgba(42,90,150,.95),transparent 65%);animation:orb1 7s ease-in-out infinite alternate}
+#chap .o2{width:620px;height:620px;right:-140px;bottom:-200px;background:radial-gradient(circle,rgba(242,107,33,.55),transparent 65%);animation:orb2 8s ease-in-out infinite alternate}
+#chap .o3{width:520px;height:520px;right:280px;top:60px;background:radial-gradient(circle,rgba(110,143,191,.55),transparent 65%);animation:orb1 9s ease-in-out infinite alternate-reverse}
+@keyframes orb1{to{transform:translate(120px,80px) scale(1.1)}}@keyframes orb2{to{transform:translate(-140px,-60px) scale(1.15)}}
+#chap .cn{position:absolute;right:80px;top:90px;font:800 440px/.8 var(--font-sans);letter-spacing:-.06em;color:rgba(255,255,255,.05)}
+#chap .cey{position:absolute;left:120px;top:330px;font-family:var(--font-mono);font-size:13px;letter-spacing:.32em;color:var(--orange-400)}
+#chap h1{position:absolute;left:114px;top:360px;font:800 112px/1 var(--font-sans);letter-spacing:-.045em;max-width:1300px}
+#chap p{position:absolute;left:120px;top:500px;font-size:22px;line-height:1.45;color:var(--steel-200);max-width:900px}
+#chap .cln{position:absolute;left:120px;top:595px;height:3px;width:0;background:linear-gradient(90deg,var(--orange-500),var(--steel-400))}
+#chap .csk{position:absolute;right:40px;bottom:30px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--steel-300)}
+
+/* ===== shader hero (fx 40) ===== */
+.shader{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,16,31,.86),rgba(7,26,51,.5) 45%,rgba(7,26,51,0) 70%),linear-gradient(0deg,rgba(4,16,31,.7),rgba(4,16,31,0) 34%)}
+.shader-fallback{position:absolute;inset:0;background:radial-gradient(70% 90% at 25% 30%,rgba(27,68,121,.95),transparent 70%),radial-gradient(60% 80% at 85% 75%,rgba(74,111,165,.6),transparent 70%),linear-gradient(160deg,var(--navy-800),var(--navy-950))}
+
+/* ===== hologram card (fx 03) ===== */
+.holo-scene{perspective:1100px}
+.holo{position:relative;border-radius:22px;background:linear-gradient(155deg,#16396B 0%,#0B2545 52%,#071A33 100%);box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.1) inset;transform-style:preserve-3d;transition:transform .14s var(--ease-out),box-shadow .3s;overflow:hidden;color:#fff;will-change:transform}
+.holo.out{transition:transform .7s var(--ease-out)}
+.holo .glare{position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),rgba(255,255,255,.05) 40%,transparent 62%);mix-blend-mode:screen;opacity:0;transition:opacity .3s;pointer-events:none}
+.holo.hover .glare{opacity:1}
+.holo.hover{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14) inset,0 0 50px rgba(110,143,191,.4),0 0 110px rgba(242,107,33,.2)}
+.holo .sweep{position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.08) 46%,rgba(163,184,214,.36) 50%,rgba(255,138,76,.26) 54%,transparent 60%);mix-blend-mode:screen;animation:hsweep 5.2s cubic-bezier(.65,0,.35,1) infinite;pointer-events:none}
+@keyframes hsweep{0%,55%{transform:translateX(-70%)}100%{transform:translateX(70%)}}
+.holo .in{position:relative;height:100%;padding:30px 32px;display:flex;flex-direction:column;transform-style:preserve-3d}
+.holo [data-depth]{transform:translateZ(var(--z,0px))}
+.holo .hd{display:flex;justify-content:space-between;align-items:center}
+.holo .pulse{width:10px;height:10px;border-radius:50%;background:var(--orange-500);box-shadow:0 0 0 0 rgba(242,107,33,.6);animation:hpulse 2.2s ease-out infinite}
+@keyframes hpulse{to{box-shadow:0 0 0 14px rgba(242,107,33,0)}}
+
+/* ===== flip (fx 21) ===== */
+.flip{perspective:1200px;cursor:pointer}
+.flip .fi{position:relative;width:100%;height:100%;transition:transform .7s var(--ease-out);transform-style:preserve-3d}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .ff,.flip .fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden}
+.flip .fb{transform:rotateY(180deg)}
+
+/* ===== before/after (fx 37) ===== */
+.ba{position:relative;overflow:hidden;border-radius:18px;user-select:none;touch-action:none}
+.ba .pane{position:absolute;inset:0}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:0;z-index:4;cursor:ew-resize}
+.ba .handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--orange-500);box-shadow:0 0 18px rgba(242,107,33,.6)}
+.ba .knob{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--orange-500);color:#fff;display:grid;place-items:center;font:800 18px var(--font-sans);box-shadow:0 10px 30px rgba(242,107,33,.45),0 0 0 6px rgba(242,107,33,.18)}
+
+/* ===== card stack (fx 33) ===== */
+.stack{position:relative}
+.stack .sc{position:absolute;inset:0;border-radius:20px;transition:transform .7s var(--ease-out),opacity .5s,filter .5s;cursor:pointer}
+
+/* ===== tilt layers (fx 04) ===== */
+.layers{perspective:1400px}
+.layers .lw{position:relative;transform-style:preserve-3d;transition:transform .2s var(--ease-out)}
+.layers .ly{position:absolute;left:0;right:0;border-radius:16px;transform-style:preserve-3d;transition:transform .5s var(--ease-out),box-shadow .3s,border-color .3s,background .3s}
+
+/* ===== spotlight (fx 24) ===== */
+.spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(260px 200px at var(--sx,50%) var(--sy,50%),transparent 0,transparent 60%,rgba(4,16,31,.55) 100%);opacity:0;transition:opacity .4s}
+.spot.on{opacity:1}
+
+/* ===== capa ===== */
+.cv-top{position:absolute;left:64px;right:64px;top:40px;display:flex;align-items:center;justify-content:space-between;z-index:3}
+.cv-conf{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-300)}
+.cv-main{position:absolute;left:96px;top:208px;width:900px;z-index:3;display:flex;flex-direction:column;gap:22px}
+.cv-h{font-weight:800;font-size:96px;line-height:.98;letter-spacing:-.045em;color:#fff;text-shadow:0 16px 40px rgba(4,16,31,.6)}
+.cv-sub{font-size:20px;line-height:1.55;color:var(--steel-200);max-width:720px}
+.cv-moments{display:flex;align-items:center;gap:14px;font-family:var(--font-mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#fff}
+.cv-moments i{width:46px;height:2px;background:linear-gradient(90deg,var(--orange-500),rgba(242,107,33,.15))}
+.cv-foot{position:absolute;left:96px;bottom:40px;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.08em;color:var(--steel-300);z-index:3}
+/* ===== desafio ===== */
+.d-head{display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:end}
+.d-head .lead{font-size:16px}
+.d-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.d-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 26px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(11,37,69,.06),0 10px 30px rgba(11,37,69,.06);overflow:hidden}
+.d-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--orange-500),var(--steel-400))}
+.d-top{display:flex;justify-content:space-between;align-items:center}
+.d-k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-600)}
+.d-ico{width:34px;height:34px;color:var(--navy-700)}
+.d-card .h3{font-size:26px;letter-spacing:-.025em}
+.d-was{font-size:14px;line-height:1.5;color:var(--grey-500)}
+.d-was b{color:var(--grey-700);font-weight:700}
+.d-now{font-size:15.5px;line-height:1.5;color:var(--navy-800)}
+.d-now b{color:var(--orange-600)}
+.d-from{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:auto;padding-top:12px;border-top:1px dashed var(--line-strong)}
+.d-from .label{margin-right:4px}
+.d-from i{font-style:normal;font-size:11.5px;font-weight:600;color:var(--navy-600);background:var(--steel-100);border-radius:6px;padding:4px 8px}
+.d-ask{display:flex;align-items:center;gap:12px;margin-top:24px;padding:14px 18px;border-radius:14px;background:var(--navy-800);color:#fff}
+.d-ask .label{color:var(--steel-300);margin-right:10px}
+.d-pill{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+/* ===== riscos ===== */
+.r-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.r-legend{display:flex;align-items:center;gap:18px;font-size:12.5px;font-weight:600;color:var(--grey-700);padding-bottom:6px}
+.r-legend span{display:inline-flex;align-items:center;gap:8px}
+.lg-old{display:inline-block;width:12px;height:12px;border-radius:4px;border:2px solid var(--steel-400);background:#fff}
+.r-map{position:relative;margin-top:22px;height:612px;display:grid;grid-template-columns:430px 1fr 300px 400px;gap:0}
+.r-svg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.r-col{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center}
+.r-left{grid-column:1;gap:16px}
+.r-right{grid-column:3;gap:14px}
+.r-grp{display:flex;flex-direction:column;gap:8px}
+.r-grp .label{margin-bottom:2px}
+.r-node{display:flex;align-items:center;gap:10px;text-align:left;padding:10px 14px;border-radius:12px;background:#fff;border:1.5px solid var(--line-strong);font-size:14px;font-weight:600;color:var(--navy-800);transition:all .25s var(--ease-out)}
+.r-node.new{border-color:var(--orange-200);background:#FFF9F5}
+.r-node .beacon{flex:none;width:8px;height:8px}
+.r-node:hover,.r-node.on{border-color:var(--orange-500);box-shadow:0 0 0 3px rgba(242,107,33,.15),0 10px 24px rgba(11,37,69,.1);transform:translateX(4px)}
+.r-imp{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:#fff;border:1.5px solid var(--line-strong);font-weight:700;font-size:15px;color:var(--navy-800);transition:all .3s var(--ease-out)}
+.r-imp .ico{width:26px;height:26px;color:var(--steel-500);flex:none}
+.r-imp.on{background:var(--navy-800);color:#fff;border-color:var(--navy-800);box-shadow:0 12px 28px rgba(11,37,69,.22)}
+.r-imp.on .ico{color:var(--orange-400)}
+.r-edge{fill:none;stroke:var(--steel-200);stroke-width:1.4;opacity:.9;transition:opacity .3s,stroke .3s}
+.r-map.focus .r-edge{opacity:.25}
+.r-map.focus .r-edge.on{opacity:1;stroke:var(--orange-500);stroke-width:2.4;stroke-dasharray:7 7;animation:flowd 1s linear infinite}
+@keyframes flowd{to{stroke-dashoffset:-28}}
+.r-map.focus .r-imp:not(.on){opacity:.55}
+.r-panel{grid-column:4;margin-left:28px;align-self:center;position:relative;z-index:1;background:var(--navy-900);color:#fff;border-radius:20px;padding:24px 24px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(11,37,69,.28)}
+.r-panel .label{color:var(--orange-400)}
+.r-panel .h3{color:#fff;font-size:22px}
+.r-sec p{font-size:14px;line-height:1.5;color:var(--steel-200);margin-top:4px}
+.r-sh{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-300)}
+.r-prod{padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.r-prod>div{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.r-pchip{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:rgba(242,107,33,.14);border:1px solid rgba(242,107,33,.45);color:#fff;font-weight:700;font-size:13px}
+.r-pchip b{color:var(--orange-400)}
+.r-pchip:hover{background:rgba(242,107,33,.28)}
+/* ===== mercado ===== */
+.m-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.m-head .h2{max-width:1060px}
+.m-grid{display:grid;grid-template-columns:300px 1fr 330px;gap:22px;margin-top:26px;height:600px}
+.m-asks{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:14px}
+.m-asks ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.m-asks li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-size:14.5px;line-height:1.45;color:var(--grey-700)}
+.m-asks li b{color:var(--navy-800)}
+.m-asks .ico{width:26px;height:26px;color:var(--orange-500)}
+.m-comp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.m-card{height:100%}
+.m-face{height:100%;padding:22px 22px 18px;display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(11,37,69,.06),0 10px 26px rgba(11,37,69,.07)}
+.m-face.back{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+.m-who{display:flex;flex-direction:column;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.m-who b{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--navy-900)}
+.m-who .tag{align-self:flex-start}
+.m-face h4{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--navy-800);line-height:1.2}
+.m-face.back h4{color:#fff}
+.m-face p{font-size:14px;line-height:1.55;color:var(--grey-700)}
+.m-face.back p{color:var(--steel-200)}
+.m-face.back .label{color:var(--orange-400)}
+.m-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.m-turn{margin-top:auto;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-600)}
+.m-face.back .m-turn{color:var(--orange-400)}
+.m-am{position:relative;border-radius:20px;padding:2px;background:linear-gradient(160deg,var(--orange-500),var(--steel-400) 60%,var(--navy-700))}
+.m-am-in{height:100%;border-radius:18px;background:linear-gradient(160deg,var(--navy-800),var(--navy-950));color:#fff;padding:24px 24px 20px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.m-am-in::after{content:"";position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.06) 46%,rgba(255,138,76,.18) 52%,transparent 58%);animation:hsweep 6s cubic-bezier(.65,0,.35,1) infinite;pointer-events:none}
+.m-am .label{color:var(--orange-400)}
+.m-am h4{font-size:24px;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.m-am ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.m-am li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.45;color:var(--steel-200)}
+.m-am li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:2px;background:var(--orange-500);transform:rotate(45deg)}
+.m-am-foot{margin-top:auto;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:700;color:#fff;padding-top:14px;border-top:1px solid rgba(255,255,255,.14)}
+/* ===== produto (layout padrão) ===== */
+.p-wrap{display:grid;grid-template-columns:520px 1fr;gap:44px;height:100%;align-items:stretch}
+.p-hero{display:flex;flex-direction:column;gap:18px}
+.p-hero .holo-scene{flex:1;display:flex}
+.p-hero .holo{flex:1}
+.p-hero .in{gap:14px}
+.p-ph{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-300)}
+.p-name{font-weight:800;font-size:50px;line-height:1;letter-spacing:-.04em;margin-top:22px}
+.p-name small{display:block;font-size:22px;letter-spacing:-.02em;color:var(--orange-400);margin-top:10px;font-weight:700}
+.p-tag{font-size:19px;line-height:1.45;color:var(--steel-200);max-width:30ch}
+.p-who{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.p-who span{font-size:12px;font-weight:600;color:#fff;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.p-from{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--steel-300);padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.p-from b{color:#fff;font-weight:600}
+.p-why{display:flex;gap:12px;align-items:center;padding:14px 18px;border-radius:14px;background:rgba(242,107,33,.1);border:1px solid rgba(242,107,33,.35);font-size:14.5px;line-height:1.4;color:#fff}
+.p-why b{color:var(--orange-400)}
+.p-why .ico{width:26px;height:26px;color:var(--orange-400);flex:none}
+.p-right{display:flex;flex-direction:column;gap:22px;min-width:0}
+.p-problem .stmt{font-weight:700;font-size:27px;line-height:1.25;letter-spacing:-.02em;color:#fff;margin-top:8px;text-wrap:balance}
+.p-sec .label{display:flex;align-items:center;gap:10px}
+.p-sec .label::after{content:"";flex:1;height:1px;background:rgba(163,184,214,.18)}
+.p-get{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:12px}
+.p-get>div{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);font-size:14.5px;line-height:1.4;color:var(--steel-200)}
+.p-get>div b{color:#fff;display:block;font-size:15px;margin-bottom:2px}
+.p-get .ico{width:30px;height:30px;color:var(--orange-400)}
+.p-ai{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.p-ai::before{content:"";position:absolute;left:4%;right:4%;top:22px;height:2px;background:linear-gradient(90deg,rgba(242,107,33,.15),rgba(242,107,33,.8),rgba(110,143,191,.6));}
+.p-ai::after{content:"";position:absolute;top:18px;left:4%;width:10px;height:10px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 14px var(--orange-500);animation:runner 4.5s var(--ease-in-out) infinite}
+@keyframes runner{0%{left:4%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:95%;opacity:0}}
+.p-ai>div{position:relative;display:flex;flex-direction:column;gap:6px}
+.p-ai>div i{width:46px;height:46px;border-radius:12px;background:var(--navy-700);border:1px solid rgba(163,184,214,.3);display:grid;place-items:center;color:var(--steel-200);position:relative;z-index:1}
+.p-ai>div i .ico{width:24px;height:24px}
+.p-ai>div:last-child i{background:var(--orange-500);border-color:var(--orange-400);color:#fff}
+.p-ai b{font-size:14.5px;color:#fff;line-height:1.3}
+.p-ai span{font-size:12.5px;line-height:1.4;color:var(--steel-300)}
+.p-out{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.p-out>div{padding:14px 16px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.14),rgba(242,107,33,.03));border:1px solid rgba(242,107,33,.3);font-size:16px;font-weight:700;line-height:1.3;color:#fff}
+.p-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.dd-lens{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.dd-lens>div{display:flex;flex-wrap:wrap;gap:6px}
+.dd-lens>div span{font-size:11.5px;font-weight:600;color:#fff;padding:5px 9px;border-radius:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13)}
+.seg2{display:flex;align-items:center;gap:6px;margin-top:12px}
+.seg2 button{height:34px;padding:0 16px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.05);color:var(--steel-200);font-weight:700;font-size:14px;transition:all .2s var(--ease-out)}
+.seg2 button.on{background:#fff;color:var(--navy-800);border-color:#fff}
+.dd-hint{margin-left:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--steel-300)}
+.dd-pane{display:none}.dd-pane.on{display:grid;animation:aF .35s both}
+.p-hero .holo .in .p-who{margin-top:auto}
+.pl-track{display:flex;align-items:center;gap:0;margin-top:6px}
+.pl-track span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.pl-track i{flex:1;height:2px;margin:0 8px;background:linear-gradient(90deg,var(--orange-500),rgba(242,107,33,.25))}
+/* ===== de-para ===== */
+.dp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.dp-hint{display:flex;align-items:center;gap:14px;font-size:12.5px;font-weight:700;padding-bottom:6px}
+.dp-hint .dp-l{color:var(--grey-500)}.dp-hint .dp-r{color:var(--orange-600)}
+.dp-arrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--orange-500);padding:5px 10px;border-radius:99px}
+.dp-ba{margin-top:20px;height:500px;cursor:ew-resize;box-shadow:0 20px 50px rgba(11,37,69,.14)}
+.dp-ba .before{background:#E9EDF3}
+.dp-ba .after{background:linear-gradient(160deg,var(--navy-800),var(--navy-950));color:#fff}
+.dp-cols{position:absolute;left:0;right:0;top:0;bottom:86px;display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;padding:22px 24px 0;gap:18px}
+.dp-col{display:flex;flex-direction:column;gap:9px;min-width:0}
+.dp-mo{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;padding-bottom:8px;border-bottom:2px solid var(--line-strong);color:var(--grey-700)}
+.after .dp-mo{border-bottom-color:var(--orange-500);color:var(--orange-200)}
+.dp-it{display:flex;flex-direction:column;gap:7px;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid var(--line);}
+.dp-it b{font-size:14px;line-height:1.3;color:var(--grey-700);font-weight:700}
+.before .dp-it b{text-decoration:none}
+.dp-it .tag{align-self:flex-start;height:21px;font-size:9.5px}
+.after .dp-it{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);cursor:pointer;transition:all .2s}
+.after .dp-it:hover{border-color:var(--orange-400);background:rgba(242,107,33,.1)}
+.after .dp-it b{color:#fff;font-size:14.5px}
+.dp-base{position:absolute;left:24px;right:24px;bottom:18px;height:54px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:12px;background:#fff;border:1px dashed var(--line-strong);font-size:13.5px;color:var(--grey-700)}
+.after .dp-base{background:rgba(242,107,33,.12);border:1px solid rgba(242,107,33,.45);color:var(--steel-200);cursor:pointer}
+.after .dp-base b{color:#fff}
+.after .dp-base .label{color:var(--orange-200)}
+.after .dp-base .tag{margin-left:auto}
+.dp-out{display:grid;grid-template-columns:150px repeat(4,1fr);gap:14px;margin-top:18px;align-items:start}
+.dp-out>.label{padding-top:4px;color:#9A3B2A}
+.dp-out>div{display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid #EAD7D2;border-left:3px solid #C2614E}
+.dp-out b{font-size:13.5px;color:var(--navy-800);text-decoration:line-through;text-decoration-color:rgba(194,97,78,.6)}
+.dp-out span{font-size:12px;line-height:1.4;color:var(--grey-700)}
+/* ===== sistema ===== */
+.sy-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.sy-leg{display:flex;gap:8px;align-items:center;padding-bottom:6px}
+.sy-leg .small{margin-left:8px}
+.sy-map{position:relative;margin-top:22px;height:612px}
+.sy-svg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sy-cols{position:relative;z-index:1;display:grid;grid-template-columns:600px 1fr 1fr 1fr;gap:20px}
+.sy-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sy-mo{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;border-bottom:2px solid var(--orange-500);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-300)}
+.sy-mo b{font-family:var(--font-sans);font-size:22px;letter-spacing:-.02em;text-transform:none;color:#fff;font-weight:800}
+.sy-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sy-t{display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;gap:4px 12px;align-items:start;text-align:left;padding:14px 14px 12px;border-radius:14px;background:linear-gradient(rgba(255,255,255,.055),rgba(255,255,255,.055)),#0A1F3B;border:1px solid rgba(255,255,255,.13);color:#fff;min-height:106px;transition:transform .25s var(--ease-out),border-color .25s,background .25s,box-shadow .25s;backdrop-filter:blur(6px)}
+.sy-t .ico{width:28px;height:28px;color:var(--orange-400);grid-row:1/3}
+.sy-t>span{display:flex;flex-direction:column;gap:4px}
+.sy-t b{font-size:15.5px;line-height:1.25;font-weight:800;letter-spacing:-.01em}
+.sy-t em{font-style:normal;font-size:12.5px;line-height:1.4;color:var(--steel-300)}
+.sy-t .tag{grid-column:2;justify-self:start;height:20px;font-size:9px;font-style:normal;margin-top:4px}
+.sy-t:hover{transform:translateY(-3px);border-color:var(--orange-400);background:linear-gradient(rgba(242,107,33,.12),rgba(242,107,33,.12)),#0A1F3B;box-shadow:0 16px 36px rgba(0,0,0,.35)}
+.sy-note{display:flex;align-items:center;padding:12px 14px;border-radius:14px;border:1px dashed rgba(163,184,214,.3);background:#0A1F3B;font-size:12.5px;line-height:1.45;color:var(--steel-300)}
+.sy-thread{fill:none;stroke:var(--orange-500);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(242,107,33,.8))}
+.sy-con{fill:none;stroke:rgba(163,184,214,.45);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1}
+.play .sy-con{animation:draw 1s var(--ease-out) forwards;animation-delay:calc(var(--d,0)*80ms + 700ms)}
+.sy-con.on{stroke:var(--orange-400);stroke-width:2.5}
+.sy-dot{fill:var(--orange-400);stroke:var(--navy-900);stroke-width:2}
+.sy-twin{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:24px;text-align:left;padding:18px 24px;border-radius:18px;background:linear-gradient(100deg,rgba(242,107,33,.22),rgba(242,107,33,.06) 50%,rgba(110,143,191,.12));border:1px solid rgba(242,107,33,.5);color:#fff;overflow:hidden;transition:box-shadow .3s}
+.sy-twin:hover{box-shadow:0 0 0 1px var(--orange-400),0 20px 40px rgba(0,0,0,.35)}
+.sy-twin::after{content:"";position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 44%,rgba(255,255,255,.08) 48%,rgba(255,138,76,.22) 52%,transparent 58%);animation:hsweep 6s cubic-bezier(.65,0,.35,1) infinite;pointer-events:none}
+.sy-tw-l{display:flex;flex-direction:column;gap:4px;min-width:250px}
+.sy-tw-l .label{color:var(--orange-200)}
+.sy-tw-l b{font-size:28px;font-weight:800;letter-spacing:-.03em}
+.sy-tw-c{font-size:16px;line-height:1.45;color:var(--steel-200);max-width:880px}
+.sy-twin .tag{margin-left:auto}
+/* ===== lentes (fx 22 expandable) ===== */
+.ln-head{display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:end}
+.ln-lead{font-size:15.5px}
+.ln-row{display:flex;gap:16px;margin-top:22px;height:640px}
+.ln-card{position:relative;flex:0 0 230px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);overflow:hidden;cursor:pointer;transition:flex-basis .7s var(--ease-out),border-color .3s,background .3s;outline:none}
+.ln-card:hover{border-color:rgba(255,138,76,.6)}
+.ln-card.open{flex:1 1 auto;cursor:default;background:linear-gradient(155deg,#16396B 0%,#0B2545 55%,#071A33 100%);border-color:rgba(255,138,76,.45);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.ln-card.open::after{content:"";position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 44%,rgba(255,255,255,.06) 48%,rgba(255,138,76,.14) 52%,transparent 58%);animation:hsweep 7s cubic-bezier(.65,0,.35,1) infinite;pointer-events:none}
+.ln-closed{position:absolute;inset:0;display:flex;flex-direction:column;gap:12px;padding:26px 22px;transition:opacity .3s}
+.ln-closed .ico{width:40px;height:40px;color:var(--orange-400)}
+.ln-closed .tag{align-self:flex-start}
+.ln-closed b{font-size:23px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:6px}
+.ln-closed em{font-style:normal;font-size:16px;line-height:1.4;color:var(--steel-200)}
+.ln-open{margin-top:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-400)}
+.ln-open::after{content:" →"}
+.ln-card.open .ln-closed{opacity:0;pointer-events:none}
+.ln-full{position:absolute;inset:0;width:1028px;padding:26px 34px 24px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateX(20px);transition:opacity .35s,transform .5s var(--ease-out);pointer-events:none}
+.ln-card.open .ln-full{opacity:1;transform:none;transition-delay:.3s;pointer-events:auto}
+.ln-top{display:flex;gap:20px;align-items:flex-start}
+.ln-bigico{flex:none;width:64px;height:64px;border-radius:16px;background:rgba(242,107,33,.14);border:1px solid rgba(242,107,33,.45);display:grid;place-items:center}
+.ln-bigico .ico{width:34px;height:34px;color:var(--orange-400)}
+.ln-name{font-size:34px;font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-top:2px;padding-right:200px}
+.ln-q{font-size:19px;font-weight:700;color:var(--orange-400);margin-top:6px;line-height:1.3}
+.ln-prob{font-size:16px;line-height:1.5;color:var(--steel-200);max-width:84ch}
+.ln-ctag{position:absolute;right:30px;top:28px}
+.ln-cols{display:grid;grid-template-columns:1.62fr 1fr;gap:26px}
+.ln-cols .label{display:flex;align-items:center;gap:10px}.ln-cols .label::after{content:"";flex:1;height:1px;background:rgba(163,184,214,.18)}
+.ln-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.ln-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:center;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px;line-height:1.4;color:var(--steel-200)}
+.ln-list li>span:last-child{display:grid;grid-template-columns:210px 1fr;gap:14px;align-items:center}
+.ln-list li b{color:#fff;font-size:14px;line-height:1.3}
+.ln-list .ico{width:22px;height:22px;color:var(--orange-400)}
+.ln-steps{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;position:relative}
+.ln-steps::before{content:"";position:absolute;left:13px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,rgba(242,107,33,.85),rgba(110,143,191,.5))}
+.ln-steps li{position:relative;padding:4px 0 4px 40px;font-size:13.5px;line-height:1.45;color:var(--steel-200)}
+.ln-steps li::before{content:"";position:absolute;left:6px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--navy-700);border:2px solid var(--steel-400)}
+.ln-steps li:last-child::before{background:var(--orange-500);border-color:var(--orange-400);box-shadow:0 0 12px rgba(242,107,33,.7)}
+.ln-steps b{color:#fff}
+.ln-out{display:flex;flex-direction:column;gap:10px}
+.ln-out>div{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ln-out>div span{padding:12px 14px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.16),rgba(242,107,33,.03));border:1px solid rgba(242,107,33,.32);font-size:15px;font-weight:700;line-height:1.3;color:#fff}
+.ln-full .p-tech{margin-top:auto}
+.ln-peek{display:flex;flex-direction:column;gap:6px;margin-top:14px;padding-top:16px;border-top:1px solid rgba(163,184,214,.16)}
+.ln-peek i{font-style:normal;font-size:13px;font-weight:600;color:var(--steel-200);display:flex;align-items:center;gap:8px}
+.ln-peek i::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--orange-500);flex:none}
+/* ===== separação (fx 29 morph) ===== */
+.mo-wrap{display:grid;grid-template-columns:780px 1fr;gap:22px;margin-top:20px}
+.mo-panel{position:relative;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.12);padding:16px 18px 14px;display:flex;flex-direction:column;gap:6px}
+.mo-bar{display:flex;justify-content:space-between;align-items:center}
+.mo-seg{margin-top:0}
+.mo-leg{display:flex;gap:14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel-300)}
+.mo-leg span{display:flex;align-items:center;gap:6px}
+.mo-leg i{display:inline-block;width:18px;height:10px;border-radius:4px}
+.lg-s{background:var(--navy-600);border:1.5px solid var(--steel-400)}.lg-n{background:rgba(242,107,33,.25);border:1.5px solid var(--orange-400)}
+.lg-t{height:0!important;border-top:2px dashed var(--orange-400);border-radius:0!important}
+.mo-svg{width:100%;height:auto;display:block;overflow:visible}
+.mo-e{stroke-width:1.5;stroke-linecap:round}
+.mo-e-m{stroke:rgba(163,184,214,.38)}
+.mo-e-s{stroke:rgba(110,143,191,.75)}
+.mo-e-n{stroke:rgba(255,138,76,.85);stroke-width:2}
+.mo-e-t{stroke:var(--orange-400);stroke-width:2;stroke-dasharray:6 6;animation:moflow 1.2s linear infinite;filter:drop-shadow(0 0 4px rgba(242,107,33,.7))}
+@keyframes moflow{to{stroke-dashoffset:-24}}
+.mo-n rect{fill:rgba(255,255,255,.08);stroke:rgba(163,184,214,.55);stroke-width:1.2;transition:fill .4s,stroke .4s}
+.mo-n text{fill:var(--steel-100);font:600 12px var(--font-sans)}
+.mo-n.s rect{fill:var(--navy-600);stroke:var(--steel-400)}
+.mo-n.n rect{fill:rgba(242,107,33,.22);stroke:var(--orange-400)}
+.mo-n.n text{fill:#fff}
+.mo-n.hub rect{fill:var(--navy-700);stroke:#fff;stroke-width:1.6}
+.mo-n.hub text{font:800 15px var(--font-sans);fill:#fff}
+.mo-n.hub.n rect{fill:var(--orange-500);stroke:var(--orange-200)}
+.mo-cap{font-size:15px;line-height:1.5;color:var(--steel-200);min-height:46px;padding-top:8px;border-top:1px solid rgba(163,184,214,.14)}
+.mo-cap.in{animation:aF .5s both}
+.mo-prods{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mo-p{flex:1;border-radius:18px;padding:18px 22px;background:linear-gradient(155deg,#16396B 0%,#0B2545 60%,#071A33 100%);border:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.mo-ph{display:flex;align-items:center;gap:14px}
+.mo-ph>div{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.mo-ph b{font-size:23px;font-weight:800;letter-spacing:-.025em;line-height:1.1}
+.mo-ph>div span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;color:var(--steel-300)}
+.mo-pico{flex:none;width:46px;height:46px;border-radius:12px;background:rgba(242,107,33,.14);border:1px solid rgba(242,107,33,.45);display:grid;place-items:center}
+.mo-pico .ico{width:26px;height:26px;color:var(--orange-400)}
+.mo-prob{font-size:15px;font-weight:600;line-height:1.4;color:#fff}
+.mo-get{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mo-get>span{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px;font-weight:600;line-height:1.3;color:var(--steel-100)}
+.mo-get .ico{width:20px;height:20px;flex:none;color:var(--orange-400)}
+.mo-ai{font-size:13px;line-height:1.45;color:var(--steel-300)}
+.mo-ai b{color:var(--orange-400)}
+.mo-out{display:flex;align-items:center;gap:18px;margin-top:14px}
+.mo-out .label{flex:none}
+.mo-out>div{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mo-out>div span{padding:12px 14px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.16),rgba(242,107,33,.03));border:1px solid rgba(242,107,33,.32);font-size:15px;font-weight:700;line-height:1.3;color:#fff}
+/* ===== office (fx 06 glow) ===== */
+.of-wrap{display:grid;grid-template-columns:450px 1fr;gap:26px;margin-top:20px;height:640px}
+.of-left{display:flex;flex-direction:column;gap:16px}
+.of-id{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:18px;background:linear-gradient(155deg,#16396B 0%,#0B2545 60%,#071A33 100%);border:1px solid rgba(255,255,255,.12)}
+.of-idh{display:flex;justify-content:space-between;align-items:center}
+.of-id>b{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:4px}
+.of-from{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;color:var(--steel-300)}.of-from b{color:#fff;font-weight:600}
+.of-id .p-who{margin-top:6px}
+.of-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.of-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px;line-height:1.4;color:var(--steel-200)}
+.of-list li b{display:block;color:#fff;font-size:14px;margin-bottom:1px}
+.of-list .ico{width:22px;height:22px;color:var(--orange-400)}
+.of-left .p-why{margin-top:auto}
+.of-screen{display:flex;flex-direction:column;gap:14px;min-width:0}
+.of-win{position:relative;flex:1;border-radius:16px;overflow:hidden;background:#06152A;border:1px solid rgba(163,184,214,.25);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(42,90,150,.25)}
+.of-tb{display:flex;align-items:center;gap:7px;height:38px;padding:0 14px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(163,184,214,.15)}
+.of-tb>i{width:10px;height:10px;border-radius:50%;background:rgba(163,184,214,.3)}
+.of-tb>span{margin-left:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--steel-300)}
+.of-tb em{margin-left:auto;display:flex;align-items:center;gap:8px;font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-400)}
+.of-app{display:grid;grid-template-columns:170px 1fr 300px;height:calc(100% - 38px)}
+.of-nav{display:flex;flex-direction:column;gap:4px;padding:14px 10px;border-right:1px solid rgba(163,184,214,.12)}
+.of-nav .label{padding:0 8px 6px}
+.of-nav>span:not(.label){display:flex;align-items:center;gap:9px;padding:8px;border-radius:8px;font-size:13px;font-weight:600;color:var(--steel-200)}
+.of-nav>span.sel{background:rgba(242,107,33,.14);color:#fff}
+.of-nav i,.of-cp em::before{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
+.of-nav i.ok,.of-cp em.ok::before{background:#4FC08D}.of-nav i.at,.of-cp em.at::before{background:#F5B83D}.of-nav i.cr,.of-cp em.cr::before{background:#F0564A;box-shadow:0 0 8px rgba(240,86,74,.8)}
+.of-main{display:flex;flex-direction:column;gap:12px;padding:14px}
+.of-card{padding:14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(163,184,214,.14);display:flex;flex-direction:column;gap:10px}
+.of-cp{display:flex;flex-direction:column;gap:7px}
+.of-cp span{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:9px;background:rgba(255,255,255,.04)}
+.of-cp b{font-size:13.5px;font-weight:600;color:#fff}
+.of-cp em{font-style:normal;display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel-200)}
+.of-cp em::before{content:""}
+.of-dc{display:flex;flex-direction:column;gap:7px}
+.of-dc span{display:flex;align-items:center;gap:10px;font-size:13.5px;line-height:1.35;color:var(--steel-100)}
+.of-dc i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:10.5px;font-weight:800;color:var(--navy-900);background:var(--steel-200)}
+.of-feed{display:flex;flex-direction:column;gap:9px;padding:14px;border-left:1px solid rgba(163,184,214,.12);background:rgba(255,255,255,.02);overflow:hidden}
+.of-msg{padding:10px 12px;border-radius:12px;background:rgba(110,143,191,.12);border:1px solid rgba(163,184,214,.2);animation:ofin .6s var(--ease-out) both}
+.of-msg:last-child{border-color:rgba(255,138,76,.55);background:rgba(242,107,33,.1)}
+@keyframes ofin{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.of-ag{display:flex;align-items:center;gap:7px}
+.of-ag .ico{width:16px;height:16px;color:var(--orange-400)}
+.of-ag b{font-size:12px;color:#fff}
+.of-ag i{margin-left:auto;font-style:normal;font-family:var(--font-mono);font-size:9.5px;color:var(--steel-300)}
+.of-msg p{font-size:12px;line-height:1.42;color:var(--steel-200);margin-top:5px}
+.of-sweep{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(163,184,214,.10) 47%,rgba(255,138,76,.14) 50%,transparent 57%);background-size:250% 100%;animation:ofsw 6.5s cubic-bezier(.65,0,.35,1) infinite;mix-blend-mode:screen}
+@keyframes ofsw{0%,50%{background-position:120% 0}100%{background-position:-30% 0}}
+.of-out{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.of-out span{padding:12px 14px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.16),rgba(242,107,33,.03));border:1px solid rgba(242,107,33,.32);font-size:15px;font-weight:700;line-height:1.3;color:#fff}
+.of-wrap{grid-template-rows:100%}
+.of-left,.of-screen{min-height:0}
+.of-id{padding:16px 18px;gap:6px}.of-id>b{font-size:28px}
+.of-id .p-who span{font-size:11.5px;padding:5px 9px}
+.of-list{gap:6px;margin-top:10px}.of-list li{padding:8px 12px}
+.of-left .p-why{font-size:13.5px;padding:12px 16px}
+.of-main{overflow:hidden}.of-tsa span{padding:7px 12px}
+.of-main{gap:10px;padding:12px}.of-card{padding:11px 13px;gap:8px}.of-cp{gap:5px}.of-cp span{padding:7px 12px}.of-dc{gap:5px}.of-dc i{width:24px;height:24px;font-size:9.5px}.of-tsa span{padding:6px 12px}
+.mo-wrap{height:560px}.mo-panel{justify-content:space-between}
+/* ===== valor (fx 38 timeline) ===== */
+.vj{position:relative;height:104px;margin-top:18px}
+.vj-svg{position:absolute;left:0;top:0;width:100%;height:110px;overflow:visible}
+.vj-base{stroke:rgba(163,184,214,.22);stroke-width:2;fill:none}
+.vj-seg{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.vj-seg.a{stroke:var(--orange-500);filter:drop-shadow(0 0 8px rgba(242,107,33,.75))}
+.vj-seg.b{stroke:var(--steel-300);filter:drop-shadow(0 0 8px rgba(163,184,214,.6))}
+.play .vj-seg.a{animation:draw 1.4s var(--ease-out) .5s forwards}
+.play .vj-seg.b{animation:draw 1.1s var(--ease-out) 1.8s forwards}
+.vj[data-hi="a"] .vj-seg.b,.vj[data-hi="b"] .vj-seg.a{opacity:.25}
+.vj[data-hi="a"] .vj-node.b,.vj[data-hi="b"] .vj-node.a,.vj[data-hi="a"] .vj-lab.b,.vj[data-hi="b"] .vj-lab.a{opacity:.35}
+.vj-st{position:absolute;inset:0}
+.vj-node{position:absolute;top:55px;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;transition:opacity .3s}
+.vj-node i{width:20px;height:20px;border-radius:50%;background:var(--navy-900);border:3px solid var(--orange-400);box-shadow:0 0 0 6px rgba(242,107,33,.12)}
+.vj-node.b i{border-color:var(--steel-300);box-shadow:0 0 0 6px rgba(163,184,214,.12)}
+.vj-node b{position:absolute;top:28px;white-space:nowrap;font-size:14px;font-weight:700;color:#fff}
+.play .vj-node{animation:vjpop .5s var(--ease-out) both;animation-delay:calc(var(--d)*320ms + 500ms)}
+@keyframes vjpop{from{opacity:0;transform:translate(-50%,-50%) scale(.4)}to{opacity:1;transform:translate(-50%,-50%)}}
+.vj-lab{position:absolute;top:4px;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-400);transition:opacity .3s}
+.vj-lab.b{color:var(--steel-200)}
+.vj-run{position:absolute;top:50px;left:2%;width:11px;height:11px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff,0 0 26px var(--orange-500);animation:vjrun 7s cubic-bezier(.45,0,.55,1) 2.6s infinite;opacity:0}
+@keyframes vjrun{0%{left:4%;opacity:0}6%{opacity:1}92%{opacity:1}100%{left:96%;opacity:0}}
+.vj-cards{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:16px}
+.vj-c{border-radius:18px;padding:18px 22px;background:linear-gradient(155deg,#16396B 0%,#0B2545 60%,#071A33 100%);border:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 50px rgba(0,0,0,.3);transition:border-color .3s,transform .3s var(--ease-out)}
+.vj-c:hover{border-color:rgba(255,138,76,.55);transform:translateY(-3px)}
+#vjB:hover{border-color:rgba(163,184,214,.6)}
+#vjB .mo-pico{background:rgba(163,184,214,.12);border-color:rgba(163,184,214,.4)}#vjB .mo-pico .ico{color:var(--steel-200)}
+.vj-sec .label{display:flex;align-items:center;gap:10px}.vj-sec .label::after{content:"";flex:1;height:1px;background:rgba(163,184,214,.18)}
+.vj-lev{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.vj-lev.vj-2{grid-template-columns:1fr 1fr}
+.vj-lev>span{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px;font-weight:600;line-height:1.3;color:var(--steel-100)}
+.vj-lev .ico{width:20px;height:20px;flex:none;color:var(--orange-400)}
+#vjB .vj-lev .ico{color:var(--steel-200)}
+.vj-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.vj-out span{padding:11px 14px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.16),rgba(242,107,33,.03));border:1px solid rgba(242,107,33,.32);font-size:14.5px;font-weight:700;line-height:1.3;color:#fff}
+.vj-cards{height:452px}.vj-c .p-tech{margin-top:auto}.vj-c .vj-out{margin-top:0}.vj-why{margin-top:16px}
+/* ===== deal twin (fx 04 tilt) ===== */
+.tw-wrap{display:grid;grid-template-columns:1fr 460px;gap:30px;margin-top:22px;height:600px}
+.tw-scene{perspective:1700px;display:flex;align-items:center;justify-content:center}
+.tw-stack{position:relative;width:920px;display:flex;flex-direction:column;gap:20px;transform:rotateX(12deg) rotateY(-8deg);transform-style:preserve-3d;transition:transform .25s var(--ease-out)}
+.tw-ly{position:relative;display:grid;grid-template-columns:230px 1fr;align-items:center;gap:18px;padding:18px 22px;border-radius:16px;background:linear-gradient(120deg,rgba(27,68,121,.55),rgba(11,37,69,.75));border:1px solid rgba(163,184,214,.25);box-shadow:0 18px 40px rgba(0,0,0,.35);transform:translateZ(calc(var(--z,0)*1px));transition:transform .45s var(--ease-out),border-color .3s,box-shadow .3s,background .3s;cursor:pointer}
+.tw-ly[data-k="4"]{--z:80}.tw-ly[data-k="3"]{--z:60}.tw-ly[data-k="2"]{--z:40}.tw-ly[data-k="1"]{--z:20}.tw-ly[data-k="0"]{--z:0}
+.tw-ly.on{transform:translateZ(calc(var(--z,0)*1px + 46px)) translateX(-14px);border-color:var(--orange-400);box-shadow:0 26px 60px rgba(0,0,0,.45),0 0 40px rgba(242,107,33,.22)}
+.tw-ly.core{background:linear-gradient(120deg,rgba(242,107,33,.32),rgba(242,107,33,.1) 55%,rgba(11,37,69,.8));border-color:rgba(255,138,76,.6);padding:24px 22px}
+.tw-ly.core::after{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.1) 48%,rgba(255,138,76,.2) 52%,transparent 60%);background-size:260% 100%;animation:ofsw 5.5s cubic-bezier(.65,0,.35,1) infinite;pointer-events:none}
+.tw-n{font-size:19px;font-weight:800;letter-spacing:-.015em;color:#fff;display:flex;flex-direction:column;gap:3px}
+.tw-n em{font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-200);font-weight:500}
+.tw-chips{display:flex;flex-wrap:wrap;gap:6px}
+.tw-chips span{font-size:12.5px;font-weight:600;color:var(--steel-100);padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.tw-ly.core .tw-chips span{background:rgba(242,107,33,.16);border-color:rgba(255,138,76,.4);color:#fff}
+.tw-ly[data-k="4"] .tw-chips span{background:rgba(255,255,255,.95);color:var(--navy-800);border-color:#fff}
+.tw-side{display:flex;flex-direction:column;gap:16px}
+.tw-det{padding:22px 24px;border-radius:18px;background:linear-gradient(155deg,#16396B 0%,#0B2545 60%,#071A33 100%);border:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:10px;min-height:270px}
+.tw-det.in>*{animation:aF .45s both}
+.tw-det .label{color:var(--orange-400)}
+.tw-det .h3{color:#fff;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.tw-det p{font-size:15.5px;line-height:1.5;color:var(--steel-200)}
+.tw-det .p-tech{margin-top:auto}
+.tw-g{padding:18px 22px;border-radius:18px;border:1px solid rgba(163,184,214,.2);background:rgba(255,255,255,.03)}
+.tw-g ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.tw-g li{display:flex;align-items:center;gap:12px;font-size:14.5px;font-weight:600;color:#fff}
+.tw-g .ico{width:22px;height:22px;flex:none;color:var(--orange-400)}
+/* ===== resultados (fx 33 stack) ===== */
+.rs-wrap{display:grid;grid-template-columns:470px 1fr;gap:40px;height:100%}
+.rs-left{display:flex;flex-direction:column}
+.rs-tabs{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.rs-tabs button{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;text-align:left;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);transition:all .3s var(--ease-out)}
+.rs-tabs button .ico{width:30px;height:30px;color:var(--steel-500)}
+.rs-tabs button>span:last-child{display:flex;flex-direction:column;gap:2px}
+.rs-tabs b{font-size:17px;font-weight:800;color:var(--navy-800);letter-spacing:-.01em}
+.rs-tabs em{font-style:normal;font-size:13px;color:var(--grey-500)}
+.rs-tabs button:hover{border-color:var(--steel-300)}
+.rs-tabs button.on{background:var(--navy-800);border-color:var(--navy-800);box-shadow:0 14px 30px rgba(11,37,69,.25);transform:translateX(8px)}
+.rs-tabs button.on b{color:#fff}.rs-tabs button.on em{color:var(--steel-300)}.rs-tabs button.on .ico{color:var(--orange-400)}
+.rs-stage{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:50px 60px 0 0}
+.rs-stack{height:620px}
+.rs-c{display:flex;flex-direction:column;gap:18px;padding:28px 32px;background:linear-gradient(155deg,#16396B 0%,#0B2545 55%,#071A33 100%);color:#fff;box-shadow:0 30px 70px rgba(7,26,51,.35);border:1px solid rgba(255,255,255,.1);overflow:hidden}
+.rs-c.front{cursor:pointer}
+.rs-h{display:flex;align-items:center;gap:16px}
+.rs-ico{width:56px;height:56px;border-radius:14px;background:rgba(242,107,33,.14);border:1px solid rgba(242,107,33,.45);display:grid;place-items:center;flex:none}
+.rs-ico .ico{width:30px;height:30px;color:var(--orange-400)}
+.rs-h>div{display:flex;flex-direction:column;gap:4px}
+.rs-c .label{color:var(--steel-300);display:flex;align-items:center;gap:10px}
+.rs-h b{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.rs-c blockquote{font-size:24px;font-weight:600;line-height:1.35;letter-spacing:-.01em;color:#fff;padding-left:20px;border-left:3px solid var(--orange-500);text-wrap:balance}
+.rs-j>div{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:10px}
+.rs-j a{font-size:13px;font-weight:700;color:var(--navy-800);background:#fff;padding:8px 12px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.rs-j a:hover{background:var(--orange-500);color:#fff}
+.rs-j i{width:22px;height:2px;background:var(--orange-400);position:relative}
+.rs-j i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left-color:var(--orange-400);border-right:0}
+.rs-o>div{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.rs-o>div span{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:linear-gradient(160deg,rgba(242,107,33,.18),rgba(242,107,33,.04));border:1px solid rgba(242,107,33,.35);font-size:15px;font-weight:700;line-height:1.3}
+.rs-o i{flex:none}.rs-o .ico{width:20px;height:20px;color:var(--orange-400)}
+.rs-cases{display:grid;grid-template-columns:auto 1fr 1fr;gap:16px;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid rgba(163,184,214,.18)}
+.rs-cases>span:not(.label){font-size:13px;line-height:1.4;color:var(--steel-200)}
+.rs-cases b{display:block;color:#fff;font-size:14px}
+.rs-hint{position:absolute;right:60px;bottom:-22px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-500)}
+.rs-stage{justify-content:flex-start;padding:46px 56px 0 0}
+.rs-stack{height:650px}
+.rs-c{gap:16px}
+.rs-hint{bottom:auto;top:6px;right:60px}
+.rs-ba{display:grid;grid-template-columns:1fr 34px 1fr;align-items:stretch;gap:0}
+.rs-ba>div{padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(163,184,214,.16)}
+.rs-ba>div.aft{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.28)}
+.rs-ba p{font-size:14.5px;line-height:1.4;color:var(--steel-300);margin-top:6px}
+.rs-ba .aft p{color:#fff;font-weight:600}
+.rs-ba .aft .label{color:var(--orange-400)}
+.rs-ba>i{align-self:center;justify-self:center;width:18px;height:2px;background:var(--orange-400);position:relative}
+.rs-ba>i::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left-color:var(--orange-400);border-right:0}
+.rs-wrap{grid-template-columns:510px 1fr;gap:34px;height:660px}
+.rs-stack{height:614px}
+.rs-cases{margin-top:auto}
+.rs-wrap{height:100%}
+.rs-stack{height:690px}
+.rs-c{justify-content:space-between;gap:14px;padding:30px 34px}
+.rs-cases{margin-top:0}
+.rs-c blockquote{font-size:27px}
+.rs-ba p{font-size:15.5px}
+.rs-o>div span{font-size:16px;padding:14px 16px}
+.rs-j a{font-size:14px;padding:9px 13px}
+/* ===== fecho (fx 40 sutil) ===== */
+.fc-shade{background:linear-gradient(90deg,rgba(4,16,31,.9),rgba(7,26,51,.7) 55%,rgba(7,26,51,.45)),linear-gradient(0deg,rgba(4,16,31,.75),rgba(4,16,31,0) 40%)}
+.fc-body{z-index:2;display:flex;flex-direction:column}
+.fc-h{font-weight:800;font-size:76px;line-height:1;letter-spacing:-.04em;color:#fff;margin-top:14px;text-shadow:0 16px 40px rgba(4,16,31,.6)}
+.fc-why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.fc-why>div{display:flex;flex-direction:column;gap:10px;padding:20px 22px;border-radius:18px;background:rgba(11,37,69,.55);border:1px solid rgba(163,184,214,.22);backdrop-filter:blur(10px)}
+.fc-why .ico{width:32px;height:32px;color:var(--orange-400)}
+.fc-why b{font-size:20px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
+.fc-why p{font-size:14.5px;line-height:1.5;color:var(--steel-200)}
+.fc-doors{display:grid;grid-template-columns:150px repeat(3,1fr);gap:14px;align-items:stretch;margin-top:26px}
+.fc-doors .label{align-self:center;color:var(--orange-200)}
+.fc-doors button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:16px 46px 16px 20px;border-radius:14px;background:rgba(242,107,33,.14);border:1px solid rgba(255,138,76,.5);color:#fff;transition:background .25s,transform .25s var(--ease-out)}
+.fc-doors button:hover{background:var(--orange-500);transform:translateY(-3px)}
+.fc-doors em{font-style:normal;font-size:13px;color:var(--orange-200)}
+.fc-doors button:hover em{color:#fff}
+.fc-doors b{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.fc-doors i{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-style:normal;font-size:22px;font-weight:700}
+.fc-sign{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:20px;border-top:1px solid rgba(163,184,214,.2)}
+.fc-sign>span:first-child{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--steel-100)}
+.fc-sign b{color:var(--orange-400);font-weight:800}
+.fc-sign .mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-300)}
+.fc-h{font-size:84px}.fc-why{margin-top:50px}.fc-doors{margin-top:36px}
+/* ===== polish: desafio, riscos, de-para ===== */
+#desafio .body{display:flex;flex-direction:column}
+#desafio .d-grid{flex:1;margin-top:28px}
+#desafio .d-card{padding:28px 30px 24px;gap:16px}
+#desafio .d-card .h3{font-size:30px}
+#desafio .d-ico{width:40px;height:40px}
+#desafio .d-was{font-size:16px}
+#desafio .d-now{font-size:18px;line-height:1.5}
+#desafio .d-from i{font-size:12.5px;padding:5px 9px}
+#desafio .d-ask{padding:16px 20px}
+#desafio .d-pill{font-size:16px;padding:8px 16px}
+.r-node{font-size:15px;padding:11px 15px}
+.r-imp{font-size:16px;padding:16px 18px}
+.r-panel .h3{font-size:24px}
+.r-sec p{font-size:14.5px}
+.dp-cols{gap:20px;padding:24px 26px 0}
+.dp-col{gap:12px}
+.dp-mo{font-size:12.5px}
+.dp-it{padding:13px 14px;gap:8px}
+.dp-it b{font-size:15.5px}
+.dp-base{font-size:14.5px;height:58px}
+.dp-out b{font-size:14.5px}
+.dp-out span{font-size:13px}
+.dp-it{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.dp-it .tag{align-self:center;flex:none}
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="viewport"><div id="stage">
+<section class="slide stage" id="capa" data-t="Capa" data-chap="Abertura" data-bare data-fx="40|Animated Shader / Hero|intensa" data-fxwhy="Capa: o fundo vivo sinaliza tecnologia antes da primeira palavra, e o fio laranja que serpenteia é a metáfora do portfólio, uma linha contínua da diligência à execução." data-desc="Abertura da apresentação de produtos de IT M&A da A&M Brasil (DTS). A tese em uma frase: o mercado não compra mais diligência isolada; compra continuidade entre o que se descobre antes do deal e o que se executa depois dele.">
+  <canvas class="shader" id="capaShader" aria-hidden="true"></canvas>
+  <div class="shade"></div>
+  <div class="cv-top" data-a="fade">
+    <div class="brand"><div class="brand-am"><b>ALVAREZ <i>&amp;</i> MARSAL</b><small>PERFORMANCE IMPROVEMENT</small></div><span class="brand-div"></span><div class="brand-dts"><b>DTS</b><small>Digital &amp; Technology Services</small></div></div>
+    <span class="cv-conf mono">Portfólio de produtos · IT M&amp;A · Outubro de 2026</span>
+  </div>
+  <div class="cv-main">
+    <div class="eyebrow" data-a="fade" style="--d:2">Deal Technology · Alvarez &amp; Marsal Brasil</div>
+    <h1 class="cv-h kin">Da diligência à execução, <span class="hl">no mesmo fio.</span></h1>
+    <p class="cv-sub" data-a="blur" style="--d:8">Uma linha de produtos de tecnologia para M&amp;A que descobre o risco antes do signing, desenha o Day 1 antes do closing e captura o valor até o exit. Com IA em cada etapa e o operador da A&amp;M ao lado do cliente.</p>
+    <div class="cv-moments" data-a="up" style="--d:10">
+      <span>Decidir</span><i></i><span>Separar</span><i></i><span>Integrar</span><i></i><span>Valorizar</span>
+    </div>
+  </div>
+  <div class="cv-foot mono" data-a="fade" style="--d:12"><span class="beacon" style="width:8px;height:8px"></span>Use as setas ou o espaço para avançar · G abre o índice · I explica cada slide</div>
+</section>
+
+
+<section class="slide paper" id="desafio" data-t="O desafio" data-chap="Contexto" data-chapter="01|O contexto|O desafio de M&amp;A continua o mesmo. Onde o valor se esconde, não." data-fx="10|Reveal / Mask Reveal|moderada" data-fxwhy="Os três desafios entram um após o outro, como uma cortina, para que a sala leia a mudança de cada um antes de ver o próximo." data-src="Desafios holísticos do deck comercial A&amp;M DTS; A&amp;M European PE Value Creation Report 2026; PwC M&amp;A Integration Survey 2026; KPMG Global M&amp;A Outlook 2026; TTR Data 2025–2026" data-desc="Os dez desafios holísticos do deck comercial da A&M foram reagrupados em três desafios que acompanham a vida do deal: decidir com convicção, atravessar o Day 1 sem ruptura e entregar o valor prometido. Cada um mostra o que mudou em 2026 e de qual desafio original ele nasce.">
+  <div class="body">
+    <div class="d-head">
+      <div>
+        <div class="eyebrow" data-a="fade">O desafio</div>
+        <h2 class="h1 kin" style="font-size:52px;margin-top:10px">O desafio ainda é capturar valor. <span class="hl">O que mudou é onde o valor se esconde.</span></h2>
+      </div>
+      <p class="lead" data-a="fade" style="--d:6">Revisitamos os dez desafios holísticos do nosso deck e os agrupamos em três momentos do deal. Em cada um, a tecnologia deixou de ser um anexo e virou parte da tese, do Day 1 e do resultado.</p>
+    </div>
+    <div class="d-grid">
+      <article class="d-card" data-a="mask" style="--d:3">
+        <div class="d-top"><span class="d-k mono">Antes do signing</span><svg class="ico d-ico" viewBox="0 0 24 24" style="--d:3"><circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="21" y2="21"/><polyline points="8.5 11 10.5 13 14 9"/></svg></div>
+        <h3 class="h3">Decidir com convicção</h3>
+        <p class="d-was"><b>Era:</b> tese de escala, sinergias de custo e um inventário de TI para precificar riscos.</p>
+        <p class="d-now"><b>Agora:</b> IA e dado proprietário entraram na tese, o leilão encurtou a janela e o comprador precifica cyber, software e pessoas antes de assinar.</p>
+        <div class="d-from"><span class="label">Nasce de</span><i>Ter estratégia clara</i><i>Capturar sinergias</i><i>Percepção dos clientes</i></div>
+      </article>
+      <article class="d-card" data-a="mask" style="--d:6">
+        <div class="d-top"><span class="d-k mono">Do signing ao Day 1</span><svg class="ico d-ico" viewBox="0 0 24 24" style="--d:6"><rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/><polyline points="9 14.5 11 16.5 15 12.5"/></svg></div>
+        <h3 class="h3">Atravessar o Day 1 sem ruptura</h3>
+        <p class="d-was"><b>Era:</b> garantir comprar, faturar e atender no primeiro dia de uma aquisição inteira.</p>
+        <p class="d-now"><b>Agora:</b> carve-outs e roll-ups dominam. O Day 1 mais difícil é o da empresa que nasce: dependências escondidas, serviços de transição e dados que não podem parar.</p>
+        <div class="d-from"><span class="label">Nasce de</span><i>Evitar business disruption</i><i>Preparar o Day 1</i><i>Criar o plano</i></div>
+      </article>
+      <article class="d-card" data-a="mask" style="--d:9">
+        <div class="d-top"><span class="d-k mono">Do Day 1 ao exit</span><svg class="ico d-ico" viewBox="0 0 24 24" style="--d:9"><polyline points="3.5 17 9 11.5 13 15 20.5 7.5"/><polyline points="15 7.5 20.5 7.5 20.5 13"/></svg></div>
+        <h3 class="h3">Entregar o valor prometido</h3>
+        <p class="d-was"><b>Era:</b> integrar estruturas, alinhar cultura e comunicar a evolução do processo.</p>
+        <p class="d-now"><b>Agora:</b> o hold ficou mais longo e o valor vem da operação. O investidor quer sinergias auditáveis, IA que vira margem e execução que começa no primeiro dia.</p>
+        <div class="d-from"><span class="label">Nasce de</span><i>Integrar estruturas</i><i>Alinhar cultura</i><i>Atenção ao dia a dia</i><i>Comunicar</i></div>
+      </article>
+    </div>
+    <div class="d-ask" data-a="up" style="--d:12">
+      <span class="label">O que isso exige da tecnologia no M&amp;A</span>
+      <span class="d-pill"><span class="beacon" style="width:7px;height:7px"></span>Velocidade com evidência</span>
+      <span class="d-pill"><span class="beacon" style="width:7px;height:7px"></span>Continuidade da diligência à execução</span>
+      <span class="d-pill"><span class="beacon" style="width:7px;height:7px"></span>IA, dados e cyber dentro do escopo</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide paper" id="riscos" data-t="Riscos e impactos" data-chap="Contexto" data-fx="39|Node Network Motion|moderada" data-fxwhy="Risco e impacto são uma relação, não uma lista: ao tocar um risco, só as ligações dele acendem e o resto recua. Os anéis pulsantes marcam os riscos que não estavam no nosso deck." data-src="Riscos de TI do deck comercial A&amp;M DTS; LGPD (Lei 13.709/2018, art. 52); Lei 9.610/1998, art. 103; STF Tema 1.389; Lei 15.352/2026 (ANPD agência reguladora); Capital Aberto, jul/2026 (reforma tributária e M&amp;A) e guias de adequação de sistemas a CBS e IBS; ataques a fornecedores do Pix (C&amp;M Software e Sinqia, 2025); KPMG The AI blind spot in M&amp;A; PwC M&amp;A Integration Survey 2026; Flexera State of the Cloud 2026" data-desc="Mapa interativo de riscos e impactos. À esquerda, os cinco riscos de TI que já estavam no nosso deck, hoje maiores, e cinco riscos novos (marcados com anel pulsante). À direita, os cinco impactos que chegam à mesa do investidor. Ao tocar um risco, o painel mostra o que acontece e qual produto o antecipa.">
+  <div class="body">
+    <div class="r-head">
+      <div>
+        <div class="eyebrow" data-a="fade">Riscos e impactos</div>
+        <h2 class="h2 kin" style="margin-top:10px">Todo risco de TI vira <span class="hl">preço, multa ou valor perdido.</span></h2>
+      </div>
+      <div class="r-legend" data-a="fade" style="--d:5"><span><i class="lg-old"></i>Já estava no nosso radar, hoje maior</span><span><span class="beacon" style="width:8px;height:8px"></span>&nbsp;Risco novo</span><span class="small">Toque em um risco</span></div>
+    </div>
+    <div class="r-map" id="rMap">
+      <svg class="r-svg" id="rSvg" aria-hidden="true"></svg>
+      <div class="r-col r-left" id="rLeft"></div>
+      <div class="r-col r-right" id="rRight"></div>
+      <aside class="r-panel" id="rPanel" data-a="right" style="--d:8">
+        <span class="label" id="rpK">Risco</span>
+        <h3 class="h3" id="rpT"></h3>
+        <div class="r-sec"><span class="r-sh">O que acontece</span><p id="rpW"></p></div>
+        <div class="r-sec"><span class="r-sh">Sinal de alerta na diligência</span><p id="rpS"></p></div>
+        <div class="r-sec r-prod"><span class="r-sh">Quem antecipa</span><div id="rpP"></div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide paper" id="mercado" data-t="Mercado e concorrência" data-chap="Contexto" data-fx="21|Flip Card|moderada" data-fxwhy="Cada concorrente tem duas faces: como joga e onde deixa espaço. Virar o card no mesmo lugar mantém a comparação sem trocar de slide." data-src="Mergermarket via ION Analytics (FY25, 1H26, 9M26); EY-Parthenon (página oficial de M&amp;A due diligence); PwC (releases Harvey, ToltIQ, Palantir); Deloitte (M&amp;A Platform, set/2026); A&amp;M (Global Transaction Advisory; PE Services); TTR Data; KPMG Global M&amp;A Outlook 2026" data-desc="Leitura do mercado e das três consultorias com maior fatia em serviços de M&A: PwC (líder em número de transações assessoradas), EY-Parthenon (primeira em M&A accountant, a tabela mais próxima de due diligence) e Deloitte (plataforma de M&A com agentes e a única com oferta de TI em M&A em português no Brasil). A face de trás de cada card é a leitura da A&M sobre onde cada uma deixa espaço.">
+  <div class="body">
+    <div class="m-head">
+      <div>
+        <div class="eyebrow" data-a="fade">Mercado e concorrência</div>
+        <h2 class="h2 kin" style="margin-top:10px">O mercado compra <span class="hl">diligência que vira execução.</span> Os líderes vendem plataforma.</h2>
+      </div>
+      <span class="small" data-a="fade" style="--d:6">Toque nos cards para ver onde cada um deixa espaço</span>
+    </div>
+    <div class="m-grid">
+      <aside class="m-asks" data-a="left" style="--d:2">
+        <span class="label">O que o comprador pede em 2026</span>
+        <ul>
+          <li><svg class="ico" viewBox="0 0 24 24" style="--d:3"><circle cx="12" cy="12" r="8.5"/><polyline points="12 7.5 12 12 15 14"/></svg><span><b>Red flags em dias</b> logo após abrir o data room</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" style="--d:4"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 12h6M12 9v6"/></svg><span><b>IA, cyber, produto e código</b> dentro do escopo</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" style="--d:5"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="17" r="3"/></svg><span><b>Cada achado com evidência</b> rastreável até a fonte</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" style="--d:6"><path d="M7 4v16M17 4v16"/><path d="M7 9h10M7 15h10"/></svg><span><b>Carve-outs e TSAs</b> desenhados com dados, não com planilhas</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" style="--d:7"><polyline points="3.5 17 9 11.5 13 15 20.5 7.5"/><polyline points="15 7.5 20.5 7.5 20.5 13"/></svg><span><b>Valor executado</b> desde o primeiro dia, com sinergias auditáveis</span></li>
+        </ul>
+      </aside>
+      <div class="m-comp">
+        <div class="flip m-card" data-a="up" style="--d:3"><div class="fi">
+          <div class="ff"><div class="m-face"><div class="m-who"><b>PwC</b><span class="tag t-keep">Líder em número de transações</span></div><span class="label">Como joga</span><h4>Escala e alianças de IA</h4><p>Vende "AI and technology due diligence" e "Technology and IT M&amp;A". Leva a IA ao deal por parcerias: Harvey para red flags no data room, Palantir para a TI do deal, ToltIQ para private markets.</p><div class="m-tech"><span class="tech">Harvey</span><span class="tech">Palantir</span><span class="tech">ToltIQ</span><span class="tech">Junction</span></div><span class="m-turn">ver onde deixa espaço ↻</span></div></div>
+          <div class="fb"><div class="m-face back"><span class="label">Onde deixa espaço · leitura A&amp;M</span><h4>IA de parceiro, método de catálogo</h4><p>A inteligência vem de plataformas de terceiros e o modelo é de escala. No Brasil, a diligência de TI aparece como item dentro da consultoria de TI, sem produto próprio visível.</p><span class="m-turn">voltar ↻</span></div></div>
+        </div></div>
+        <div class="flip m-card" data-a="up" style="--d:5"><div class="fi">
+          <div class="ff"><div class="m-face"><div class="m-who"><b>EY-Parthenon</b><span class="tag t-keep">Nº 1 em M&amp;A accountant</span></div><span class="label">Como joga</span><h4>O catálogo mais completo de Tech DD</h4><p>Separa AI, IT, Product &amp; Technology e Cyber due diligence, com ex-CTOs no time e benchmarks de P&amp;D. Sustenta tudo nas plataformas Edge, que convergem para o OneEdge, da diligência ao acompanhamento de TSA.</p><div class="m-tech"><span class="tech">Diligence Edge</span><span class="tech">Capital Edge</span><span class="tech">OneEdge</span></div><span class="m-turn">ver onde deixa espaço ↻</span></div></div>
+          <div class="fb"><div class="m-face back"><span class="label">Onde deixa espaço · leitura A&amp;M</span><h4>Excelência em diagnosticar</h4><p>A força está em avaliar e precificar. A execução da integração e da separação pelo mesmo time é menos visível, e a oferta no Brasil é tradução do catálogo global.</p><span class="m-turn">voltar ↻</span></div></div>
+        </div></div>
+        <div class="flip m-card" data-a="up" style="--d:7"><div class="fi">
+          <div class="ff"><div class="m-face"><div class="m-who"><b>Deloitte</b><span class="tag t-keep">Plataforma de M&amp;A com agentes</span></div><span class="label">Como joga</span><h4>Uma plataforma para o ciclo inteiro</h4><p>Lançou o M&amp;A Platform, com agentes de IA da estratégia à integração. Vende Technology, Cyber e AI Due Diligence e é a única com "IT M&amp;A" e "Due Diligence de TI" em português no Brasil.</p><div class="m-tech"><span class="tech">M&amp;A Platform</span><span class="tech">Ascend</span><span class="tech">iDeal</span></div><span class="m-turn">ver onde deixa espaço ↻</span></div></div>
+          <div class="fb"><div class="m-face back"><span class="label">Onde deixa espaço · leitura A&amp;M</span><h4>Plataforma ampla, ponte longa</h4><p>A plataforma cobre o ciclo, mas o caminho entre o achado da diligência e quem executa passa por times diferentes. Para clientes de auditoria, a independência limita o escopo.</p><span class="m-turn">voltar ↻</span></div></div>
+        </div></div>
+      </div>
+      <div class="m-am" data-a="right" style="--d:9">
+        <div class="m-am-in">
+          <span class="label">Onde a A&amp;M ganha</span>
+          <h4>Operadores que executam o que a diligência encontra</h4>
+          <ul>
+            <li>A maior prática de transaction advisory fora das Big Four</li>
+            <li>Sem conflito de auditoria: atuamos ao lado do comprador ou do vendedor</li>
+            <li>Times sêniores que assumem o Day 1 e a integração quando preciso</li>
+            <li>IA própria de diligência, como o A&amp;M DiligenceGPT, com o operador ao lado</li>
+            <li>Carve-outs e teses de buy-and-build já executados no Brasil</li>
+          </ul>
+          <div class="m-am-foot"><span class="beacon" style="width:8px;height:8px"></span>A lacuna do mercado é a ponte. É nela que montamos o portfólio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide paper" id="depara" data-t="De serviços a produtos" data-chap="Portfólio" data-chapter="02|O portfólio|O que mantemos, o que remodelamos, o que fundimos, o que sai e o que nasce." data-fx="37|Before / After Slider|moderada" data-fxwhy="Os dois portfólios têm a mesma estrutura, coluna por coluna. Arrastar o divisor mostra cada momento do deal virando produto, sem trocar de slide." data-src="Deck comercial A&amp;M DTS (portfólio IT M&amp;A); A&amp;M PE Services (nomes globais: IT Due Diligence, Software Product and Technology Diligence, Merger Integration &amp; Carve-Out); benchmarks PwC, EY-Parthenon e Deloitte" data-desc="Comparação direta entre o portfólio de IT M&amp;A do deck comercial e o novo portfólio. Cada serviço antigo mostra seu destino: mantido, remodelado, fundido ou removido. O lado novo mostra os produtos por momento do deal e o que é novo. Abaixo, o que sai do portfólio e por quê.">
+  <div class="body">
+    <div class="dp-head">
+      <div><div class="eyebrow" data-a="fade">De serviços a produtos</div><h2 class="h2 kin" style="margin-top:10px">Mesmo ciclo de deal. <span class="hl">Outra linha de produtos.</span></h2></div>
+      <div class="dp-hint" data-a="fade" style="--d:6"><span class="dp-l">Portfólio do deck comercial</span><span class="dp-arrow">arraste o divisor</span><span class="dp-r">Portfólio novo</span></div>
+    </div>
+    <div class="ba dp-ba noswipe" id="dpBA" tabindex="0" aria-label="Divisor antes e depois: use as setas" data-a="fade" style="--d:3">
+      <div class="pane before">
+        <div class="dp-cols">
+          <div class="dp-col"><span class="dp-mo">Decidir</span>
+            <div class="dp-it"><b>IT M&amp;A Playbook</b><span class="tag t-keep">Mantido</span></div>
+            <div class="dp-it"><b>IT Due Diligence (Buy Side)</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it"><b>IT Due Diligence (Buy Side VC) e VMaaS</b><span class="tag t-merge">Fundido</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Separar</span>
+            <div class="dp-it"><b>IT Separation Strategy &amp; Design</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it"><b>IT Integration &amp; Separation Planning (Day 1 e 100 dias)</b><span class="tag t-remodel">Remodelado</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Integrar</span>
+            <div class="dp-it"><b>IT Integration Management Office</b><span class="tag t-merge">Fundido</span></div>
+            <div class="dp-it"><b>IT Separation Management Office</b><span class="tag t-merge">Fundido</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Valorizar</span>
+            <div class="dp-it"><b>IT Synergies &amp; Value Creation (as a Service)</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it"><b>IT Due Diligence (Sell Side)</b><span class="tag t-remodel">Remodelado</span></div>
+          </div>
+        </div>
+        <div class="dp-base"><span class="label">Base do método</span><span>Seis competências: pessoas, governança, segurança com light pentest, infraestrutura, sistemas e digital (redes sociais e e-commerce)</span></div>
+      </div>
+      <div class="pane after">
+        <div class="dp-cols">
+          <div class="dp-col"><span class="dp-mo">Decidir</span>
+            <div class="dp-it" data-goto="prod-playbook"><b>Tech M&amp;A Playbook</b><span class="tag t-keep">Mantido</span></div>
+            <div class="dp-it" data-goto="prod-itdd"><b>IT Due Diligence · Red Flag e 360</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it" data-goto="prod-lentes"><b>Software Product &amp; Technology Diligence</b><span class="tag t-new">Novo</span></div>
+            <div class="dp-it" data-goto="prod-lentes"><b>AI Due Diligence</b><span class="tag t-new">Novo</span></div>
+            <div class="dp-it" data-goto="prod-lentes"><b>Cyber &amp; Data Due Diligence</b><span class="tag t-new">Novo</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Separar</span>
+            <div class="dp-it" data-goto="prod-dayone"><b>IT Separation &amp; TSA Design</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it" data-goto="prod-dayone"><b>Day One Blueprint</b><span class="tag t-remodel">Remodelado</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Integrar</span>
+            <div class="dp-it" data-goto="prod-office"><b>Integration &amp; Separation Office</b><span class="tag t-keep">Mantido</span></div>
+          </div>
+          <div class="dp-col"><span class="dp-mo">Valorizar</span>
+            <div class="dp-it" data-goto="prod-valor"><b>Tech Value Creation</b><span class="tag t-remodel">Remodelado</span></div>
+            <div class="dp-it" data-goto="prod-valor"><b>Exit Tech Readiness</b><span class="tag t-remodel">Remodelado</span></div>
+          </div>
+        </div>
+        <div class="dp-base" data-goto="prod-twin"><span class="label">Base do método</span><span><b>A&amp;M Deal Twin</b>, o gêmeo digital do parque tecnológico do alvo, com oito lentes, IA e evidência rastreável</span><span class="tag t-new">Novo</span></div>
+      </div>
+      <div class="handle"><div class="knob">⇆</div></div>
+    </div>
+    <div class="dp-out" data-a="up" style="--d:8">
+      <span class="label">Sai do portfólio</span>
+      <div><b>VMaaS como modelo comercial</b><span>Pacotes On Demand, Package e Full Cycle davam nome a contratos, não a produtos. O valor migra para o Tech Value Creation.</span></div>
+      <div><b>Lente "Digital" de redes sociais e e-commerce</b><span>Vira a lente Digital e cliente, que olha produto, dados de cliente e receita digital.</span></div>
+      <div><b>Assessment de maturidade digital por disciplinas</b><span>Substituído pela leitura de prontidão para IA e dados, que é o que o comprador precifica hoje.</span></div>
+      <div><b>Light pentest como prova de segurança</b><span>Dá lugar à exposição externa sem tocar no alvo e à diligência de dados pessoais.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="sistema" data-t="O sistema de produtos" data-chap="Portfólio" data-fx="18|Connector / Flow Line|moderada" data-fxwhy="Os conectores se desenham de cada produto até o fio e passam a fluir: o slide mostra que os produtos não são um catálogo solto, e sim estações de uma mesma linha." data-src="Proposta de portfólio A&amp;M DTS; nomes alinhados à oferta global A&amp;M (IT Due Diligence; Software Product and Technology Diligence; Merger Integration &amp; Carve-Out)" data-desc="A página única do novo portfólio. Os produtos estão organizados pelos quatro momentos do deal e ligados ao A&amp;M Deal Twin, o gêmeo digital do parque tecnológico do alvo que acompanha o deal do pré-signing ao exit. Toque em um produto para abrir a página dele.">
+  <div class="body">
+    <div class="sy-head">
+      <div><div class="eyebrow" data-a="fade">O portfólio em uma página</div><h2 class="h2 kin" style="margin-top:10px">Um sistema, não um catálogo. <span class="hl">Cada produto entrega ao próximo.</span></h2></div>
+      <div class="sy-leg" data-a="fade" style="--d:6"><span class="tag t-keep">Mantido</span><span class="tag t-remodel">Remodelado</span><span class="tag t-new">Novo</span><span class="small">Toque para abrir</span></div>
+    </div>
+    <div class="sy-map" id="syMap">
+      <svg class="sy-svg" id="sySvg" aria-hidden="true"></svg>
+      <div class="sy-cols">
+        <div class="sy-col sy-wide" data-a="up" style="--d:2"><span class="sy-mo"><b>Decidir</b>estratégia e pré-deal</span>
+          <div class="sy-grid2">
+            <button class="sy-t" data-goto="prod-playbook" data-ico="book"><span><b>Tech M&amp;A Playbook</b><em>O método da A&amp;M dentro de casa</em></span><i class="tag t-keep">Mantido</i></button>
+            <button class="sy-t" data-goto="prod-itdd" data-ico="search"><span><b>IT Due Diligence</b><em>Red Flag em dias ou 360 completo</em></span><i class="tag t-remodel">Remodelado</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="code"><span><b>Software Product &amp; Technology Diligence</b><em>Código, produto e custo de escalar</em></span><i class="tag t-new">Novo</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="ai"><span><b>AI Due Diligence</b><em>A IA do alvo é real e defensável?</em></span><i class="tag t-new">Novo</i></button>
+            <button class="sy-t" data-goto="prod-lentes" data-ico="shield"><span><b>Cyber &amp; Data Due Diligence</b><em>Exposição e dados antes do closing</em></span><i class="tag t-new">Novo</i></button>
+            <div class="sy-note">Lentes especializadas vendidas sozinhas ou somadas ao IT Due Diligence</div>
+          </div></div>
+        <div class="sy-col" data-a="up" style="--d:4"><span class="sy-mo"><b>Separar</b>do signing ao Day 1</span>
+          <button class="sy-t" data-goto="prod-dayone" data-ico="split"><span><b>IT Separation &amp; TSA Design</b><em>Dependências em grafo e TSA com saída</em></span><i class="tag t-remodel">Remodelado</i></button>
+          <button class="sy-t" data-goto="prod-dayone" data-ico="calendar"><span><b>Day One Blueprint</b><em>Do achado ao plano executável</em></span><i class="tag t-remodel">Remodelado</i></button>
+        </div>
+        <div class="sy-col" data-a="up" style="--d:6"><span class="sy-mo"><b>Integrar</b>Day 1 e 100 dias</span>
+          <button class="sy-t" data-goto="prod-office" data-ico="pulse"><span><b>Integration &amp; Separation Office</b><em>Execução com centro de comando e agentes</em></span><i class="tag t-keep">Mantido</i></button>
+          <div class="sy-note">IMO ou SMO num mesmo produto, também como serviço para plataformas de roll-up</div>
+        </div>
+        <div class="sy-col" data-a="up" style="--d:8"><span class="sy-mo"><b>Valorizar</b>hold e exit</span>
+          <button class="sy-t" data-goto="prod-valor" data-ico="chart"><span><b>Tech Value Creation</b><em>O valor que o hold precisa entregar</em></span><i class="tag t-remodel">Remodelado</i></button>
+          <button class="sy-t" data-goto="prod-valor" data-ico="rocket"><span><b>Exit Tech Readiness</b><em>Pronta para ser diligenciada</em></span><i class="tag t-remodel">Remodelado</i></button>
+        </div>
+      </div>
+      <button class="sy-twin" id="syTwin" data-goto="prod-twin" data-a="up" style="--d:10"><span class="sy-tw-l"><span class="label">A base de tudo</span><b>A&amp;M Deal Twin</b></span><span class="sy-tw-c">O gêmeo digital do parque tecnológico do alvo. Nasce na diligência e carrega cada achado, dependência e decisão até o exit.</span><i class="tag t-new">Novo</i></button>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-playbook" data-t="Tech M&amp;A Playbook" data-chap="Produtos" data-chapter="03|Os produtos|Diligência, separação, integração e valor, com IA e com o operador da A&amp;M ao lado do cliente." data-fx="03|Hologram 3D Cards|moderada" data-fxwhy="O produto é apresentado como um objeto: o card responde ao cursor e o apresentador o 'pega' ao falar dele." data-src="Deck comercial A&amp;M DTS (IT M&amp;A Playbook); Chambers PE 2025 Brazil (buy-and-build); A&amp;M European PE Value Creation Report 2026" data-desc="Produto para compradores seriais e plataformas de buy-and-build. Mantém o IT M&amp;A Playbook do nosso portfólio e o transforma em um playbook vivo, com copiloto de IA, para que cada aquisição comece do ponto em que a anterior terminou.">
+  <div class="body">
+    <div class="p-wrap">
+      <div class="p-hero">
+        <div class="holo-scene" data-a="zoom" style="--d:1">
+          <div class="holo" id="holoPlay"><div class="glare"></div><div class="sweep"></div>
+            <div class="in">
+              <div class="hd" data-depth="20"><span class="tag t-keep">Mantido e evoluído</span><span class="pulse"></span></div>
+              <div data-depth="34"><div class="p-ph" style="margin-top:22px">Estratégia de M&amp;A · antes do primeiro deal</div><div class="p-name">Tech M&amp;A Playbook<small>com copiloto de IA</small></div></div>
+              <p class="p-tag" data-depth="22">O método da A&amp;M dentro de casa, para quem compra de forma recorrente.</p>
+              <div data-depth="18" style="margin-top:18px"><span class="label">Momentos que o playbook cobre</span><div class="pl-track"><span>Tese</span><i></i><span>Diligência</span><i></i><span>Day 1</span><i></i><span>Integração</span></div></div>
+              <div class="p-who" data-depth="14"><span>Compradores seriais</span><span>Plataformas de buy-and-build</span><span>Times de TI e de M&amp;A</span></div>
+              <div class="p-from" data-depth="8">Evolui de <b>IT M&amp;A Playbook</b></div>
+            </div></div>
+        </div>
+        <div class="p-why" data-a="up" style="--d:9"><span data-ico="hand"></span><span><b>Por que A&amp;M:</b> o playbook nasce dos nossos projetos de diligência, separação e integração, não de um template genérico.</span></div>
+      </div>
+      <div class="p-right">
+        <div class="p-sec p-problem" data-a="up" style="--d:2"><span class="label">O problema</span><p class="stmt">Cada aquisição recomeça do zero. A TI entra tarde, sem padrão de diligência, de Day 1 ou de integração.</p></div>
+        <div class="p-sec" data-a="up" style="--d:4"><span class="label">O que o cliente recebe</span>
+          <div class="p-get">
+            <div><span data-ico="book"></span><span><b>Playbook por momento do deal</b>Da tese ao Day 1, com papéis e decisões claras.</span></div>
+            <div><span data-ico="check"></span><span><b>Kit pronto para usar</b>Data request, checklist de tomada de controle e matriz de riscos.</span></div>
+            <div><span data-ico="people"></span><span><b>Time de TI capacitado</b>Simulações com deals reais e governança do escritório interno.</span></div>
+            <div><span data-ico="ai"></span><span><b>Copiloto do playbook</b>Responde ao time e gera artefatos a partir da tese de cada deal.</span></div>
+          </div></div>
+        <div class="p-sec" data-a="up" style="--d:6"><span class="label">Como a IA trabalha</span>
+          <div class="p-ai">
+            <div><i data-ico="target"></i><b>Lê a tese</b><span>e o perfil do alvo</span></div>
+            <div><i data-ico="doc"></i><b>Monta o kit</b><span>data request, checklist e charters sob medida</span></div>
+            <div><i data-ico="search"></i><b>Responde ao time</b><span>com citação do trecho do playbook</span></div>
+            <div><i data-ico="spark"></i><b>Aprende a cada deal</b><span>e atualiza o playbook</span></div>
+          </div></div>
+        <div class="p-sec" data-a="up" style="--d:8"><span class="label">Resultado para o cliente</span>
+          <div class="p-out"><div>Cada aquisição começa de onde a anterior terminou</div><div>TI na mesa antes do signing, não depois do closing</div><div>Integrações mais rápidas a cada nova aquisição</div></div></div>
+        <div class="p-tech" data-a="fade" style="--d:10"><span class="tech">A&amp;M Assist</span><span class="tech">LLM em ambiente privado</span><span class="tech">RAG com citação</span><span class="tech">Biblioteca de templates A&amp;M</span><span class="tech">Conectado ao A&amp;M Deal Twin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-itdd" data-t="IT Due Diligence" data-chap="Produtos" data-fx="03|Hologram 3D Cards|moderada" data-fxwhy="O card do produto responde ao cursor; o seletor Red Flag ou 360 é uma microinteração (dose sutil) que troca o conteúdo no mesmo lugar, sem trocar de slide." data-src="Deck comercial A&amp;M DTS (IT DD Buy Side e Buy Side VC); A&amp;M PE Services (IT Due Diligence); PwC Technology due diligence (red-flag e full-scope); KPMG Tech DD; EY-Parthenon IT due diligence; Deloitte Tech DD com CAST" data-desc="O produto central de diligência para o comprador, em dois formatos: Red Flag, para leilões e janelas curtas, e 360, para a visão completa que vira preço, contrato e plano de 100 dias. Funde o IT DD Buy Side e o IT DD Buy Side VC do nosso portfólio e alinha o nome à oferta global da A&amp;M.">
+  <div class="body">
+    <div class="p-wrap">
+      <div class="p-hero">
+        <div class="holo-scene" data-a="zoom" style="--d:1">
+          <div class="holo" id="holoDD"><div class="glare"></div><div class="sweep"></div>
+            <div class="in">
+              <div class="hd" data-depth="20"><span class="tag t-remodel">Remodelado</span><span class="pulse"></span></div>
+              <div data-depth="34"><div class="p-ph" style="margin-top:22px">Pré-deal · lado do comprador</div><div class="p-name">IT Due Diligence<small>Red Flag e 360</small></div></div>
+              <p class="p-tag" data-depth="22">A tecnologia do alvo traduzida em decisão, preço e plano de 100 dias.</p>
+              <div class="dd-lens" data-depth="16"><span class="label">Lentes da diligência</span><div><span>Pessoas e organização</span><span>Governança e finanças de TI</span><span>Infraestrutura e nuvem</span><span>Sistemas e arquitetura</span><span>Segurança e privacidade</span><span>Dados e IA</span><span>Software e produto</span><span>Digital e cliente</span></div></div>
+              <div class="p-from" data-depth="8">Funde <b>IT DD Buy Side</b> e <b>IT DD Buy Side VC</b></div>
+            </div></div>
+        </div>
+        <div class="p-why" data-a="up" style="--d:9"><span data-ico="hand"></span><span><b>Por que A&amp;M:</b> quem diligencia é quem assume o Day 1. O achado já nasce com dono e com plano.</span></div>
+      </div>
+      <div class="p-right">
+        <div class="p-sec p-problem" data-a="up" style="--d:2"><span class="label">O problema</span><p class="stmt">A janela de exclusividade encurtou. O comprador precisa precificar a tecnologia antes de assinar, com achados que resistam à negociação.</p></div>
+        <div class="p-sec" data-a="up" style="--d:4"><span class="label">Dois formatos, o mesmo método</span>
+          <div class="dd-seg seg2" role="tablist"><button class="on" data-f="rf">Red Flag</button><button data-f="f360">360</button><span class="dd-hint">deal breakers em dias · ou a visão completa</span></div>
+          <div class="p-get dd-pane on" data-p="rf">
+            <div><span data-ico="flag"></span><span><b>Deal breakers de tecnologia</b>O que pode travar, encarecer ou atrasar o deal.</span></div>
+            <div><span data-ico="contract"></span><span><b>Perguntas para o SPA</b>Garantias, condições e ajustes que protegem o preço.</span></div>
+            <div><span data-ico="route"></span><span><b>Seguir, ajustar ou aprofundar</b>Uma recomendação clara para o comitê de investimento.</span></div>
+            <div><span data-ico="layers"></span><span><b>Escopo da diligência completa</b>Se o deal seguir, onde aprofundar e com quais lentes.</span></div>
+          </div>
+          <div class="p-get dd-pane" data-p="f360">
+            <div><span data-ico="gauge"></span><span><b>Saúde tecnológica comparável</b>O mesmo critério para todos os alvos e investidas.</span></div>
+            <div><span data-ico="coin"></span><span><b>Riscos em preço e contrato</b>Investimentos e custos por cenário, prontos para o modelo.</span></div>
+            <div><span data-ico="graph"></span><span><b>Mapa do parque e das dependências</b>Sistemas, dados, contratos e pessoas-chave.</span></div>
+            <div><span data-ico="calendar"></span><span><b>Plano de 100 dias que nasce aqui</b>Iniciativas com dono para o Day One Blueprint.</span></div>
+          </div></div>
+        <div class="p-sec" data-a="up" style="--d:6"><span class="label">Como a IA trabalha</span>
+          <div class="p-ai">
+            <div><i data-ico="db"></i><b>Lê o data room</b><span>documentos, contratos, inventários e entrevistas</span></div>
+            <div><i data-ico="graph"></i><b>Monta o mapa</b><span>sistemas, licenças, fornecedores e dependências</span></div>
+            <div><i data-ico="search"></i><b>Cruza e sinaliza</b><span>red flags com a evidência de origem citada</span></div>
+            <div><i data-ico="shield"></i><b>Especialista assina</b><span>a IA propõe, o sênior da A&amp;M decide</span></div>
+          </div></div>
+        <div class="p-sec" data-a="up" style="--d:8"><span class="label">Resultado para o cliente</span>
+          <div class="p-out"><div>Seguir ou não com convicção, antes do signing</div><div>Riscos de tecnologia traduzidos em preço e cláusulas</div><div>Um plano de 100 dias que já existe no closing</div></div></div>
+        <div class="p-tech" data-a="fade" style="--d:10"><span class="tech">A&amp;M DiligenceGPT</span><span class="tech">Agentes por lente</span><span class="tech">RAG com citação</span><span class="tech">Conectores MCP de data room</span><span class="tech">A&amp;M Deal Twin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-lentes" data-t="Lentes especializadas" data-chap="Produtos" data-fx="22|Expandable Card|moderada" data-fxwhy="Três produtos novos na mesma página sem virar parede de texto: só um card fica aberto por vez e os outros dois mostram apenas a pergunta que respondem. O apresentador abre o que interessa ao cliente." data-src="A&amp;M PE Services (Software Product and Technology Diligence); EY-Parthenon (AI, IT, product &amp; technology e cyber due diligence); PwC AI and Technology Diligence; KPMG The AI blind spot in M&amp;A; Deloitte Tech DD com CAST, Digital Footprint Analysis e AI Due Diligence; Black Duck OSSRA 2026; Cisco AI BOM; Kroll Cyber Due Diligence; A&amp;M AI Token Economics; LGPD (Lei 13.709/2018); Lei 9.610/1998" data-desc="Três lentes novas que respondem às perguntas que mais mexem no preço hoje: o software do alvo escala e é dele, a IA declarada é real e defensável, e a exposição de cyber e dados pessoais é conhecida antes do closing. Cada lente é vendida sozinha ou somada ao IT Due Diligence. Toque em um card para abri-lo.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Lentes especializadas · pré-deal</div><h2 class="h2 kin" style="margin-top:10px">Três perguntas que hoje <span class="hl">decidem o preço.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Vendidas sozinhas, para quem já tem uma diligência de TI, ou somadas ao IT Due Diligence. Mesmo método, mesmo A&amp;M Deal Twin.</p>
+    </div>
+    <div class="ln-row" id="lnRow">
+      <article class="ln-card open" data-a="up" style="--d:2" tabindex="0">
+        <div class="ln-closed"><span data-ico="code"></span><span class="tag t-new">Novo</span><b>Software Product &amp; Technology Diligence</b><em>O software escala e é do alvo?</em><span class="ln-peek"><i>Saúde do código</i><i>PI e open source</i><i>Custo de escalar</i><i>Produto e engenharia</i></span><span class="ln-open">Abrir</span></div>
+        <div class="ln-full">
+          <div class="ln-top"><span data-ico="code" class="ln-bigico"></span><span class="tag t-new ln-ctag">Novo · lente especializada</span><div><div class="ln-name">Software Product &amp; Technology Diligence</div><div class="ln-q">O software escala, é do alvo e cabe no plano?</div></div></div>
+          <p class="ln-prob">Em empresas de software e plataformas digitais, o código é o ativo. O comprador precisa saber quanto custa mantê-lo, quem é dono dele e se ele aguenta o crescimento da tese.</p>
+          <div class="ln-cols">
+            <div><span class="label">O que o cliente recebe</span>
+              <ul class="ln-list">
+                <li><span data-ico="code"></span><span><b>Saúde do código e dívida técnica</b>Qualidade, segurança, código gerado por IA e esforço real de manutenção.</span></li>
+                <li><span data-ico="contract"></span><span><b>Propriedade intelectual e open source</b>Cessão de direitos, licenças restritivas e componentes de terceiros.</span></li>
+                <li><span data-ico="cloud"></span><span><b>Arquitetura e custo de escalar</b>O que muda na nuvem e no time quando a base de clientes cresce.</span></li>
+                <li><span data-ico="people"></span><span><b>Produto e engenharia</b>Roadmap, pessoas-chave e capacidade de entrega do time.</span></li>
+              </ul></div>
+            <div><span class="label">Como a IA trabalha</span>
+              <ol class="ln-steps">
+                <li><b>Lê o repositório</b> em ambiente controlado, sem o código sair do alvo</li>
+                <li><b>Mapeia dependências e licenças</b> e gera a lista de componentes</li>
+                <li><b>Aponta riscos</b> com o trecho de código citado</li>
+                <li><b>O especialista valida</b> e traduz em preço e cláusula</li>
+              </ol></div>
+          </div>
+          <div class="ln-out"><span class="label">Resultado</span><div><span>Preço que reflete a dívida técnica real</span><span>PI e pessoas-chave protegidas no contrato</span><span>Roadmap de produto que cabe no plano</span></div></div>
+          <div class="p-tech"><span class="tech">Análise estática de código</span><span class="tech">SCA e SBOM</span><span class="tech">Métricas de engenharia</span><span class="tech">Análise sem o código sair do alvo</span></div>
+        </div>
+      </article>
+      <article class="ln-card" data-a="up" style="--d:4" tabindex="0">
+        <div class="ln-closed"><span data-ico="ai"></span><span class="tag t-new">Novo</span><b>AI Due Diligence</b><em>A IA do alvo é real e defensável?</em><span class="ln-peek"><i>Inventário de IA</i><i>Defensabilidade</i><i>Economia da IA</i><i>Governança e regulação</i></span><span class="ln-open">Abrir</span></div>
+        <div class="ln-full">
+          <div class="ln-top"><span data-ico="ai" class="ln-bigico"></span><span class="tag t-new ln-ctag">Novo · lente especializada</span><div><div class="ln-name">AI Due Diligence</div><div class="ln-q">A IA que justifica o múltiplo é real, é do alvo e se paga?</div></div></div>
+          <p class="ln-prob">A IA virou argumento de valuation. O comprador precisa separar capacidade proprietária de demonstração sobre a API de um fornecedor, antes de pagar por ela.</p>
+          <div class="ln-cols">
+            <div><span class="label">O que o cliente recebe</span>
+              <ul class="ln-list">
+                <li><span data-ico="layers"></span><span><b>Inventário de IA</b>Modelos, casos de uso, fornecedores e onde a IA toca a receita.</span></li>
+                <li><span data-ico="lock"></span><span><b>Defensabilidade</b>Dados próprios, dependência de fornecedor e risco de o produto ser replicado com IA.</span></li>
+                <li><span data-ico="coin"></span><span><b>Economia da IA</b>Custo por tarefa concluída frente ao valor que a IA gera.</span></li>
+                <li><span data-ico="shield"></span><span><b>Governança e regulação</b>Direito de uso dos dados, vieses, AI Act e o marco legal brasileiro.</span></li>
+              </ul></div>
+            <div><span class="label">Como a IA trabalha</span>
+              <ol class="ln-steps">
+                <li><b>Lê contratos de API</b>, documentação de modelos e políticas de dados</li>
+                <li><b>Testa a IA declarada</b> com cenários reais do negócio</li>
+                <li><b>Compara com o mercado</b> o que é proprietário e o que é commodity</li>
+                <li><b>O especialista valida</b> e separa promessa de capacidade</li>
+              </ol></div>
+          </div>
+          <div class="ln-out"><span class="label">Resultado</span><div><span>IA precificada pelo que é, não pelo que promete</span><span>Riscos de fornecedor e de dados no contrato</span><span>Um plano para escalar a IA no hold</span></div></div>
+          <div class="p-tech"><span class="tech">AI BOM</span><span class="tech">Avaliação de modelos</span><span class="tech">Token economics</span><span class="tech">Teste de replicabilidade</span><span class="tech">IA responsável</span></div>
+        </div>
+      </article>
+      <article class="ln-card" data-a="up" style="--d:6" tabindex="0">
+        <div class="ln-closed"><span data-ico="shield"></span><span class="tag t-new">Novo</span><b>Cyber &amp; Data Due Diligence</b><em>Qual exposição o comprador herda no closing?</em><span class="ln-peek"><i>Exposição externa</i><i>Credenciais vazadas</i><i>Controles e resposta</i><i>Dados pessoais e LGPD</i></span><span class="ln-open">Abrir</span></div>
+        <div class="ln-full">
+          <div class="ln-top"><span data-ico="shield" class="ln-bigico"></span><span class="tag t-new ln-ctag">Novo · lente especializada</span><div><div class="ln-name">Cyber &amp; Data Due Diligence</div><div class="ln-q">Qual exposição de cyber e de dados o comprador herda no closing?</div></div></div>
+          <p class="ln-prob">Um incidente depois do closing é problema do comprador. A exposição precisa ser medida antes, sem depender só do que o alvo declara no data room.</p>
+          <div class="ln-cols">
+            <div><span class="label">O que o cliente recebe</span>
+              <ul class="ln-list">
+                <li><span data-ico="eye"></span><span><b>Exposição externa</b>A superfície de ataque vista de fora, sem tocar no ambiente do alvo.</span></li>
+                <li><span data-ico="search"></span><span><b>Credenciais e dados vazados</b>O que já circula sobre o alvo em fóruns e bases expostas.</span></li>
+                <li><span data-ico="gauge"></span><span><b>Controles e resposta</b>Identidade, backup, monitoramento e histórico de incidentes.</span></li>
+                <li><span data-ico="db"></span><span><b>Dados pessoais e LGPD</b>Base legal, compartilhamentos e incidentes comunicados à ANPD.</span></li>
+              </ul></div>
+            <div><span class="label">Como a IA trabalha</span>
+              <ol class="ln-steps">
+                <li><b>Varre a superfície externa</b> e fontes de vazamento</li>
+                <li><b>Lê políticas e contratos</b> de tratamento de dados</li>
+                <li><b>Prioriza a exposição</b> pelo impacto no negócio</li>
+                <li><b>O especialista valida</b> e define o que entra no Day 1</li>
+              </ol></div>
+          </div>
+          <div class="ln-out"><span class="label">Resultado</span><div><span>Custo de remediação dentro do modelo</span><span>Proteção no contrato e no seguro de R&amp;W</span><span>Plano de cyber pronto para o Day 1</span></div></div>
+          <div class="p-tech"><span class="tech">Varredura outside-in</span><span class="tech">Security ratings</span><span class="tech">Monitoramento de dark web</span><span class="tech">Mapeamento de dados pessoais</span><span class="tech">NIST CSF</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-dayone" data-t="Separação e Day 1" data-chap="Produtos" data-fx="29|Morphing Shapes|moderada" data-fxwhy="O mesmo parque de TI muda de forma em três estados: emaranhado, Day 1 com TSA e independente. O cliente vê a separação acontecer, em vez de ler um diagrama estático; o fio laranja tracejado é o TSA, que some quando a saída acontece." data-src="Deck comercial A&amp;M DTS (IT Separation Strategy &amp; Design; IT Integration &amp; Separation Planning, Day 1 e 100 dias); A&amp;M Merger Integration &amp; Carve-Out; PwC Divestitures &amp; Separations e The Accelerated Transition; Deloitte M&amp;A Platform" data-desc="Dois produtos do signing ao Day 1. O IT Separation &amp; TSA Design mapeia o entrelaçamento em grafo, escolhe a estratégia de cada sistema e desenha TSAs que já nascem com saída. O Day One Blueprint transforma os achados da diligência em um plano executável para operar sem ruptura desde o primeiro dia. Use o seletor para ver o parque mudar de forma.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Separar · do signing ao Day 1</div><h2 class="h2 kin" style="margin-top:10px">Separar sem parar. <span class="hl">TSA com porta de saída.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Em carve-outs, a TI é o que mais prende o vendedor ao ativo. Os dois produtos tiram a NewCo do emaranhado sem que o cliente perceba.</p>
+    </div>
+    <div class="mo-wrap">
+      <div class="mo-panel" data-a="zoom" style="--d:2">
+        <div class="mo-bar"><div class="seg2 mo-seg" id="moSeg"><button class="on" data-s="0">Hoje</button><button data-s="1">Day 1</button><button data-s="2">Saída do TSA</button></div><div class="mo-leg"><span><i class="lg-s"></i>Vendedor</span><span><i class="lg-n"></i>NewCo</span><span><i class="lg-t"></i>TSA</span></div></div>
+        <svg class="mo-svg" id="moSvg" viewBox="0 0 760 440" aria-label="Parque de TI mudando de forma entre emaranhado, Day 1 e independente"></svg>
+        <p class="mo-cap" id="moCap"></p>
+      </div>
+      <div class="mo-prods">
+        <article class="mo-p" data-a="left" style="--d:4">
+          <div class="mo-ph"><span data-ico="split" class="mo-pico"></span><div><b>IT Separation &amp; TSA Design</b><span>Evolui de IT Separation Strategy &amp; Design</span></div><span class="tag t-remodel">Remodelado</span></div>
+          <p class="mo-prob">O emaranhado vira grafo; cada sistema ganha uma estratégia, e cada TSA, uma saída.</p>
+          <div class="mo-get"><span data-ico="graph">Mapa de entrelaçamento em grafo</span><span data-ico="route">Clonar, migrar, reconstruir ou contratar</span><span data-ico="contract">TSAs com escopo, nível de serviço e saída</span><span data-ico="coin">Custo stand-alone visível antes do preço</span></div>
+          <p class="mo-ai"><b>IA:</b> lê inventários, contratos e chamados para montar o grafo, sugere a estratégia de cada sistema e redige os anexos de TSA para a revisão jurídica.</p>
+        </article>
+        <article class="mo-p" data-a="left" style="--d:6">
+          <div class="mo-ph"><span data-ico="calendar" class="mo-pico"></span><div><b>Day One Blueprint</b><span>Evolui de IT Integration &amp; Separation Planning</span></div><span class="tag t-remodel">Remodelado</span></div>
+          <p class="mo-prob">O Day 1 falha nos detalhes: um acesso que não existe, uma nota que não sai, um cliente sem atendimento.</p>
+          <div class="mo-get"><span data-ico="check">Day 1 por processo crítico do negócio</span><span data-ico="layers">Runbook de cutover e ensaios</span><span data-ico="flag">Plano de 100 dias com dono por iniciativa</span><span data-ico="shield">Contingência para cada risco</span></div>
+          <p class="mo-ai"><b>IA:</b> transforma achados da diligência em iniciativas, gera runbooks e checklists e simula o Day 1 contra faturar, pagar, vender e atender.</p>
+        </article>
+      </div>
+    </div>
+    <div class="mo-out" data-a="up" style="--d:8"><span class="label">Resultado para o cliente</span><div><span>Day 1 sem ruptura em faturamento, clientes e folha</span><span>TSA com saída desenhada antes de assinar</span><span>Achados da diligência viram plano com dono</span></div></div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-office" data-t="Integration &amp; Separation Office" data-chap="Produtos" data-fx="06|Glow / Light Sweep|moderada" data-fxwhy="O produto é mostrado como uma tela viva: a luz varre o centro de comando e as mensagens dos agentes entram uma a uma, como num dia real de integração. O cliente enxerga o produto funcionando, não um organograma de PMO." data-src="Deck comercial A&amp;M DTS (IT IMO e IT SMO); A&amp;M Merger Integration &amp; Carve-Out e Interim Management; PwC Junction (digital command center); EY-Parthenon Edge; Deloitte M&amp;A Platform; PwC M&amp;A Integration Survey 2026" data-desc="O escritório que conduz integração ou separação com governança, ritmo de decisão e um centro de comando com agentes de IA. Funde o IMO e o SMO de TI do nosso portfólio em um único produto, também oferecido como serviço contínuo para plataformas de buy-and-build. A tela à direita é ilustrativa.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Integrar · Day 1 e 100 dias</div><h2 class="h2 kin" style="margin-top:10px">Dono, ritmo e <span class="hl">centro de comando.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Integração e separação correm junto com o negócio. Sem um escritório que decide, o plano vira lista de tarefas e o valor escorre.</p>
+    </div>
+    <div class="of-wrap">
+      <div class="of-left">
+        <div class="of-id" data-a="up" style="--d:2"><div class="of-idh"><span data-ico="pulse" class="mo-pico"></span><span class="tag t-keep">Mantido e evoluído</span></div><b>Integration &amp; Separation Office</b><span class="of-from">Funde <b>IT IMO</b> e <b>IT SMO</b></span><div class="p-who"><span>Compradores</span><span>Vendedores em carve-out</span><span>Plataformas de buy-and-build</span></div></div>
+        <div class="p-sec" data-a="up" style="--d:4"><span class="label">O que o cliente recebe</span>
+          <ul class="of-list">
+            <li><span data-ico="people"></span><span><b>Governança e ritmo de decisão</b>Comitês, donos e escalonamento que funcionam desde o primeiro dia.</span></li>
+            <li><span data-ico="gauge"></span><span><b>Centro de comando</b>Status por frente, riscos e dependências numa só tela.</span></li>
+            <li><span data-ico="ai"></span><span><b>Agentes que antecipam desvios</b>Leem atas, planos e chamados e avisam antes do problema.</span></li>
+            <li><span data-ico="contract"></span><span><b>TSAs e sinergias até o fim</b>Cada TSA encerrado e cada sinergia de TI capturada.</span></li>
+          </ul></div>
+        <div class="p-why" data-a="up" style="--d:6"><span data-ico="hand"></span><span><b>Por que A&amp;M:</b> quem lidera o escritório já ocupou cadeiras de CIO e de PMO interinos. Decide, não só reporta.</span></div>
+      </div>
+      <div class="of-screen" data-a="zoom" style="--d:3">
+        <div class="of-win">
+          <div class="of-tb"><i></i><i></i><i></i><span>Integration &amp; Separation Office · Projeto Atlas</span><em><span class="beacon" style="width:7px;height:7px"></span>Ao vivo</em></div>
+          <div class="of-app">
+            <nav class="of-nav"><span class="label">Frentes</span>
+              <span><i class="ok"></i>Aplicações</span><span><i class="ok"></i>Infraestrutura</span><span><i class="at"></i>Dados</span><span><i class="ok"></i>Cyber</span><span><i class="at"></i>Pessoas</span><span class="sel"><i class="cr"></i>TSA e contratos</span><span><i class="ok"></i>Sinergias</span></nav>
+            <div class="of-main">
+              <div class="of-card"><span class="label">Caminho crítico do Day 1</span>
+                <div class="of-cp"><span><b>Faturamento na NewCo</b><em class="ok">Ensaiado</em></span><span><b>Acesso dos usuários</b><em class="ok">Pronto</em></span><span><b>Folha de pagamento</b><em class="at">Em ensaio</em></span><span><b>Saída do ERP do vendedor</b><em class="cr">Em risco</em></span></div></div>
+              <div class="of-card"><span class="label">Decisões para o comitê</span>
+                <div class="of-dc"><span><i>CF</i>Estender o TSA do ERP ou antecipar a migração</span><span><i>RL</i>Aprovar a nuvem da NewCo como padrão</span><span><i>MA</i>Reter o time de dados até o cutover</span></div></div>
+              <div class="of-card"><span class="label">TSAs ativos</span>
+                <div class="of-cp of-tsa"><span><b>Service desk</b><em class="ok">Saída planejada</em></span><span><b>ERP e financeiro</b><em class="cr">Extensão em análise</em></span><span><b>Rede e telecom</b><em class="ok">Encerrado</em></span></div></div>
+            </div>
+            <aside class="of-feed" id="ofFeed"><span class="label">Agentes</span></aside>
+          </div>
+          <div class="of-sweep"></div>
+        </div>
+        <div class="of-out" data-a="up" style="--d:8"><span>Decisões no ritmo do deal</span><span>Riscos vistos antes de virar incidente</span><span>Sinergias de TI acompanhadas até a captura</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-valor" data-t="Valor no hold e no exit" data-chap="Produtos" data-fx="38|Timeline Motion|moderada" data-fxwhy="A linha é a jornada do investimento, não um cronograma: não há datas nem fases de projeto, só os momentos em que a TI cria valor e depois prova esse valor ao comprador. O fio se desenha e cada produto acende o seu trecho." data-src="Deck comercial A&amp;M DTS (IT Synergies &amp; Value Creation as a Service; IT DD Sell Side); A&amp;M PE Services (Value Creation, Exit Readiness); A&amp;M European PE Value Creation Report 2026; A&amp;M AI-ZBO (jun/2026); Bain Global Private Equity Report 2026; EY-Parthenon Sell-side tech" data-desc="Dois produtos para o período de hold e para a venda. O Tech Value Creation transforma a TI em alavancas de valor com dono e linha de base. O Exit Tech Readiness roda antes do comprador a diligência que ele vai rodar e prepara a tecnologia como argumento de preço. A linha mostra os momentos do investimento, sem datas.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">Valorizar · hold e exit</div><h2 class="h2 kin" style="margin-top:10px">A TI entra na tese. <span class="hl">E aparece no preço.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Com prazos de hold mais longos, o valor precisa vir da operação. A tecnologia é onde boa parte desse valor está, e onde o comprador vai procurar.</p>
+    </div>
+    <div class="vj" id="vj">
+      <svg class="vj-svg" id="vjSvg" viewBox="0 0 1520 110" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="vj-st" id="vjSt"></div>
+    </div>
+    <div class="vj-cards">
+      <article class="vj-c" id="vjA" data-seg="a" data-a="up" style="--d:4">
+        <div class="mo-ph"><span data-ico="chart" class="mo-pico"></span><div><b>Tech Value Creation</b><span>Evolui de IT Synergies &amp; Value Creation as a Service</span></div><span class="tag t-remodel">Remodelado</span></div>
+        <p class="mo-prob">O plano de negócio promete eficiência e crescimento. Sem alavancas de TI com dono e linha de base, o valor fica no slide do comitê.</p>
+        <div class="vj-sec"><span class="label">Alavancas de valor da TI</span>
+          <div class="vj-lev"><span data-ico="coin">Custo de TI e contratos</span><span data-ico="cloud">Nuvem com FinOps</span><span data-ico="link">Sinergias de integração</span><span data-ico="ai">IA aplicada à operação</span><span data-ico="layers">Plataforma para buy-and-build</span><span data-ico="shield">Cyber e resiliência</span></div></div>
+        <p class="mo-ai"><b>IA:</b> agentes leem faturas, contratos e uso de licenças para achar valor; o painel de captura acompanha cada alavanca até o resultado no P&amp;L.</p>
+        <div class="p-tech"><span class="tech">AI-ZBO da A&amp;M</span><span class="tech">FinOps</span><span class="tech">Process mining</span><span class="tech">Clean room de sinergias</span><span class="tech">Painel de captura</span></div>
+        <div class="vj-out"><span>Valor de TI com dono e linha de base</span><span>Captura visível para o comitê de investimento</span></div>
+      </article>
+      <article class="vj-c" id="vjB" data-seg="b" data-a="up" style="--d:6">
+        <div class="mo-ph"><span data-ico="rocket" class="mo-pico"></span><div><b>Exit Tech Readiness</b><span>Evolui de IT Due Diligence Sell Side</span></div><span class="tag t-remodel">Remodelado</span></div>
+        <p class="mo-prob">O comprador vai diligenciar a TI. Achado sem resposta vira desconto e cláusula dura.</p>
+        <div class="vj-sec"><span class="label">O que o cliente recebe</span>
+          <div class="vj-lev vj-2"><span data-ico="doc">Vendor tech due diligence</span><span data-ico="db">Data room de tecnologia pronto</span><span data-ico="spark">Equity story de tecnologia e IA</span><span data-ico="check">Red flags resolvidos antes do processo</span></div></div>
+        <p class="mo-ai"><b>IA:</b> roda antes do comprador a mesma diligência que ele vai rodar e prepara cada resposta com a evidência citada.</p>
+        <div class="p-tech"><span class="tech">A&amp;M DiligenceGPT</span><span class="tech">Data room virtual</span><span class="tech">RAG com citação</span><span class="tech">A&amp;M Deal Twin</span></div>
+        <div class="vj-out"><span>Menos surpresa na negociação</span><span>Tecnologia como argumento de valor</span></div>
+      </article>
+    </div>
+    <div class="p-why vj-why" data-a="up" style="--d:8"><span data-ico="hand"></span><span><b>Por que A&amp;M:</b> a firma nasceu operando empresas. O plano de valor é conduzido por quem já respondeu por um P&amp;L, e a preparação para a venda usa o mesmo olhar de quem diligencia o lado comprador.</span></div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="prod-twin" data-t="A&amp;M Deal Twin" data-chap="Produtos" data-fx="04|3D Tilt / Perspective|moderada" data-fxwhy="A arquitetura é mostrada como camadas físicas que respondem ao cursor. Ao tocar uma camada, ela se destaca e o painel explica o que ela faz; o gêmeo, no centro, é a única camada laranja, porque é o que nenhum concorrente vende." data-src="Proposta A&amp;M DTS; benchmarks de plataforma: PwC Junction, EY-Parthenon Edge, Deloitte M&amp;A Platform; ativos de IA da A&amp;M (DiligenceGPT, A&amp;M Assist, Rapid Analytics); Datasite MCP Server (abr/2026); Gartner MQ Digital Twin of an Organization 2026; LGPD (Lei 13.709/2018)" data-desc="A base de todos os produtos: um gêmeo digital do parque tecnológico do alvo. Fontes alimentam agentes por lente; os agentes constroem o gêmeo com a evidência de cada afirmação; a inteligência da A&amp;M e os especialistas validam; e cada produto lê e escreve no mesmo modelo, da diligência ao exit. Toque em uma camada para ver o detalhe.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">A base de todos os produtos · novo</div><h2 class="h2 kin" style="margin-top:10px">Um gêmeo digital do alvo, <span class="hl">da diligência ao exit.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Plataformas de deal organizam o projeto. O A&amp;M Deal Twin modela o ativo e leva cada achado, dependência e decisão de um produto para o outro.</p>
+    </div>
+    <div class="tw-wrap">
+      <div class="tw-scene" id="twScene" data-a="zoom" style="--d:2">
+        <div class="tw-stack" id="twStack">
+          <div class="tw-ly" data-k="4"><span class="tw-n">Produtos A&amp;M</span><div class="tw-chips"><span>Diligência</span><span>Separação</span><span>Integração</span><span>Valor e exit</span></div></div>
+          <div class="tw-ly" data-k="3"><span class="tw-n">Inteligência A&amp;M</span><div class="tw-chips"><span>A&amp;M DiligenceGPT</span><span>A&amp;M Assist</span><span>Rapid Analytics</span><span>Benchmarks e playbooks</span><span>Especialistas sêniores</span></div></div>
+          <div class="tw-ly core" data-k="2"><span class="tw-n">O gêmeo do alvo<em>A&amp;M Deal Twin</em></span><div class="tw-chips"><span>Sistemas</span><span>Dados</span><span>Contratos</span><span>Pessoas</span><span>Dependências</span><span>Riscos</span><span>Iniciativas</span></div></div>
+          <div class="tw-ly" data-k="1"><span class="tw-n">Agentes por lente</span><div class="tw-chips"><span>Pessoas</span><span>Governança</span><span>Infra e nuvem</span><span>Sistemas</span><span>Segurança</span><span>Dados e IA</span><span>Software</span><span>Digital</span></div></div>
+          <div class="tw-ly" data-k="0"><span class="tw-n">Fontes</span><div class="tw-chips"><span>Data room via MCP</span><span>Entrevistas</span><span>Código</span><span>Varredura externa</span><span>Contratos</span><span>Faturas de nuvem</span><span>Sistemas do cliente</span></div></div>
+        </div>
+      </div>
+      <div class="tw-side">
+        <div class="tw-det" id="twDet" data-a="left" style="--d:4"><span class="label" id="twK"></span><h3 class="h3" id="twT"></h3><p id="twW"></p><div class="p-tech" id="twTech"></div></div>
+        <div class="tw-g" data-a="left" style="--d:6"><span class="label">Guardrails de cada deal</span>
+          <ul><li><span data-ico="lock"></span>Ambiente isolado por deal e por cliente</li><li><span data-ico="db"></span>Dados do cliente não treinam modelos</li><li><span data-ico="link"></span>Toda afirmação aponta para a evidência</li><li><span data-ico="shield"></span>A IA propõe, o especialista assina</li><li><span data-ico="people"></span>Clean team e barreiras de informação</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide paper" id="resultados" data-t="Resultados por cliente" data-chap="Resultados" data-chapter="04|Resultados|O que muda para quem compra, para quem consolida e para quem vende." data-fx="33|Card Stack|moderada" data-fxwhy="Cada perfil de cliente é uma carta do mesmo baralho: o apresentador traz para frente o perfil de quem está na sala e mostra a jornada de produtos e o resultado dele, sem trocar de slide." data-src="Deck comercial A&amp;M DTS (cases CERC, Plurix, Braveo, Virutex Ilko, Invepar e Hmobi, UniFTC); A&amp;M PE Services; Bain Global Private Equity Report 2026; PwC M&amp;A Integration Survey 2026" data-desc="Os resultados do novo portfólio para os três perfis de cliente da DTS: fundos de private equity, plataformas de buy-and-build e compradores estratégicos, e vendedores em carve-out. Cada carta mostra o que pesa para o cliente hoje, a jornada de produtos que ele usa e o que muda, com os deals em que a DTS já atuou no Brasil.">
+  <div class="body">
+    <div class="rs-wrap">
+      <div class="rs-left">
+        <div class="eyebrow" data-a="fade">Resultados</div>
+        <h2 class="h2 kin" style="margin-top:10px">O que muda para quem <span class="hl">compra, consolida e vende.</span></h2>
+        <p class="lead" data-a="fade" style="--d:4;margin-top:16px">O mesmo portfólio, montado em jornadas diferentes. Escolha o perfil de quem está na sala.</p>
+        <div class="rs-tabs" id="rsTabs" data-a="up" style="--d:6">
+          <button data-i="0"><span data-ico="coin"></span><span><b>Fundos de private equity</b><em>Decidir, criar valor e sair</em></span></button>
+          <button data-i="1"><span data-ico="layers"></span><span><b>Consolidadores e estratégicos</b><em>Comprar e integrar em série</em></span></button>
+          <button data-i="2"><span data-ico="split"></span><span><b>Vendedores e carve-outs</b><em>Separar e vender sem ruptura</em></span></button>
+        </div>
+      </div>
+      <div class="rs-stage" data-a="zoom" style="--d:3">
+        <div class="stack rs-stack" id="rsStack">
+          <article class="sc rs-c">
+            <div class="rs-h"><span data-ico="coin" class="rs-ico"></span><div><span class="label">Perfil</span><b>Fundos de private equity</b></div></div>
+            <blockquote>“Preciso decidir rápido e defender o preço no comitê. Depois, provar o valor no exit.”</blockquote>
+            <div class="rs-j"><span class="label">A jornada de produtos</span><div><a data-goto="prod-itdd">IT Due Diligence</a><i></i><a data-goto="prod-lentes">AI e Cyber DD</a><i></i><a data-goto="prod-dayone">Day One Blueprint</a><i></i><a data-goto="prod-valor">Tech Value Creation</a><i></i><a data-goto="prod-valor">Exit Tech Readiness</a></div></div>
+            <div class="rs-ba"><div><span class="label">Antes</span><p>A diligência termina em um relatório que ninguém abre depois do closing.</p></div><i></i><div class="aft"><span class="label">Com o novo portfólio</span><p>Os achados viram o plano de 100 dias, o plano de valor e, no fim, o data room da venda.</p></div></div>
+            <div class="rs-o"><span class="label">O que muda</span><div><span><i data-ico="check"></i>Convicção antes do comitê de investimento</span><span><i data-ico="check"></i>O valor de TI entra no plano e é capturado</span><span><i data-ico="check"></i>A venda começa sem surpresa de tecnologia</span></div></div>
+            <div class="rs-cases"><span class="label">Onde a DTS já atuou</span><span><b>CERC</b> diligência de TI para investimento do Mubadala Capital</span><span><b>Plurix</b> holding de varejo do Pátria, da diligência ao PMI</span></div>
+          </article>
+          <article class="sc rs-c">
+            <div class="rs-h"><span data-ico="layers" class="rs-ico"></span><div><span class="label">Perfil</span><b>Consolidadores e compradores estratégicos</b></div></div>
+            <blockquote>“Cada aquisição recomeça do zero. Quero que a próxima integre melhor que a anterior.”</blockquote>
+            <div class="rs-j"><span class="label">A jornada de produtos</span><div><a data-goto="prod-playbook">Tech M&amp;A Playbook</a><i></i><a data-goto="prod-itdd">IT Due Diligence</a><i></i><a data-goto="prod-lentes">Software Diligence</a><i></i><a data-goto="prod-office">Integration Office</a><i></i><a data-goto="prod-valor">Tech Value Creation</a></div></div>
+            <div class="rs-ba"><div><span class="label">Antes</span><p>Cada integração é desenhada do zero, com outro time e outro método.</p></div><i></i><div class="aft"><span class="label">Com o novo portfólio</span><p>Playbook, escritório e Deal Twin acumulam o aprendizado de cada aquisição.</p></div></div>
+            <div class="rs-o"><span class="label">O que muda</span><div><span><i data-ico="check"></i>Cada deal começa de onde o anterior parou</span><span><i data-ico="check"></i>Sinergias de TI com dono e linha de base</span><span><i data-ico="check"></i>Time interno e A&amp;M com o mesmo método</span></div></div>
+            <div class="rs-cases"><span class="label">Onde a DTS já atuou</span><span><b>Braveo</b> tese de distribuição de bens de consumo, diligências e PMI</span><span><b>Virutex Ilko</b> diligência de TI que virou a base do plano de integração</span></div>
+          </article>
+          <article class="sc rs-c">
+            <div class="rs-h"><span data-ico="split" class="rs-ico"></span><div><span class="label">Perfil</span><b>Vendedores e carve-outs</b></div></div>
+            <blockquote>“Preciso vender uma parte sem parar o resto, e sem ficar preso ao comprador depois.”</blockquote>
+            <div class="rs-j"><span class="label">A jornada de produtos</span><div><a data-goto="prod-valor">Exit Tech Readiness</a><i></i><a data-goto="prod-dayone">IT Separation &amp; TSA Design</a><i></i><a data-goto="prod-dayone">Day One Blueprint</a><i></i><a data-goto="prod-office">Separation Office</a></div></div>
+            <div class="rs-ba"><div><span class="label">Antes</span><p>O TSA vira uma dependência cara e sem data para acabar.</p></div><i></i><div class="aft"><span class="label">Com o novo portfólio</span><p>Cada serviço transitório nasce com escopo, nível de serviço e caminho de saída.</p></div></div>
+            <div class="rs-o"><span class="label">O que muda</span><div><span><i data-ico="check"></i>Ativo vendável, com custo stand-alone claro</span><span><i data-ico="check"></i>TSA com saída desenhada antes de assinar</span><span><i data-ico="check"></i>A operação que fica segue sem ruptura</span></div></div>
+            <div class="rs-cases"><span class="label">Onde a DTS já atuou</span><span><b>Invepar e Hmobi</b> carve-out de TI do MetroRio para a nova holding</span><span><b>UniFTC</b> carve-out que criou uma nova instituição de ensino</span></div>
+          </article>
+        </div>
+        <span class="rs-hint">Toque na carta para trazer o próximo perfil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide stage" id="fecho" data-t="Por que A&amp;M" data-chap="Fechamento" data-fx="40|Animated Shader / Hero|sutil" data-fxwhy="Fechamento: o mesmo fundo vivo da capa volta em dose sutil, atrás das razões e das portas de entrada. Fecha o ciclo visual sem competir com o texto." data-src="Deck comercial A&amp;M DTS (cases e equipe); A&amp;M PE Services e Interim Management; Mergermarket e LSEG (rankings de assessoria); benchmarks PwC, EY-Parthenon e Deloitte" data-desc="Por que a A&amp;M e por onde começar. Quatro razões que nenhum dos líderes de mercado combina ao mesmo tempo, e três portas de entrada no portfólio, uma para cada situação de deal. Cada porta abre a página do produto.">
+  <canvas class="shader" id="fechoShader" aria-hidden="true"></canvas>
+  <div class="shade fc-shade"></div>
+  <div class="body fc-body">
+    <div class="eyebrow" data-a="fade">Por que A&amp;M</div>
+    <h2 class="fc-h kin">Quem diagnostica <span class="hl">é quem executa.</span></h2>
+    <div class="fc-why">
+      <div data-a="up" style="--d:3"><span data-ico="hand"></span><b>Operadores, não só assessores</b><p>A firma nasceu assumindo a gestão de empresas. O achado da diligência chega a quem sabe executá-lo.</p></div>
+      <div data-a="up" style="--d:4"><span data-ico="shield"></span><b>Independência</b><p>Sem auditoria no mesmo grupo, sem conflito para assumir a execução depois do deal.</p></div>
+      <div data-a="up" style="--d:5"><span data-ico="people"></span><b>Sênior do começo ao fim</b><p>O time que diligencia é o que desenha o Day 1 e conduz a integração.</p></div>
+      <div data-a="up" style="--d:6"><span data-ico="link"></span><b>IA com evidência</b><p>O A&amp;M Deal Twin cita a fonte de cada afirmação. A IA propõe; o especialista assina.</p></div>
+    </div>
+    <div class="fc-doors" data-a="up" style="--d:8">
+      <span class="label">Por onde começar</span>
+      <button data-goto="prod-itdd"><em>Um deal na mesa</em><b>IT Due Diligence · Red Flag</b><i>→</i></button>
+      <button data-goto="prod-dayone"><em>Um carve-out em preparação</em><b>IT Separation &amp; TSA Design</b><i>→</i></button>
+      <button data-goto="prod-playbook"><em>Uma tese de buy-and-build</em><b>Tech M&amp;A Playbook</b><i>→</i></button>
+    </div>
+    <div class="fc-sign" data-a="fade" style="--d:10"><span>Da diligência à execução, <b>no mesmo fio.</b></span><span class="mono">Digital &amp; Technology Services · Alvarez &amp; Marsal Brasil</span></div>
+  </div>
+</section>
+
+
+<div id="wipe"><i></i><i></i><i></i></div><div id="chap"></div>
+</div></div>
+<div id="controls"><button class="g" id="bPrev"><span style="transform:rotate(180deg);display:inline-block">➜</span><span class="lb">Voltar</span></button><span class="c" id="cnt" role="button" tabindex="0">01 / 01</span><button class="p" id="bNext"><span class="lb">Avançar</span>➜</button></div>
+<div id="dots"></div><div id="idxP"></div><div id="infoP"></div>
+<div id="tip"></div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const NS="http://www.w3.org/2000/svg";
+function H(t,a,p,x){const e=document.createElement(t);if(a)for(const k in a){if(k==="class")e.className=a[k];else if(k==="style")e.style.cssText=a[k];else if(k==="html")e.innerHTML=a[k];else e.setAttribute(k,a[k])}if(x!=null)e.textContent=x;if(p)p.appendChild(e);return e}
+function S(t,a,p){const e=document.createElementNS(NS,t);if(a)for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const REDMO=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const slides=[...document.querySelectorAll(".slide")],N=slides.length;let cur=0,busy=false;
+const ENTER={},LEAVE={};
+const DOSE={sutil:1,moderada:2,intensa:3};
+
+/* chrome */
+function kin(el){let k=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const parts=c.textContent.split(/(\s+)/),f=document.createDocumentFragment();parts.forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p));return}const w=document.createElement("span");w.className="kw";const i=document.createElement("span");i.style.setProperty("--k",k++);i.textContent=p;w.appendChild(i);f.appendChild(w)});c.replaceWith(f)}else if(c.nodeType===1&&!c.classList.contains("kw")&&!c.classList.contains("hl"))walk(c);else if(c.nodeType===1&&c.classList.contains("hl")){const w=document.createElement("span");w.className="kw";const i=document.createElement("span");i.style.setProperty("--k",k++);c.replaceWith(w);i.appendChild(c);w.appendChild(i)}})};walk(el)}
+const BRAND=`<div class="brand"><div class="brand-am"><b>ALVAREZ <i>&amp;</i> MARSAL</b><small>PERFORMANCE IMPROVEMENT</small></div><span class="brand-div"></span><div class="brand-dts"><b>DTS</b><small>Digital &amp; Technology Services</small></div></div>`;
+slides.forEach((s,i)=>{
+  if(!s.hasAttribute("data-bare")){
+    const top=H("div",{class:"top"});top.innerHTML=`${BRAND}<div class="top-title"><span>${s.dataset.chap||""}</span><b>${s.dataset.t}</b></div><div class="top-right"><span class="pg"><b>${String(i+1).padStart(2,"0")}</b> / ${String(N).padStart(2,"0")}</span></div>`;s.prepend(top);
+    const f=H("div",{class:"foot"},s);const src=H("span",{class:"src"},f);src.innerHTML=s.dataset.src?`<b>FONTE</b>${s.dataset.src}`:`<b>A&amp;M · DTS</b>IT M&amp;A · portfólio de produtos`;
+    if(s.dataset.fx){const [num,name,dose]=s.dataset.fx.split("|");const c=H("span",{class:"fxchip",title:`Efeito do Guia de Design DTS: ${name} · dose ${dose}`},f);const d=DOSE[dose]||1;c.innerHTML=`<span>fx ${num} · ${name}</span><span class="dose"><i class="${d>=1?"on":""}"></i><i class="${d>=2?"on":""}"></i><i class="${d>=3?"on":""}"></i></span>`}
+  }
+});
+document.querySelectorAll(".kin").forEach(kin);
+
+/* dots + fit */
+slides.forEach((s,i)=>{const b=H("button",{title:s.dataset.t,"aria-label":s.dataset.t},$("dots"));b.addEventListener("click",()=>go(i))});
+function fit(){const vw=innerWidth,vh=innerHeight,sm=vw<760,pad=sm?6:18,bar=sm?56:62,sc=Math.min((vw-pad*2)/1600,(vh-pad-bar)/900),st=$("stage");st.style.left=vw/2+"px";st.style.top=(pad+(vh-pad-bar)/2)+"px";st.style.transform=`translate(-50%,-50%) scale(${sc})`}
+addEventListener("resize",fit);
+const SC=()=>$("stage").getBoundingClientRect().width/1600;
+
+function activate(i,inst,back){const prev=cur;const n=slides[i];slides.forEach((s,k)=>{if(k!==i)s.classList.remove("active","entering","play","back")});
+  if(prev!==i&&LEAVE[slides[prev].id])LEAVE[slides[prev].id]();
+  n.classList.remove("play","entering","back");void n.offsetWidth;n.classList.add("active","play");if(!inst){n.classList.add("entering");if(back)n.classList.add("back")}cur=i;
+  $("cnt").textContent=`${String(i+1).padStart(2,"0")} / ${String(N).padStart(2,"0")}`;$("progress").style.width=((i+1)/N*100)+"%";$("bPrev").disabled=i===0;$("bNext").disabled=i===N-1;
+  document.querySelectorAll("#dots button").forEach((b,k)=>b.classList.toggle("on",k===i));try{history.replaceState(null,"","#"+(i+1))}catch(e){}
+  if(ENTER[n.id])ENTER[n.id](n);infoFill()}
+
+/* chapter interstitial */
+const CH={};document.querySelectorAll("[data-chapter]").forEach(s=>{const [n,t,d]=s.dataset.chapter.split("|");CH[s.id]=[n,t,d]});
+let CHAPEND=null;
+function chapter(meta,done){const c=$("chap");c.innerHTML=`<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="cn">${meta[0]}</div><div class="cey">CAPÍTULO ${meta[0]}</div><h1>${meta[1]}</h1><p>${meta[2]}</p><div class="cln"></div><div class="csk">clique para continuar ›</div>`;kin(c.querySelector("h1"));c.classList.add("on","play");
+  c.querySelector(".cln").animate([{width:"0px"},{width:"420px"}],{duration:900,delay:250,easing:"cubic-bezier(.22,.61,.36,1)",fill:"forwards"});
+  let ended=false;const end=()=>{if(ended)return;ended=true;CHAPEND=null;c.animate([{opacity:1},{opacity:0}],{duration:420}).onfinish=()=>{c.classList.remove("on","play");c.innerHTML=""};done()};c.onclick=end;CHAPEND=end;setTimeout(end,2300)}
+function go(i,inst){if(CHAPEND&&!inst){CHAPEND();return}i=clamp(i,0,N-1);if(i===cur&&!inst)return;if(busy)return;const back=i<cur;
+  if(inst||REDMO){activate(i,true,back);return}
+  const chap=!back&&CH[slides[i].id];busy=true;const w=$("wipe");w.style.visibility="visible";const bars=[...w.querySelectorAll("i")],dir=back?-1:1;
+  bars.forEach((b,k)=>b.animate([{transform:`translateX(${-110*dir}%) skewX(-10deg)`},{transform:"translateX(0) skewX(-10deg)"}],{duration:380,delay:k*60,easing:"cubic-bezier(.7,0,.3,1)",fill:"forwards"}));
+  setTimeout(()=>{const after=()=>{bars.forEach((b,k)=>b.animate([{transform:"translateX(0) skewX(-10deg)"},{transform:`translateX(${110*dir}%) skewX(-10deg)`}],{duration:420,delay:(2-k)*60,easing:"cubic-bezier(.7,0,.3,1)",fill:"forwards"}));setTimeout(()=>{w.style.visibility="hidden";busy=false},600)};
+    if(chap){activate(i,true,back);slides[i].classList.remove("play");chapter(chap,()=>{const n=slides[i];void n.offsetWidth;n.classList.add("play");if(ENTER[n.id])ENTER[n.id](n)});after()}else{activate(i,false,back);after()}},500)}
+function goId(id){const k=slides.findIndex(s=>s.id===id);if(k>=0)go(k)}
+document.addEventListener("click",e=>{const el=e.target.closest("[data-goto]");if(el){e.preventDefault();goId(el.dataset.goto)}});
+$("bNext").onclick=()=>go(cur+1);$("bPrev").onclick=()=>go(cur-1);
+addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return;if(["ArrowRight","PageDown"," "].includes(e.key)){e.preventDefault();go(cur+1)}else if(["ArrowLeft","PageUp"].includes(e.key)){e.preventDefault();go(cur-1)}else if(e.key==="Home")go(0);else if(e.key==="End")go(N-1);else if(e.key==="f"||e.key==="F"){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(err){}}});
+let tx=null;addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>70&&!e.target.closest(".noswipe"))dx<0?go(cur+1):go(cur-1);tx=null},{passive:true});
+/* tooltip */
+const tp=$("tip");addEventListener("pointermove",e=>{const el=e.target.closest&&e.target.closest("[data-tv]");if(el){tp.innerHTML=`<b>${el.dataset.tv}</b>${el.dataset.tl||""}`;tp.classList.add("on");tp.style.left=Math.min(e.clientX+16,innerWidth-340)+"px";tp.style.top=(e.clientY+16)+"px"}else tp.classList.remove("on")});
+/* ripple */
+document.addEventListener("pointerdown",e=>{if(REDMO)return;const el=e.target.closest("button,.clk");if(!el||el.closest("#chap"))return;if(getComputedStyle(el).position==="static")el.style.position="relative";el.style.overflow="hidden";const r=el.getBoundingClientRect(),sc=$("stage").contains(el)?SC():1,x=(e.clientX-r.left)/sc,y=(e.clientY-r.top)/sc,size=Math.max(r.width,r.height)/sc*1.15;const sp=H("span",{class:"rp",style:`width:${size}px;height:${size}px;left:${x-size/2}px;top:${y-size/2}px`},el);setTimeout(()=>sp.remove(),620)});
+/* índice */
+let idxOpen=false;(function(){const c=$("cnt");c.title="Índice (tecla G)";const ix=$("idxP");const hd=H("div",{class:"xh"},ix);H("span",null,hd,"Índice");const xb=H("button",{class:"ix","aria-label":"Fechar"},hd,"×");const ls=H("div",null,ix);
+  let last=null;const items=[];slides.forEach((s,i)=>{const p=s.dataset.chap||"Abertura";if(p!==last){H("div",{class:"xg"},ls,p);last=p}const b=H("button",{class:"xi"},ls);H("b",null,b,String(i+1).padStart(2,"0"));H("span",null,b,s.dataset.t);b.addEventListener("click",()=>{set(false);go(i)});items.push(b)});
+  const set=v=>{idxOpen=v;ix.classList.toggle("on",v);if(v){items.forEach((b,k)=>b.classList.toggle("cur",k===cur));items[cur].scrollIntoView({block:"center"})}};
+  c.addEventListener("click",e=>{e.stopPropagation();set(!idxOpen)});xb.addEventListener("click",()=>set(false));ix.addEventListener("click",e=>e.stopPropagation());addEventListener("click",()=>{if(idxOpen)set(false)});addEventListener("keydown",e=>{if(e.key==="g"||e.key==="G")set(!idxOpen);if(e.key==="Escape")set(false)})})();
+/* sobre este slide */
+let infoOpen=false;function infoFill(){if(!infoOpen)return;const s=slides[cur],p=$("infoP");p.querySelector(".it").textContent=s.dataset.t;p.querySelector(".id").textContent=s.dataset.desc||"";const fx=s.dataset.fx?s.dataset.fx.split("|"):null;p.querySelector(".ifx").innerHTML=fx?`<b>Efeito (Guia DTS):</b> fx ${fx[0]} · ${fx[1]} · dose ${fx[2]}. ${s.dataset.fxwhy||""}`:"";p.querySelector(".isrc").textContent=s.dataset.srcfull||s.dataset.src||""}
+(function(){const bt=H("button",{class:"g",id:"bInfo",title:"Sobre este slide (tecla I)"});bt.innerHTML='<span style="display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:2px solid currentColor;font:800 10px/1 var(--font-sans)">i</span><span class="lb">Sobre este slide</span>';$("controls").insertBefore(bt,$("bPrev"));
+  const p=$("infoP");p.innerHTML='<div class="ih"><span class="ie">Sobre este slide</span><button class="ix" aria-label="Fechar">×</button></div><div class="it"></div><div class="id"></div><div class="ifx"></div><div class="isrc"></div>';
+  const set=v=>{infoOpen=v;p.classList.toggle("on",v);infoFill()};bt.addEventListener("click",()=>set(!infoOpen));p.querySelector(".ix").addEventListener("click",()=>set(false));addEventListener("keydown",e=>{if(e.key==="i"||e.key==="I")set(!infoOpen);if(e.key==="Escape")set(false)})})();
+
+/* ===== FX library (Guia de Design DTS) ===== */
+const FX={};
+/* fx 40 · Animated Shader / Hero — fbm navy + fio laranja (isolinha) */
+FX.shader=function(canvas,opt){opt=opt||{};let amp=opt.amp||1,wire=opt.wire==null?1:opt.wire,run=false,raf=0,t0=performance.now(),tAcc=0,last=0;
+  const mouse={x:.5,y:.5,tx:.5,ty:.5};let gl=null,u={};
+  const VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+  const FS=['precision mediump float;','uniform vec2 u_res;uniform float u_time;uniform float u_amp;uniform float u_wire;uniform vec2 u_mouse;',
+  'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+  'float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.0-2.0*f);float a=hash(i);float b=hash(i+vec2(1.0,0.0));float c=hash(i+vec2(0.0,1.0));float d=hash(i+vec2(1.0,1.0));return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}',
+  'float fbm(vec2 p){float v=0.0;float a=0.5;for(int i=0;i<4;i++){v+=a*noise(p);p=mat2(1.6,1.2,-1.2,1.6)*p;a*=0.5;}return v;}',
+  'void main(){vec2 uv=gl_FragCoord.xy/u_res;vec2 p=vec2(uv.x*u_res.x/u_res.y,uv.y);float t=u_time;p+=(u_mouse-0.5)*0.08*u_amp;',
+  'vec2 q=vec2(fbm(p*1.3+vec2(0.0,t*0.07)),fbm(p*1.3+vec2(5.2,1.3)-t*0.05));float n=fbm(p*1.7+(1.1+1.4*u_amp)*q+vec2(t*0.04,0.0));',
+  'vec3 c0=vec3(0.016,0.063,0.122);vec3 c1=vec3(0.043,0.145,0.271);vec3 c2=vec3(0.106,0.267,0.474);vec3 c3=vec3(0.290,0.435,0.647);',
+  'vec3 col=mix(c0,c1,smoothstep(0.25,0.55,n));col=mix(col,c2,smoothstep(0.50,0.78,n));col=mix(col,c3,0.5*smoothstep(0.74,0.95,n));',
+  'float band=sin((uv.y*2.5+n*1.5*u_amp-t*0.25)*6.2832);col+=0.03*band*u_amp;',
+  'float iso=abs(n-(0.56+0.04*sin(t*0.35)));float core=1.0-smoothstep(0.0,0.006,iso);float halo=1.0-smoothstep(0.0,0.022,iso);float glow=1.0-smoothstep(0.0,0.07,iso);',
+  'col+=vec3(0.949,0.420,0.129)*(core*1.0+halo*halo*0.42+glow*glow*0.14)*u_wire;',
+  'float iso2=abs(n-0.41);col+=vec3(0.79,0.84,0.91)*0.26*(1.0-smoothstep(0.0,0.005,iso2))*u_wire;',
+  'float vig=smoothstep(1.25,0.35,length((uv-0.5)*vec2(1.2,1.0)));col*=mix(0.7,1.0,vig);gl_FragColor=vec4(col,1.0);}'].join('\n');
+  try{gl=canvas.getContext('webgl',{antialias:false,alpha:false,depth:false,powerPreference:'low-power'})}catch(e){gl=null}
+  if(gl){const sh=(ty,src)=>{const s=gl.createShader(ty);gl.shaderSource(s,src);gl.compileShader(s);return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null};
+    const v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f)gl=null;else{const pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);gl.useProgram(pr);
+      const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+      ['u_res','u_time','u_amp','u_wire','u_mouse'].forEach(k=>u[k]=gl.getUniformLocation(pr,k))}}
+  if(!gl){canvas.style.display='none';const fb=document.createElement('div');fb.className='shader-fallback';canvas.parentNode.insertBefore(fb,canvas);return{start(){},stop(){},set(){}}}
+  const W=1600*.6,Hh=900*.6;canvas.width=W;canvas.height=Hh;
+  const host=canvas.closest('.slide');host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();mouse.tx=(e.clientX-r.left)/r.width;mouse.ty=1-(e.clientY-r.top)/r.height});
+  function frame(now){if(!run)return;const dt=Math.min(.05,(now-last)/1000);last=now;tAcc+=dt*(REDMO?.25:1);mouse.x+=(mouse.tx-mouse.x)*.04;mouse.y+=(mouse.ty-mouse.y)*.04;
+    gl.viewport(0,0,W,Hh);gl.uniform2f(u.u_res,W,Hh);gl.uniform1f(u.u_time,tAcc+3);gl.uniform1f(u.u_amp,amp);gl.uniform1f(u.u_wire,wire);gl.uniform2f(u.u_mouse,mouse.x,mouse.y);gl.drawArrays(gl.TRIANGLES,0,6);raf=requestAnimationFrame(frame)}
+  frame.first=true;
+  return{start(){if(run)return;run=true;last=performance.now();raf=requestAnimationFrame(frame)},stop(){run=false;cancelAnimationFrame(raf)},set(a){amp=a}}};
+
+/* fx 03 · Hologram 3D Cards */
+FX.holo=function(el,max){max=max||9;if(REDMO)return;const scene=el.parentElement;el.querySelectorAll('[data-depth]').forEach(d=>d.style.setProperty('--z',d.dataset.depth+'px'));
+  el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.classList.remove('out');el.classList.add('hover');el.style.transform=`rotateX(${(.5-py)*max}deg) rotateY(${(px-.5)*max}deg)`;el.style.setProperty('--mx',px*100+'%');el.style.setProperty('--my',py*100+'%')});
+  el.addEventListener('pointerleave',()=>{el.classList.add('out');el.classList.remove('hover');el.style.transform=''})};
+
+/* fx 21 · Flip Card */
+FX.flip=function(root){root.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('on')))};
+
+/* fx 37 · Before/After Slider */
+FX.ba=function(el){const set=x=>{el.style.setProperty('--x',clamp(x,4,96)+'%');el.dataset.x=clamp(x,4,96)};let drag=false;
+  const pos=e=>{const r=el.getBoundingClientRect();return (e.clientX-r.left)/r.width*100};
+  el.addEventListener('pointerdown',e=>{drag=true;el.setPointerCapture(e.pointerId);set(pos(e))});el.addEventListener('pointermove',e=>{if(drag)set(pos(e))});el.addEventListener('pointerup',()=>drag=false);el.addEventListener('pointercancel',()=>drag=false);
+  el.addEventListener('keydown',e=>{const x=+el.dataset.x||50;if(e.key==='ArrowLeft'){set(x-5);e.preventDefault()}if(e.key==='ArrowRight'){set(x+5);e.preventDefault()}});
+  return{tween(to,dur){const from=+el.dataset.x||50,t0=performance.now();const st=t=>{const k=clamp((t-t0)/(dur||1200),0,1),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;set(from+(to-from)*e);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)},set}};
+
+/* fx 33 · Card Stack */
+FX.stack=function(root,onTop){const cards=[...root.querySelectorAll('.sc')];let order=cards.map((c,i)=>i);
+  const lay=()=>{order.forEach((ci,k)=>{const c=cards[ci];c.style.zIndex=cards.length-k;c.style.transform=`translate(${k*28}px,${k*-22}px) scale(${1-k*.05})`;c.style.filter=k?`brightness(${1-k*.12})`:'none';c.classList.toggle('front',k===0)});if(onTop)onTop(cards[order[0]],order[0])};
+  const next=()=>{order.push(order.shift());lay()};cards.forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('[data-goto]'))return;if(c.classList.contains('front'))next();else{const i=cards.indexOf(c);while(order[0]!==i)order.push(order.shift());lay()}}));lay();return{next,to(i){while(order[0]!==i)order.push(order.shift());lay()}}};
+
+/* fx 04 · 3D Tilt / Perspective (layers) */
+FX.tilt=function(scene,wrap){if(REDMO)return;scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;wrap.style.transform=`rotateX(${52-py*10}deg) rotateZ(${-32+px*12}deg)`});scene.addEventListener('pointerleave',()=>{wrap.style.transform=''})};
+
+/* layout helper: center of element relative to container (layout coords, sem escala) */
+function rel(el,box){let x=0,y=0,n=el;while(n&&n!==box){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent}return{x,y,w:el.offsetWidth,h:el.offsetHeight,cx:x+el.offsetWidth/2,cy:y+el.offsetHeight/2}}
+
+/* registro de produtos (preenchido pelos slides de produto) */
+window.PRODS={
+ p_play:{name:"Tech M&A Playbook",slide:"prod-playbook"},
+ p_dd:{name:"IT Due Diligence",slide:"prod-itdd"},
+ p_code:{name:"Software Product & Technology Diligence",slide:"prod-lentes"},
+ p_ai:{name:"AI Due Diligence",slide:"prod-lentes"},
+ p_cyber:{name:"Cyber & Data Due Diligence",slide:"prod-lentes"},
+ p_sep:{name:"IT Separation & TSA Design",slide:"prod-dayone"},
+ p_day1:{name:"Day One Blueprint",slide:"prod-dayone"},
+ p_office:{name:"Integration & Separation Office",slide:"prod-office"},
+ p_value:{name:"Tech Value Creation",slide:"prod-valor"},
+ p_exit:{name:"Exit Tech Readiness",slide:"prod-valor"},
+ p_twin:{name:"A&M Deal Twin",slide:"prod-twin"}};
+/* ===== ícones de linha (desenham na entrada) ===== */
+const ICONS={
+doc:'<path d="M7 3h7l5 5v13H7z"/><polyline points="14 3 14 8 19 8"/><line x1="10" y1="13" x2="16" y2="13"/><line x1="10" y1="17" x2="16" y2="17"/>',
+check:'<rect x="4" y="4" width="16" height="16" rx="3"/><polyline points="8.5 12 11 14.5 15.5 9.5"/>',
+shield:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><polyline points="9 12 11 14 15 10"/>',
+graph:'<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><line x1="8.3" y1="7" x2="15.6" y2="7"/><line x1="7.3" y1="8.2" x2="10.8" y2="15.8"/><line x1="16.8" y1="9.2" x2="13.2" y2="15.8"/>',
+code:'<polyline points="8 8 4 12 8 16"/><polyline points="16 8 20 12 16 16"/><line x1="13.5" y1="5" x2="10.5" y2="19"/>',
+cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.5A3.3 3.3 0 0 0 7 18z"/>',
+ai:'<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><line x1="9" y1="3" x2="9" y2="6"/><line x1="15" y1="3" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="21"/><line x1="15" y1="18" x2="15" y2="21"/><line x1="3" y1="9" x2="6" y2="9"/><line x1="3" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="21" y2="9"/><line x1="18" y1="15" x2="21" y2="15"/>',
+people:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11a3 3 0 1 0 0-6"/><path d="M18 20c0-2.4-1.1-4.5-3-5.6"/>',
+contract:'<path d="M6 3h9l4 4v14H6z"/><path d="M9 16c1.5-2 2.5-2 3.5 0s2 2 3 0"/><line x1="9" y1="9" x2="15" y2="9"/>',
+chart:'<polyline points="3.5 17 9 11.5 13 15 20.5 7.5"/><polyline points="15 7.5 20.5 7.5 20.5 13"/>',
+flag:'<line x1="5" y1="21" x2="5" y2="4"/><path d="M5 4h12l-2.5 4L17 12H5"/>',
+search:'<circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="21" y2="21"/>',
+link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+layers:'<polygon points="12 3 21 8 12 13 3 8"/><polyline points="3 12.5 12 17.5 21 12.5"/><polyline points="3 17 12 22 21 17"/>',
+target:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/>',
+gauge:'<path d="M4 17a8 8 0 1 1 16 0"/><line x1="12" y1="17" x2="16" y2="11"/>',
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+db:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/>',
+route:'<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/>',
+rocket:'<path d="M12 3c3 2 5 5.5 5 9.5L14.5 15h-5L7 12.5C7 8.5 9 5 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9.5 15L8 19l2.5-1.2M14.5 15l1.5 4-2.5-1.2"/>',
+hand:'<path d="M3 12l4-4 4 3 3-2 7 5"/><path d="M7 8l-4 4 6 6 3-2 3 2 3-3"/>',
+spark:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/>',
+eye:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+split:'<path d="M12 21V12"/><path d="M12 12L5 5"/><path d="M12 12l7-7"/><polyline points="5 9 5 5 9 5"/><polyline points="15 5 19 5 19 9"/>',
+calendar:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="6.5"/><line x1="16" y1="3" x2="16" y2="6.5"/>',
+book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><line x1="9" y1="8" x2="15" y2="8"/>',
+pulse:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+coin:'<circle cx="12" cy="12" r="8.5"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="18"/>'
+};
+function icoSvg(n,d){return `<svg class="ico" viewBox="0 0 24 24" style="--d:${d||0}" aria-hidden="true">${ICONS[n]||ICONS.spark}</svg>`}
+
+
+(function(){const c=$("capaShader");const sh=FX.shader(c,{amp:1.15});ENTER.capa=()=>sh.start();LEAVE.capa=()=>sh.stop();})();
+
+
+(function(){
+const R=[
+ {k:"infra",t:"Infraestrutura frágil e nuvem sem governança",old:1,i:["cont","plano","preco"],w:"Servidores depreciados, data center improvisado e uma migração para nuvem sem controle de custo viram investimento imediato que não estava no modelo.",s:"Faturas de nuvem crescendo mais rápido que a receita, ausência de plano de recuperação, ambiente sem dono.",p:["p_dd","p_code"]},
+ {k:"lic",t:"Licenças e software fora de compliance",old:1,i:["multa","preco"],w:"Auditorias de fabricantes e uso não licenciado geram indenizações que podem chegar ao valor de três mil exemplares quando o número de cópias não é conhecido.",s:"Inventário de software inexistente, contas compartilhadas, contratos de licença que não acompanham o crescimento.",p:["p_dd"]},
+ {k:"cyber",t:"Cyber e dados pessoais expostos",old:1,i:["multa","cli","cont","preco"],w:"Um incidente depois do closing vira passivo do comprador, inclusive quando entra por um fornecedor de TI: parada da operação, sanção da ANPD, hoje agência reguladora, e perda de confiança de clientes.",s:"Credenciais expostas, superfície de ataque aberta, base legal frágil para dados pessoais, incidentes não tratados.",p:["p_cyber","p_dd"]},
+ {k:"neg",t:"TI que não sustenta o plano de negócio",old:1,i:["plano","cont"],w:"O plano de crescimento depende de sistemas que não escalam, e a correção consome o capital que deveria financiar a tese.",s:"ERP descontinuado, integrações manuais, time de TI subdimensionado e reativo, roadmap sem orçamento.",p:["p_dd","p_value"]},
+ {k:"proj",t:"Projetos críticos no meio do deal",old:1,i:["plano","cont","cli"],w:"Uma troca de ERP ou de plataforma em andamento durante o deal vira projeto em crise, retrabalho e receita perdida.",s:"Projetos estruturantes atrasados, fornecedor único, escopo sem dono do lado do negócio.",p:["p_day1","p_office"]},
+ {k:"ia",t:"IA declarada que não se sustenta",old:0,i:["preco","plano","multa"],w:"A IA que justificou o múltiplo é um protótipo, depende de um único fornecedor, usa dados sem direito de uso ou custa mais por transação do que gera.",s:"Modelos sem dono técnico, contratos de API sem cláusulas, custo de inferência fora do P&L, nenhuma governança de IA.",p:["p_ai"]},
+ {k:"code",t:"Código e propriedade intelectual fora da empresa",old:0,i:["preco","plano"],w:"Código desenvolvido por terceiros sem cessão de direitos, licenças open source restritivas e dívida técnica alta reduzem valor ou viram condição suspensiva.",s:"Repositórios em contas pessoais, desenvolvedores sem contrato de cessão, dependências desatualizadas.",p:["p_code"]},
+ {k:"pess",t:"Pessoas-chave e contratos PJ",old:0,i:["multa","cont"],w:"O conhecimento crítico está em poucas pessoas, muitas em contrato PJ. A saída de uma delas para a operação; o vínculo reconhecido vira passivo trabalhista.",s:"Sistemas que só uma pessoa entende, alta rotatividade, times inteiros como pessoa jurídica.",p:["p_dd","p_day1"]},
+ {k:"fis",t:"Sistemas fiscais fora da reforma tributária",old:0,i:["multa","cont","preco"],w:"A reforma tributária muda notas, apuração, créditos e caixa, com o split payment. ERP, emissores e PDVs que não foram adaptados viram investimento imediato, risco de autuação e de parada no faturamento.",s:"ERP customizado ou descontinuado, emissor fiscal próprio, nenhum projeto de adequação a CBS e IBS.",p:["p_dd","p_day1"]},
+ {k:"sin",t:"Sinergias sem dono e sem linha de base",old:0,i:["plano","preco"],w:"As sinergias de TI do modelo não têm linha de base, dono, prazo nem verba. O comprador paga por um valor que ninguém vai executar.",s:"Sinergias estimadas de cima para baixo, sem iniciativas com responsável antes da integração.",p:["p_day1","p_office","p_value"]}
+];
+const I={preco:"Preço e condições do SPA",cont:"Continuidade da operação",cli:"Clientes e reputação",multa:"Multas e passivos",plano:"Valor do plano de negócio"};
+const ICO={preco:'<path d="M4 7h11l5 5-8 8-8-8z"/><circle cx="9" cy="10" r="1.4"/>',cont:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',cli:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11a3 3 0 1 0 0-6"/><path d="M18 20c0-2.4-1.1-4.5-3-5.6"/>',multa:'<path d="M12 3l9 16H3z"/><line x1="12" y1="10" x2="12" y2="14"/><line x1="12" y1="17" x2="12" y2="17.01"/>',plano:'<polyline points="3.5 17 9 11.5 13 15 20.5 7.5"/><polyline points="15 7.5 20.5 7.5 20.5 13"/>'};
+const L=$("rLeft"),Rr=$("rRight"),svg=$("rSvg"),map=$("rMap");
+const g1=H("div",{class:"r-grp","data-a":"left",style:"--d:3"},L);H("span",{class:"label"},g1,"Já estavam no radar");
+const g2=H("div",{class:"r-grp","data-a":"left",style:"--d:5"},L);H("span",{class:"label"},g2,"Novos em 2026");
+const rn={},in_={};
+R.forEach(r=>{const b=H("button",{class:"r-node"+(r.old?"":" new")},r.old?g1:g2);b.innerHTML=(r.old?'':'<span class="beacon"></span>')+`<span>${r.t}</span>`;rn[r.k]=b;b.addEventListener("pointerenter",()=>sel(r.k));b.addEventListener("click",()=>sel(r.k,true))});
+Object.keys(I).forEach((k,j)=>{const d=H("div",{class:"r-imp","data-a":"right",style:`--d:${4+j}`},Rr);d.innerHTML=`<svg class="ico" viewBox="0 0 24 24" style="--d:${5+j}">${ICO[k]}</svg><span>${I[k]}</span>`;in_[k]=d});
+let edges=[];
+function draw(){svg.innerHTML="";edges=[];const W=map.offsetWidth,Hh=map.offsetHeight;svg.setAttribute("viewBox",`0 0 ${W} ${Hh}`);svg.setAttribute("width",W);svg.setAttribute("height",Hh);
+  R.forEach(r=>{const a=rel(rn[r.k],map);r.i.forEach(ik=>{const b=rel(in_[ik],map);const x1=a.x+a.w,y1=a.cy,x2=b.x,y2=b.cy,mx=(x1+x2)/2;const p=S("path",{d:`M${x1} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`,class:"r-edge"},svg);p.dataset.r=r.k;p.dataset.i=ik;edges.push(p)})})}
+let curK=null,lock=false;
+function sel(k,click){if(lock&&!click)return;if(click)lock=true;curK=k;const r=R.find(x=>x.k===k);
+  Object.values(rn).forEach(b=>b.classList.toggle("on",b===rn[k]));Object.keys(in_).forEach(ik=>in_[ik].classList.toggle("on",r.i.includes(ik)));map.classList.add("focus");
+  edges.forEach(e=>e.classList.toggle("on",e.dataset.r===k));
+  $("rpK").textContent=r.old?"Risco que já estava no radar":"Risco novo em 2026";$("rpT").textContent=r.t;$("rpW").textContent=r.w;$("rpS").textContent=r.s;
+  const pp=$("rpP");pp.innerHTML="";r.p.forEach(pid=>{const P=(window.PRODS||{})[pid];if(!P)return;const a=H("button",{class:"r-pchip","data-goto":P.slide},pp);a.innerHTML=`<span>${P.name}</span><b>→</b>`})}
+map.addEventListener("pointerleave",()=>{if(!lock){}});
+ENTER.riscos=()=>{requestAnimationFrame(()=>{draw();lock=false;sel(curK||"ia")})};setTimeout(()=>fixPaths($("riscos")),0);
+})();
+
+(function(){FX.flip($("mercado"))})();
+(function(){const el=$("dpBA");const ba=FX.ba(el);ba.set(97);ENTER.depara=()=>{ba.set(97);if(!REDMO)setTimeout(()=>ba.tween(50,1600),900);else ba.set(50)};})();
+
+(function(){const map=$("syMap"),svg=$("sySvg"),twin=$("syTwin");
+function draw(){svg.innerHTML="";const W=map.offsetWidth,Hh=map.offsetHeight;svg.setAttribute("viewBox",`0 0 ${W} ${Hh}`);svg.setAttribute("width",W);svg.setAttribute("height",Hh);
+  const tw=rel(twin,map);const y=tw.y-26;
+  const base=S("path",{d:`M 10 ${y} L ${W-10} ${y}`,class:"sy-thread"},svg);
+  const groups={};map.querySelectorAll(".sy-t").forEach(t=>{const r=rel(t,map);const k=Math.round(r.cx/10);(groups[k]=groups[k]||[]).push({t,r})});
+  Object.values(groups).forEach((g,i)=>{const lo=g.reduce((a,b)=>b.r.y+b.r.h>a.r.y+a.r.h?b:a);const x=lo.r.cx,y0=lo.r.y+lo.r.h;const p=S("path",{d:`M ${x} ${y0} L ${x} ${y}`,class:"sy-con",pathLength:1},svg);p.style.setProperty("--d",i);S("circle",{cx:x,cy:y,r:4.5,class:"sy-dot"},svg);g.forEach(o=>{o.t.addEventListener("pointerenter",()=>p.classList.add("on"));o.t.addEventListener("pointerleave",()=>p.classList.remove("on"))})});
+  const tl=S("path",{d:`M ${tw.cx} ${y} L ${tw.cx} ${tw.y}`,class:"sy-con",pathLength:1},svg);tl.style.setProperty("--d",11)}
+ENTER.sistema=()=>requestAnimationFrame(()=>{draw();fixPaths($("sistema"))});})();
+
+FX.holo($("holoPlay"));
+(function(){FX.holo($("holoDD"));const s=$("prod-itdd");s.querySelectorAll(".dd-seg button").forEach(b=>b.addEventListener("click",()=>{s.querySelectorAll(".dd-seg button").forEach(x=>x.classList.toggle("on",x===b));s.querySelectorAll(".dd-pane").forEach(p=>p.classList.toggle("on",p.dataset.p===b.dataset.f))}))})();
+(function(){const row=$("lnRow");const cards=[...row.querySelectorAll(".ln-card")];
+function open(c){cards.forEach(x=>x.classList.toggle("open",x===c))}
+cards.forEach(c=>{c.addEventListener("click",()=>{if(!c.classList.contains("open"))open(c)});c.addEventListener("keydown",e=>{if(e.key==="Enter"){e.stopPropagation();open(c)}})});
+ENTER["prod-lentes"]=()=>open(cards[0]);})();
+
+(function(){
+const svg=$("moSvg"),cap=$("moCap"),seg=$("moSeg");
+const LBL={hubS:["Empresa hoje","Vendedor","Vendedor"],hubN:"NewCo",erp:"ERP",crm:"CRM",dc:"Data center",idm:"Identidade",net:"Rede",data:"Dados e BI",lic:"Licenças",sd:"Service desk",mail:"Colaboração",ppl:"Pessoas de TI",erp2:"ERP NewCo",idm2:"Identidade",sd2:"Service desk",cld2:"Nuvem",data2:"Dados e BI"};
+const SYS=["erp","crm","dc","idm","net","data","lic","sd","mail","ppl"];
+const P=[{},{},{}];
+// estado 0: emaranhado em anel com desvio
+SYS.forEach((k,i)=>{const a=i/SYS.length*Math.PI*2-Math.PI/2+(i%2?.18:-.12);const r=i%2?1:.82;P[0][k]=[380+300*r*Math.cos(a),220+160*r*Math.sin(a),1,"m"]});
+P[0].hubS=[380,220,1,"h"];P[0].hubN=[380,220,0,"n"];
+const S1=["erp","dc","idm","net","data","lic","sd"],N1=["crm","mail","ppl"],N2=["crm","mail","ppl","erp2","idm2","sd2","cld2","data2"];
+function ring(arr,cx,cy,rx,ry,st,own,off){arr.forEach((k,i)=>{const a=i/arr.length*Math.PI*2-Math.PI/2+(off||0);P[st][k]=[cx+rx*Math.cos(a),cy+ry*Math.sin(a),1,own]})}
+ring(S1,190,220,135,165,1,"s",.2);P[1].crm=[655,95,1,"n"];P[1].ppl=[700,220,1,"n"];P[1].mail=[655,345,1,"n"];P[1].hubS=[190,220,1,"h"];P[1].hubN=[560,220,1,"n"];
+ring(S1,165,220,115,165,2,"s",.2);ring(N2,595,220,122,168,2,"n",.3);P[2].hubS=[165,220,1,"h"];P[2].hubN=[595,220,1,"n"];
+// clones nascem na posição do original
+[["erp2","erp"],["idm2","idm"],["sd2","sd"],["cld2","dc"],["data2","data"]].forEach(([c,o])=>{P[0][c]=[P[0][o][0],P[0][o][1],0,"n"];P[1][c]=[P[1][o][0],P[1][o][1],0,"n"]});
+const E=[[],[],[]];
+SYS.forEach(k=>E[0].push(["hubS",k,"m"]));[["erp","crm"],["erp","data"],["crm","data"],["idm","mail"],["idm","sd"],["dc","net"],["dc","erp"],["lic","erp"],["lic","crm"],["sd","ppl"],["mail","ppl"],["net","idm"],["data","mail"],["crm","ppl"]].forEach(([a,b])=>E[0].push([a,b,"m"]));
+[1,2].forEach(st=>{S1.forEach(k=>E[st].push(["hubS",k,"s"]));E[st].push(["erp","data","s"],["dc","net","s"])});
+N1.forEach(k=>E[1].push(["hubN",k,"n"]));["erp","dc","idm","sd","data"].forEach(k=>E[1].push([k,"hubN","t"]));
+N2.forEach(k=>E[2].push(["hubN",k,"n"]));E[2].push(["erp2","data2","n"]);
+const CAP=["Sistemas, dados, contratos e pessoas compartilhados. Ninguém sabe onde a NewCo começa nem quanto ela custa sozinha.","A NewCo opera desde o primeiro dia. O que ainda não é dela vira TSA, com escopo, nível de serviço e data de saída combinados antes do signing.","Cada TSA cumpre seu caminho de saída. A NewCo termina independente, com os próprios sistemas e sem custo escondido."];
+// construir
+const gE=S("g",{},svg),gN=S("g",{},svg);const EL={},NL={},D={},ED={};
+const keys=new Set();E.forEach(l=>l.forEach(e=>keys.add(e.join("|"))));
+keys.forEach(k=>{const [a,b,t]=k.split("|");EL[k]=S("line",{class:"mo-e mo-e-"+t},gE);ED[k]=0});
+Object.keys(LBL).forEach(k=>{const g=S("g",{class:"mo-n"+(k.startsWith("hub")?" hub":"")},gN);const r=S("rect",{rx:k.startsWith("hub")?12:9},g);const tx=S("text",{"text-anchor":"middle","dominant-baseline":"central"},g);NL[k]={g,r,tx};D[k]={x:380,y:220,o:0};setLabel(k,0)});
+function setLabel(k,st){const L=LBL[k];const s=Array.isArray(L)?L[st]:L;const n=NL[k];if(n.tx.textContent===s)return;n.tx.textContent=s;const hub=k.startsWith("hub");const w=Math.max(hub?96:70,s.length*(hub?9.4:7.2)+(hub?34:24));const h=hub?38:28;n.r.setAttribute("x",-w/2);n.r.setAttribute("y",-h/2);n.r.setAttribute("width",w);n.r.setAttribute("height",h)}
+function render(){Object.keys(NL).forEach(k=>{const d=D[k],n=NL[k];n.g.setAttribute("transform",`translate(${d.x.toFixed(1)},${d.y.toFixed(1)})`);n.g.style.opacity=d.o});
+  keys.forEach(k=>{const [a,b]=k.split("|");const l=EL[k];l.setAttribute("x1",D[a].x);l.setAttribute("y1",D[a].y);l.setAttribute("x2",D[b].x);l.setAttribute("y2",D[b].y);l.style.opacity=ED[k]*Math.min(D[a].o,D[b].o)})}
+let cur=-1,raf=0;
+function to(st,inst){cancelAnimationFrame(raf);const F={},FE={};Object.keys(D).forEach(k=>F[k]={...D[k]});keys.forEach(k=>FE[k]=ED[k]);
+  const TE=new Set(E[st].map(e=>e.join("|")));seg.querySelectorAll("button").forEach(b=>b.classList.toggle("on",+b.dataset.s===st));
+  cap.classList.remove("in");void cap.offsetWidth;cap.textContent=CAP[st];cap.classList.add("in");
+  const dur=inst||REDMO?1:1300,t0=performance.now();let sw=false;
+  (function step(now){const t=Math.min(1,(now-t0)/dur),e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    Object.keys(D).forEach(k=>{const p=P[st][k]||[F[k].x,F[k].y,0];D[k].x=F[k].x+(p[0]-F[k].x)*e;D[k].y=F[k].y+(p[1]-F[k].y)*e;D[k].o=F[k].o+(p[2]-F[k].o)*e});
+    keys.forEach(k=>{ED[k]=FE[k]+((TE.has(k)?1:0)-FE[k])*e});
+    if(!sw&&t>=.5){sw=true;Object.keys(NL).forEach(k=>{const p=P[st][k];NL[k].g.setAttribute("class","mo-n "+(p?p[3]:"m")+(k.startsWith("hub")?" hub":""));setLabel(k,st)})}
+    render();if(t<1)raf=requestAnimationFrame(step)})(t0+(inst?dur:0));cur=st}
+seg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>to(+b.dataset.s)));
+let tm;ENTER["prod-dayone"]=()=>{clearTimeout(tm);to(0,true);if(!REDMO)tm=setTimeout(()=>to(1),1500)};LEAVE["prod-dayone"]=()=>{clearTimeout(tm);cancelAnimationFrame(raf)};
+})();
+
+
+(function(){const feed=$("ofFeed");
+const M=[["Agente de riscos","shield","A saída do ERP do vendedor ainda não tem plano aprovado. Sugiro levar ao comitê desta semana."],["Agente de TSA","contract","O TSA de service desk vence antes do cutover previsto. Proposta de extensão redigida para revisão."],["Agente de sinergias","coin","Duas licenças duplicadas podem ser canceladas após a migração de e-mail. Dono sugerido: Infraestrutura."],["Agente de status","doc","O resumo executivo do steering está pronto, com riscos e decisões citando a fonte."]];
+let tms=[];
+function play(){tms.forEach(clearTimeout);tms=[];feed.querySelectorAll(".of-msg").forEach(m=>m.remove());
+  M.forEach((m,i)=>{tms.push(setTimeout(()=>{const d=H("div",{class:"of-msg"},feed);d.innerHTML=`<span class="of-ag">${icoSvg(m[1],0)}<b>${m[0]}</b><i>agora</i></span><p>${m[2]}</p>`;fixPaths(d)},REDMO?0:900+i*1500))})}
+ENTER["prod-office"]=play;LEAVE["prod-office"]=()=>tms.forEach(clearTimeout);
+})();
+
+
+(function(){const svg=$("vjSvg"),st=$("vjSt");
+const ST=[["Closing","a"],["Plano de valor","a"],["Captura","a"],["Preparação da venda","b"],["Exit","b"]];
+const X=[60,420,780,1150,1460];
+const base=S("path",{d:"M 20 55 L 1500 55",class:"vj-base"},svg);
+const sa=S("path",{d:`M ${X[0]} 55 L ${X[2]} 55`,class:"vj-seg a",pathLength:1},svg);
+const sb=S("path",{d:`M ${X[2]+60} 55 L ${X[4]} 55`,class:"vj-seg b",pathLength:1},svg);
+ST.forEach((s,i)=>{const d=H("div",{class:"vj-node "+s[1],style:`left:${X[i]/15.2}%;--d:${i}`},st);d.innerHTML=`<i></i><b>${s[0]}</b>`});
+H("div",{class:"vj-lab a",style:`left:${X[0]/15.2}%;width:${(X[2]-X[0])/15.2}%`},st,"Tech Value Creation");
+H("div",{class:"vj-lab b",style:`left:${(X[2]+60)/15.2}%;width:${(X[4]-X[2]-60)/15.2}%`},st,"Exit Tech Readiness");
+const run=H("span",{class:"vj-run"},$("vj"));
+const vj=$("vj");
+["vjA","vjB"].forEach(id=>{const c=$(id);c.addEventListener("pointerenter",()=>vj.dataset.hi=c.dataset.seg);c.addEventListener("pointerleave",()=>delete vj.dataset.hi)});
+ENTER["prod-valor"]=()=>{delete vj.dataset.hi};
+})();
+
+
+(function(){const scene=$("twScene"),stack=$("twStack");const L=[...stack.querySelectorAll(".tw-ly")];
+const D={0:["Camada de entrada","Fontes","Tudo o que entra no deal: data room, entrevistas, repositórios de código, varredura externa, contratos e faturas de nuvem. Depois do closing, os sistemas de gestão do próprio cliente.",["Conectores MCP de data room","Leitura de documentos","Scanners outside-in","APIs de nuvem e ITSM"]],
+1:["Camada de leitura","Agentes por lente","Um agente por lente lê as fontes, extrai fatos e sinaliza riscos com a evidência de origem. Nenhum agente decide sozinho.",["LLM em ambiente privado","RAG com citação","Orquestração de agentes","Avaliação contínua"]],
+2:["O coração do sistema","O gêmeo do alvo","O modelo vivo do parque do alvo: sistemas, dados, contratos, pessoas, dependências, riscos e iniciativas, ligados entre si. Nasce na diligência e é atualizado até o exit.",["Grafo de conhecimento","Histórico de decisões","Versão por evento do deal","Trilha de auditoria"]],
+3:["Camada de julgamento","Inteligência A&M","A rede de IA da A&M, com o DiligenceGPT, o A&M Assist e o Rapid Analytics, somada a benchmarks e playbooks de projetos anteriores e a especialistas sêniores que validam cada conclusão antes de ela chegar ao cliente.",["A&M DiligenceGPT","A&M Assist","Rapid Analytics","Revisão humana obrigatória"]],
+4:["Camada de entrega","Produtos A&M","Cada produto lê e escreve no mesmo gêmeo. A diligência vira o plano de separação, que vira o Day 1, que vira o plano de valor e, no fim, o data room da venda.",["Diligência","Separação","Integração","Valor e exit"]]};
+function sel(k){L.forEach(l=>l.classList.toggle("on",+l.dataset.k===k));const d=D[k];$("twK").textContent=d[0];$("twT").textContent=d[1];$("twW").textContent=d[2];$("twTech").innerHTML=d[3].map(t=>`<span class="tech">${t}</span>`).join("");const det=$("twDet");det.classList.remove("in");void det.offsetWidth;det.classList.add("in")}
+L.forEach(l=>{l.addEventListener("pointerenter",()=>sel(+l.dataset.k));l.addEventListener("click",()=>sel(+l.dataset.k))});
+if(!REDMO){scene.addEventListener("pointermove",e=>{const r=scene.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;stack.style.transform=`rotateX(${12-py*8}deg) rotateY(${-8+px*12}deg)`});scene.addEventListener("pointerleave",()=>{stack.style.transform=""})}
+ENTER["prod-twin"]=()=>sel(2);
+})();
+
+
+(function(){const tabs=[...$("rsTabs").querySelectorAll("button")];
+const st=FX.stack($("rsStack"),(c,i)=>tabs.forEach((t,k)=>t.classList.toggle("on",k===i)));
+tabs.forEach(t=>t.addEventListener("click",()=>st.to(+t.dataset.i)));
+ENTER.resultados=()=>st.to(0);})();
+
+
+(function(){const sh=FX.shader($("fechoShader"),{amp:.55});ENTER.fecho=()=>sh.start();LEAVE.fecho=()=>sh.stop();})();
+
+/* pós-montagem: ícones e pathLength para o efeito de desenho */
+document.querySelectorAll("[data-ico]").forEach((el,i)=>{el.insertAdjacentHTML("afterbegin",icoSvg(el.dataset.ico,el.dataset.icod||i%8))});
+function fixPaths(root){(root||document).querySelectorAll(".ico *").forEach(p=>p.setAttribute("pathLength","1"))}
+fixPaths();
+
+fit();(function(){const h0=parseInt(location.hash.slice(1),10);cur=isNaN(h0)?0:clamp(h0-1,0,N-1);activate(cur,true)})();
+</script>
+</body>
+</html>

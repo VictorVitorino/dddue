@@ -1,0 +1,37 @@
+<section class="slide stage" id="prod-twin" data-t="A&amp;M Deal Twin" data-chap="Produtos" data-fx="04|3D Tilt / Perspective|moderada" data-fxwhy="A arquitetura é mostrada como camadas físicas que respondem ao cursor. Ao tocar uma camada, ela se destaca e o painel explica o que ela faz; o gêmeo, no centro, é a única camada laranja, porque é o que nenhum concorrente vende." data-src="Proposta A&amp;M DTS; benchmarks de plataforma: PwC Junction, EY-Parthenon Edge, Deloitte M&amp;A Platform; ativos de IA da A&amp;M (DiligenceGPT, A&amp;M Assist, Rapid Analytics); Datasite MCP Server (abr/2026); Gartner MQ Digital Twin of an Organization 2026; LGPD (Lei 13.709/2018)" data-desc="A base de todos os produtos: um gêmeo digital do parque tecnológico do alvo. Fontes alimentam agentes por lente; os agentes constroem o gêmeo com a evidência de cada afirmação; a inteligência da A&amp;M e os especialistas validam; e cada produto lê e escreve no mesmo modelo, da diligência ao exit. Toque em uma camada para ver o detalhe.">
+  <div class="body">
+    <div class="ln-head">
+      <div><div class="eyebrow" data-a="fade">A base de todos os produtos · novo</div><h2 class="h2 kin" style="margin-top:10px">Um gêmeo digital do alvo, <span class="hl">da diligência ao exit.</span></h2></div>
+      <p class="lead ln-lead" data-a="fade" style="--d:5">Plataformas de deal organizam o projeto. O A&amp;M Deal Twin modela o ativo e leva cada achado, dependência e decisão de um produto para o outro.</p>
+    </div>
+    <div class="tw-wrap">
+      <div class="tw-scene" id="twScene" data-a="zoom" style="--d:2">
+        <div class="tw-stack" id="twStack">
+          <div class="tw-ly" data-k="4"><span class="tw-n">Produtos A&amp;M</span><div class="tw-chips"><span>Diligência</span><span>Separação</span><span>Integração</span><span>Valor e exit</span></div></div>
+          <div class="tw-ly" data-k="3"><span class="tw-n">Inteligência A&amp;M</span><div class="tw-chips"><span>A&amp;M DiligenceGPT</span><span>A&amp;M Assist</span><span>Rapid Analytics</span><span>Benchmarks e playbooks</span><span>Especialistas sêniores</span></div></div>
+          <div class="tw-ly core" data-k="2"><span class="tw-n">O gêmeo do alvo<em>A&amp;M Deal Twin</em></span><div class="tw-chips"><span>Sistemas</span><span>Dados</span><span>Contratos</span><span>Pessoas</span><span>Dependências</span><span>Riscos</span><span>Iniciativas</span></div></div>
+          <div class="tw-ly" data-k="1"><span class="tw-n">Agentes por lente</span><div class="tw-chips"><span>Pessoas</span><span>Governança</span><span>Infra e nuvem</span><span>Sistemas</span><span>Segurança</span><span>Dados e IA</span><span>Software</span><span>Digital</span></div></div>
+          <div class="tw-ly" data-k="0"><span class="tw-n">Fontes</span><div class="tw-chips"><span>Data room via MCP</span><span>Entrevistas</span><span>Código</span><span>Varredura externa</span><span>Contratos</span><span>Faturas de nuvem</span><span>Sistemas do cliente</span></div></div>
+        </div>
+      </div>
+      <div class="tw-side">
+        <div class="tw-det" id="twDet" data-a="left" style="--d:4"><span class="label" id="twK"></span><h3 class="h3" id="twT"></h3><p id="twW"></p><div class="p-tech" id="twTech"></div></div>
+        <div class="tw-g" data-a="left" style="--d:6"><span class="label">Guardrails de cada deal</span>
+          <ul><li><span data-ico="lock"></span>Ambiente isolado por deal e por cliente</li><li><span data-ico="db"></span>Dados do cliente não treinam modelos</li><li><span data-ico="link"></span>Toda afirmação aponta para a evidência</li><li><span data-ico="shield"></span>A IA propõe, o especialista assina</li><li><span data-ico="people"></span>Clean team e barreiras de informação</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script data-slide>
+(function(){const scene=$("twScene"),stack=$("twStack");const L=[...stack.querySelectorAll(".tw-ly")];
+const D={0:["Camada de entrada","Fontes","Tudo o que entra no deal: data room, entrevistas, repositórios de código, varredura externa, contratos e faturas de nuvem. Depois do closing, os sistemas de gestão do próprio cliente.",["Conectores MCP de data room","Leitura de documentos","Scanners outside-in","APIs de nuvem e ITSM"]],
+1:["Camada de leitura","Agentes por lente","Um agente por lente lê as fontes, extrai fatos e sinaliza riscos com a evidência de origem. Nenhum agente decide sozinho.",["LLM em ambiente privado","RAG com citação","Orquestração de agentes","Avaliação contínua"]],
+2:["O coração do sistema","O gêmeo do alvo","O modelo vivo do parque do alvo: sistemas, dados, contratos, pessoas, dependências, riscos e iniciativas, ligados entre si. Nasce na diligência e é atualizado até o exit.",["Grafo de conhecimento","Histórico de decisões","Versão por evento do deal","Trilha de auditoria"]],
+3:["Camada de julgamento","Inteligência A&M","A rede de IA da A&M, com o DiligenceGPT, o A&M Assist e o Rapid Analytics, somada a benchmarks e playbooks de projetos anteriores e a especialistas sêniores que validam cada conclusão antes de ela chegar ao cliente.",["A&M DiligenceGPT","A&M Assist","Rapid Analytics","Revisão humana obrigatória"]],
+4:["Camada de entrega","Produtos A&M","Cada produto lê e escreve no mesmo gêmeo. A diligência vira o plano de separação, que vira o Day 1, que vira o plano de valor e, no fim, o data room da venda.",["Diligência","Separação","Integração","Valor e exit"]]};
+function sel(k){L.forEach(l=>l.classList.toggle("on",+l.dataset.k===k));const d=D[k];$("twK").textContent=d[0];$("twT").textContent=d[1];$("twW").textContent=d[2];$("twTech").innerHTML=d[3].map(t=>`<span class="tech">${t}</span>`).join("");const det=$("twDet");det.classList.remove("in");void det.offsetWidth;det.classList.add("in")}
+L.forEach(l=>{l.addEventListener("pointerenter",()=>sel(+l.dataset.k));l.addEventListener("click",()=>sel(+l.dataset.k))});
+if(!REDMO){scene.addEventListener("pointermove",e=>{const r=scene.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;stack.style.transform=`rotateX(${12-py*8}deg) rotateY(${-8+px*12}deg)`});scene.addEventListener("pointerleave",()=>{stack.style.transform=""})}
+ENTER["prod-twin"]=()=>sel(2);
+})();
+</script>
