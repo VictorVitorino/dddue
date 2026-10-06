@@ -29,6 +29,7 @@ Regras atendidas: sem números de mercado nos slides, sem gráficos de barras, s
 - `I1_inovacao.md`: inovação em produtos de M&A com tecnologia em 2025–2026
 - `M1_brasil.md`: sinais do mercado brasileiro (ANPD, reforma tributária, carve-outs, compradores seriais)
 - `verify_*.md`: verificação cética de cada relatório (nenhum item refutado)
+- `S0_sintese.md`: síntese final, com o que validar internamente antes de uso externo
 
 Limites: a política de rede do ambiente bloqueou a maior parte dos sites; a pesquisa usou buscas e espelhos públicos de páginas oficiais no GitHub. Trechos marcados como "snippet" devem ser conferidos antes de uso externo. A disponibilidade do DiligenceGPT, do A&M Assist e do Rapid Analytics para o time do Brasil não foi confirmada publicamente.
 
