@@ -1,0 +1,14 @@
+section[data-t="Desafios holísticos"] .card.xp{min-height:196px;padding:12px 13px}
+section[data-t="Desafios holísticos"] .card.xp p{font-size:11.8px}
+section[data-t="Desafios holísticos"] .card.xp h4{font-size:14px}
+section[data-t="Riscos e impactos"] .card{min-height:200px}
+section[data-t="Riscos e impactos"] .card p{font-size:11.8px}
+section[data-t="Riscos e impactos"] .card h4{font-size:14px}
+section[data-t="Resumo executivo"] .card p{font-size:13px}
+section[data-t="Resumo executivo"] .card h3{font-size:21px}
+section[data-t="Resumo executivo"] .card{min-height:250px}
+.body.dk .card li,.body.dk .card p{color:#C8DBEB}
+.body.dk .card h4{color:#fff}
+section[data-t="Como as consultorias fazem DD"] .tbl td{padding:6px 9px}
+section[data-p="Anexos"] .tbl td{padding:4px 8px;line-height:1.3}
+section[data-p="Anexos"] .tbl tr{height:auto}

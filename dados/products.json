@@ -1,0 +1,1155 @@
+{
+ "lenses": [
+  "Pessoas & organização",
+  "Governança & finanças de TI",
+  "Segurança & privacidade",
+  "Infraestrutura & cloud",
+  "Sistemas & arquitetura",
+  "Software & engenharia",
+  "Dados & IA",
+  "Digital & produto"
+ ],
+ "products": [
+  {
+   "id": "p01",
+   "num": "01",
+   "status": "keep",
+   "phase": "M&A Strategy",
+   "band": "c-green",
+   "name": "Tech M&A Playbook",
+   "old": "IT M&A Playbook",
+   "tag": "capacitar o cliente para comprar e integrar com time próprio",
+   "duration": "8–12 semanas + acompanhamento",
+   "ai": 2,
+   "model": "Projeto + licença anual do copiloto (hipótese)",
+   "audience": "CIO/CTO e áreas de M&A de compradores seriais (varejo, saúde, educação, agro, serviços financeiros) e plataformas de fundos em teses de buy-and-build.",
+   "problem": "Cada aquisição recomeça do zero: TI entra tarde, não há padrão de diligência, de Day 1 nem de integração, e o cliente depende de consultoria em todo deal.",
+   "deliverables": [
+    "Playbook por fase do ciclo (DD, Day 1, 100 dias, integração/separação)",
+    "Kit de ferramentas: data request, checklist de tomada de controle, matriz de risco, modelo de CAPEX/OPEX",
+    "Modelo de governança (IMO interno) e papéis",
+    "Programa de capacitação do time de TI",
+    "Acompanhamento dos 2 primeiros deals"
+   ],
+   "steps": [
+    "Compreender: estratégia de M&A, teses e modelo operacional de TI",
+    "Definir: métodos e ferramentas sob medida",
+    "Preparar: capacitar o time e rodar simulações",
+    "Acompanhar: primeiros deals com o playbook"
+   ],
+   "skills": [
+    "Arquitetura corporativa",
+    "PMO de integração",
+    "Gestão de mudança",
+    "Finanças de TI"
+   ],
+   "system": "Playbook Copilot: base de conhecimento do playbook em LLM privado, que gera data requests, checklists e rascunhos de charters a partir da tese do deal.",
+   "data": [
+    "Histórico de deals do cliente",
+    "Inventário de aplicações e contratos",
+    "Modelo operacional de TI"
+   ],
+   "ai_role": [
+    "Gera artefatos do playbook a partir da tese (data request, checklist, charter)",
+    "Responde perguntas do time com citações ao playbook",
+    "Atualiza o playbook com lições de cada deal"
+   ],
+   "productize": [
+    "Playbook-base A&M (80%) + customização (20%)",
+    "Versão digital \"playbook-in-a-box\" com o copiloto",
+    "Licença anual com atualizações e office hours"
+   ],
+   "effort": {
+    "size": "P",
+    "months": "2–3 meses",
+    "team": "2–3 pessoas",
+    "prereq": "Digitalizar o playbook-base; copiloto sobre o Engine"
+   },
+   "kpis": [
+    "Dias de preparação de uma DD interna",
+    "% de deals com TI envolvida antes do signing",
+    "Gasto com consultoria por deal",
+    "Prontidão Day 1 (checklist 100%)"
+   ],
+   "evidence": [
+    {
+     "id": "E08",
+     "text": "Buy-and-build é a tese dominante: Chambers cita Sinqia, Alloha, Cruzeiro do Sul e Smart Fit; hospitais e laboratórios +37% em deals (jan–set/2025, KPMG); Alper (Pátria/Warburg) fez 6 aquisições em 2025 e tem ≥10 no radar",
+     "src": "Chambers PE 2025 Brazil; KPMG via Medicina S/A; Sonho Seguro · 2025",
+     "type": "evidence"
+    },
+    {
+     "id": "S02",
+     "text": "Consolidadores de software em ritmo de roll-up: TOTVS comprou a Linx por R$ 3,05 bi (out/2025); Sankhya fez a 11ª aquisição e reservou R$ 200 mi; Senior comprou a Salú por R$ 318,7 mi (2026); Nuvini tem US$ 127 mi para aquisições; Stefanini reservou R$ 2 bi para M&A em 2025–27",
+     "src": "Mercado Hoje/UAI; Sankhya; Economia SC; Portal No Varejo; Convergência Digital · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D08",
+     "text": "PwC 2026 M&A Integration Survey (n=530): só 27% dos adquirentes de \"sucesso limitado\" confiam que as sinergias reportadas são reais e auditáveis, contra 62% dos bem-sucedidos; 59% vs 28% atribuem dono, prazo e verba a cada iniciativa antes da integração",
+     "src": "PwC US · 2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p02",
+   "num": "02",
+   "status": "create",
+   "phase": "Pré-deal",
+   "band": "c-gold",
+   "name": "Red Flag Tech DD",
+   "old": "absorve IT DD (Buy Side VC) e VMaaS On Demand",
+   "tag": "deal breakers de tecnologia em 5 a 10 dias úteis",
+   "duration": "5–10 dias úteis",
+   "ai": 3,
+   "model": "Preço fixo por tamanho (S/M/L), crédito no upgrade para o DD 360 (hipótese)",
+   "audience": "VC/growth, corporates em processos competitivos e fundos triando vários alvos; tickets pequenos e médios.",
+   "problem": "Janelas curtas de exclusividade e leilões não comportam uma diligência de 6 semanas; o investidor precisa saber em dias se há deal breakers de tecnologia e o que negociar.",
+   "deliverables": [
+    "Relatório red-flag (10–15 páginas) com semáforo nas 8 lentes",
+    "Top-10 riscos com faixa de impacto em R$",
+    "Perguntas para SPA, garantias e condições precedentes",
+    "Recomendação: seguir, ajustar preço ou aprofundar",
+    "Escopo recomendado para a DD completa"
+   ],
+   "steps": [
+    "D0: data request mínimo (20 itens) e questionário estruturado",
+    "D1–D3: análise automatizada (inventário, exposição externa, licenças, código se disponível) + 3–4 entrevistas",
+    "D4–D5: síntese, quantificação e comitê com o investidor"
+   ],
+   "skills": [
+    "Arquitetura",
+    "Cyber",
+    "Engenharia de software",
+    "Modelagem de custos de TI"
+   ],
+   "system": "A&M Tech Diligence Engine: ingestão do VDR, extração automática de inventário de sistemas e contratos, scanner externo de superfície de ataque, scan opcional de repositório.",
+   "data": [
+    "VDR mínimo (contratos, inventário, organograma, faturas de cloud)",
+    "Fontes externas (superfície de ataque, vazamentos, reclamações)",
+    "Base de benchmarks A&M"
+   ],
+   "ai_role": [
+    "Triagem e classificação dos documentos do VDR",
+    "Cruzamento contratos × licenças × usuários",
+    "Rascunho do relatório com evidências vinculadas",
+    "Comparação com benchmarks do setor"
+   ],
+   "productize": [
+    "Catálogo S/M/L com preço fixo e SLA de 5 ou 10 dias",
+    "Template e score padrão (mesmas lentes do DD 360)",
+    "Upsell natural para o DD 360 e para os add-ons (IA, Cyber & Dados, Software & Cloud)"
+   ],
+   "effort": {
+    "size": "M",
+    "months": "3–4 meses",
+    "team": "3 pessoas + squad do Engine",
+    "prereq": "MVP do Engine (ingestão + inventário + relatório)"
+   },
+   "kpis": [
+    "Prazo de entrega (dias)",
+    "% de red flags confirmados na DD completa",
+    "Impacto negociado em preço ou garantias",
+    "Custo por diligência"
+   ],
+   "evidence": [
+    {
+     "id": "C03",
+     "text": "PwC (Bélgica) vende dois formatos: \"red-flag analysis\" (rápida, baixa/média complexidade) e \"full-scope due diligence\" (alta complexidade, com carve-out/integração)",
+     "src": "PwC Belgium, Technology due diligence · s.d.",
+     "type": "evidence"
+    },
+    {
+     "id": "C05",
+     "text": "PwC + Harvey (jul/2025): workflow de due diligence \"executed over 10,000 times\" gerando relatórios iniciais de red flags; PwC + Palantir (set/2026): \"AI-native deals IT platform\" com deals \"up to 50% faster\" e custos one-time até 45% menores; PwC + ToltIQ (jun/2026)",
+     "src": "PwC press releases · jul/2025–set/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "S03",
+     "text": "M&A de startups no Brasil: 112 (2023, Distrito), 153 (2024, Sling Hub/Itaú BBA, 77% da América Latina), +71% no 1S2025 (Distrito) e queda para 87 no 1S2026 (vs 131 no 1S2025, -33%), com \"IA como fator decisivo\" e prêmio por software vertical com dado proprietário",
+     "src": "Distrito; Sling Hub/Itaú BBA (via Forbes); Startups.com.br · 2024–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C09",
+     "text": "Deloitte concluiu uma Tech DD de plataforma de e-commerce (300 mil linhas de código) em menos de 10 dias usando CAST Highlight, com scripts executados pelo próprio alvo",
+     "src": "CAST case study · 2024–2025",
+     "type": "evidence"
+    },
+    {
+     "id": "Q03",
+     "text": "IA agêntica sobre o data room já é commodity técnica: 34 repositórios open-source automatizam DD sobre data rooms com LLMs; o mais popular usa 13 agentes em 9 domínios e \"rastreia cada achado até a página e a citação exata\"; outro anuncia \"48 horas e US$ 45 mil por deal\" contra \"3–4 semanas e US$ 75–150 mil\" (claim auto-declarado, não auditado)",
+     "src": "GitHub (busca e repositórios zoharbabin/due-diligence-agents; AAH20/ma-vdr-diligence-os) · set–out/2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p03",
+   "num": "03",
+   "status": "improve",
+   "phase": "Pré-deal",
+   "band": "c-blue",
+   "name": "Tech Due Diligence 360",
+   "old": "IT Due Diligence (Buy Side)",
+   "tag": "de 6 semanas qualitativas para 2–4 semanas com score, R$ e evidências",
+   "duration": "2–4 semanas",
+   "ai": 3,
+   "model": "Projeto por lentes e profundidade; bundle com add-ons (hipótese)",
+   "audience": "Fundos de PE, corporates e family offices avaliando alvos de médio e grande porte em qualquer setor.",
+   "problem": "O comprador precisa quantificar riscos e investimentos de tecnologia no preço e no plano de 100 dias; DDs tradicionais são lentas, qualitativas e pouco comparáveis entre alvos.",
+   "deliverables": [
+    "Tech Health Score (0–100) nas 8 lentes, comparável entre deals",
+    "Registro de riscos com probabilidade × impacto e R$",
+    "CAPEX/OPEX one-time e recorrente (worst/base/best)",
+    "Mapa sistemas × cadeia de valor, time e dependências",
+    "Cyber externa, LGPD, dívida técnica e custos de cloud",
+    "Iniciativas para o plano de 100 dias e inputs para SPA e modelo financeiro"
+   ],
+   "steps": [
+    "Semana 0: tese do deal, lentes e profundidade por lente",
+    "Semana 1: coleta e análise automatizada + entrevistas",
+    "Semana 2: aprofundamento (pentest externo, scan de código, workshops)",
+    "Semana 3: síntese, CAPEX/OPEX e comitê"
+   ],
+   "skills": [
+    "Arquitetura",
+    "Infra & cloud",
+    "Cyber",
+    "Engenharia de software",
+    "Dados & IA",
+    "Finanças de TI",
+    "PMI"
+   ],
+   "system": "A&M Tech Diligence Engine + biblioteca de benchmarks (100+ projetos normalizados) + scanners externos.",
+   "data": [
+    "VDR completo e entrevistas",
+    "Faturas de cloud, contratos e licenças",
+    "Repositórios (read-only) quando autorizado",
+    "Benchmarks A&M por setor e porte"
+   ],
+   "ai_role": [
+    "Extração e classificação de documentos e inventários",
+    "Evidence-linking: cada finding com a evidência de origem",
+    "Sumarização de entrevistas e detecção de contradições",
+    "Rascunho do relatório e do modelo de custos; humano valida e assina"
+   ],
+   "productize": [
+    "Bundle base (8 lentes) + add-ons: AI DD, Cyber & Data DD, Software & Cloud DD",
+    "Três níveis de profundidade por lente (hoje já existe o \"sob medida\")",
+    "Relatório padrão + dashboard interativo entregue ao cliente",
+    "Score único reutilizado no Portfolio Tech Value Office e no exit"
+   ],
+   "effort": {
+    "size": "M–G",
+    "months": "4–6 meses",
+    "team": "Líder de produto + 2 consultores + squad do Engine",
+    "prereq": "Taxonomia das 8 lentes, base de benchmarks estruturada, Engine V1"
+   },
+   "kpis": [
+    "Prazo médio: de 6 para 3 semanas",
+    "% de findings com impacto em R$",
+    "Precisão do CAPEX estimado vs realizado em 12 meses",
+    "% de findings convertidos em iniciativas dos 100 dias"
+   ],
+   "evidence": [
+    {
+     "id": "C01",
+     "text": "Big Four separam três camadas: IT Due Diligence (função de TI), Technology Due Diligence / Tech DD (produto, arquitetura, código) e, desde 2024–25, AI Due Diligence; Cyber DD é linha própria em todas",
+     "src": "Deloitte UK/NL; PwC US/BE; KPMG CH/DK; EY US · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C02",
+     "text": "KPMG (Suíça) lista 7 linhas: Technology DD, IT DD, Cybersecurity DD, Software DD, Carve-out DD, IT & Tech Vendor DD e IT Integration & Separation; KPMG (Dinamarca) publica duração típica de Tech DD: 2 a 4 semanas em deals de software mid-market",
+     "src": "KPMG CH; KPMG DK · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "E04",
+     "text": "Tecnologia é o setor nº 1 em M&A no Brasil em todas as bases: TTR \"Internet, Software & IT Services\" 340 deals em 2025 (18%); KPMG \"Tecnologia da Informação\" 415 operações jan–set/2025 (278 com PE/VC, ~36%); PwC 453 operações em tecnologia jan–set/2025 (31,6%)",
+     "src": "TTR Data 4Q2025; KPMG Pesquisa F&A 3T2025; PwC Fusões e Aquisições no Brasil (via Forbes) · out/2025–jan/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D01",
+     "text": "Deloitte (out/2025, n=1.000 líderes corporativos e de PE): 86% integraram GenAI aos fluxos de M&A; 35% usam em due diligence; 83% investiram US$ 1 mi ou mais",
+     "src": "Deloitte 2025 Generative AI in M&A Survey · out/2025",
+     "type": "evidence"
+    },
+    {
+     "id": "C10",
+     "text": "No Brasil a oferta pública é rasa: Deloitte BR é a única com página dedicada em português (\"IT M&A\" / \"Due Diligence de TI\", com o claim de que TI pode chegar a 70% do custo total da transação); EY BR traduz páginas globais; PwC BR só menciona \"due diligence de TI\"; KPMG BR não tem página de Tech/IT DD. Nenhuma publica prazo, preço, profundidade ou uso de IA em Tech DD no Brasil",
+     "src": "deloitte.com/br; ey.com/pt_br; pwc.com.br; kpmg.com/br (ausência verificada em 8 buscas) · 2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p04",
+   "num": "04",
+   "status": "create",
+   "phase": "Pré-deal",
+   "band": "c-gold",
+   "name": "AI Due Diligence",
+   "old": "novo",
+   "tag": "a IA do alvo é real, defensável, legal e econômica?",
+   "duration": "1–2 semanas (add-on) · 2–3 semanas (standalone)",
+   "ai": 3,
+   "model": "Add-on do DD 360 ou standalone; versão \"AI readiness\" para sell-side (hipótese)",
+   "audience": "Investidores em alvos que vendem ou dependem de IA (software, fintech, healthtech, serviços) e corporates comprando capacidade de IA.",
+   "problem": "\"AI-washing\" e risco regulatório: o comprador não sabe se a IA do alvo é real, se os dados de treino são lícitos, quanto custa cada inferência, de quais fornecedores depende e como é governada.",
+   "deliverables": [
+    "Inventário de casos de uso, modelos e fornecedores (lock-in)",
+    "Proveniência e direitos sobre os dados; aderência à LGPD e ao Marco Legal da IA",
+    "Economia unitária: custo por inferência × margem; projeção de custos",
+    "Qualidade e robustez dos modelos (testes em amostra)",
+    "Governança (ISO/IEC 42001, NIST AI RMF) e riscos de PI",
+    "AI Reality Score, roadmap e investimento necessário"
+   ],
+   "steps": [
+    "Questionário e VDR de IA (modelos, dados, contratos, políticas)",
+    "Entrevistas com CTO, head de dados e produto",
+    "Testes técnicos: avaliação de desempenho, robustez e vieses em amostra",
+    "Análise regulatória, contratual e econômica; relatório e score"
+   ],
+   "skills": [
+    "Engenharia de IA/ML",
+    "Dados",
+    "Regulatório e privacidade (com parceiro jurídico)",
+    "Finanças"
+   ],
+   "system": "Engine + harness de avaliação de modelos (testes de desempenho, robustez, alucinação e viés), análise automática de termos de fornecedores e varredura de repositórios de modelos.",
+   "data": [
+    "Documentação de modelos e pipelines",
+    "Contratos com provedores de IA e termos de uso",
+    "Amostras de dados e logs de inferência",
+    "Faturas de GPU/API"
+   ],
+   "ai_role": [
+    "IA avaliando IA: roda baterias de testes padronizadas",
+    "Lê contratos e políticas e aponta lacunas contra ISO 42001 e LGPD",
+    "Projeta custo unitário por cenário de crescimento"
+   ],
+   "productize": [
+    "Checklist e score alinhados a ISO 42001 e NIST AI RMF",
+    "Add-on padrão do DD 360 e do Red Flag",
+    "Versão sell-side \"AI readiness\" e monitoramento no hold"
+   ],
+   "effort": {
+    "size": "M",
+    "months": "2–3 meses",
+    "team": "1 engenheiro de IA + 1 consultor + parceiro jurídico",
+    "prereq": "Framework publicado, 2 pilotos, harness de testes"
+   },
+   "kpis": [
+    "Riscos de IA quantificados em R$",
+    "Ajustes de preço/garantias obtidos",
+    "Conformidade regulatória pós-deal",
+    "Custo de IA como % da receita"
+   ],
+   "evidence": [
+    {
+     "id": "D07",
+     "text": "PwC Global M&A Trends 2026 (mid-year): \"Dealmakers should make AI due diligence a core part of every deal\"; valor global de deals a caminho de US$ 4 tri em 2026",
+     "src": "PwC Global M&A Industry Trends · jun/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D04",
+     "text": "KPMG \"The AI blind spot in M&A\" (n=135): só 33% dos dealmakers priorizam investigar dívida técnica e de IA no pré-deal, embora 66% discutam o tema no planejamento; 59% veem ferramentas de IA redundantes como risco emergente",
+     "src": "KPMG US · 2026 (pesquisa set/2025)",
+     "type": "evidence"
+    },
+    {
+     "id": "C01",
+     "text": "Big Four separam três camadas: IT Due Diligence (função de TI), Technology Due Diligence / Tech DD (produto, arquitetura, código) e, desde 2024–25, AI Due Diligence; Cyber DD é linha própria em todas",
+     "src": "Deloitte UK/NL; PwC US/BE; KPMG CH/DK; EY US · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "S03",
+     "text": "M&A de startups no Brasil: 112 (2023, Distrito), 153 (2024, Sling Hub/Itaú BBA, 77% da América Latina), +71% no 1S2025 (Distrito) e queda para 87 no 1S2026 (vs 131 no 1S2025, -33%), com \"IA como fator decisivo\" e prêmio por software vertical com dado proprietário",
+     "src": "Distrito; Sling Hub/Itaú BBA (via Forbes); Startups.com.br · 2024–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "X_AIACT",
+     "text": "Regulação de IA: EU AI Act em vigor desde ago/2024 com obrigações escalonadas até 2026–27; ISO/IEC 42001 (dez/2023) já é usada como referência por KPMG e Datasite; no Brasil o PL 2.338/2023 (Marco Legal da IA) foi aprovado no Senado em dez/2024 e segue na Câmara — status em 2026 a confirmar",
+     "src": "Regulamento (UE) 2024/1689; ISO/IEC 42001; PL 2.338/2023 (status não verificado nesta sessão)",
+     "type": "hypothesis"
+    },
+    {
+     "id": "B02",
+     "text": "Bain Software M&A Report 2026: quase metade dos deals de tecnologia em 2025 tinha um componente de IA, contra cerca de um em quatro no ano anterior",
+     "src": "Bain & Company, Software M&A Report 2026 (fonte secundária) · 2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p05",
+   "num": "05",
+   "status": "create",
+   "phase": "Pré-deal",
+   "band": "c-gold",
+   "name": "Cyber & Data Due Diligence",
+   "old": "hoje só \"light pentest\" dentro do IT DD",
+   "tag": "exposição em R$: ataques, vazamentos e LGPD antes do closing",
+   "duration": "1–2 semanas",
+   "ai": 2,
+   "model": "Add-on do DD 360 ou standalone; monitoramento trimestral no hold (hipótese)",
+   "audience": "PE e corporates em setores regulados (financeiro, saúde, varejo digital, educação) e alvos com grandes bases de dados pessoais.",
+   "problem": "Ataques e vazamentos pós-closing viram passivo do comprador e multa da ANPD; diligências \"light\" não quantificam a exposição nem geram cláusulas de proteção.",
+   "deliverables": [
+    "Exposição externa: superfície de ataque, vazamentos conhecidos, credenciais expostas",
+    "Maturidade de controles (NIST CSF / ISO 27001 light) e histórico de incidentes",
+    "Quantificação de risco: cenários de perda em R$",
+    "Mapa de dados pessoais, bases legais, DPO e aderência LGPD",
+    "Qualidade e valor dos ativos de dados",
+    "Plano de remediação de 100 dias e cláusulas sugeridas para o SPA"
+   ],
+   "steps": [
+    "Scan externo passivo (sem tocar no ambiente do alvo)",
+    "Questionário, evidências e entrevistas com CISO e DPO",
+    "Quantificação (FAIR simplificado) e priorização",
+    "Relatório, cláusulas e plano de 100 dias"
+   ],
+   "skills": [
+    "Cyber",
+    "Privacidade/LGPD",
+    "Dados",
+    "Modelagem de risco"
+   ],
+   "system": "Ratings e scanners de superfície externa (parceria), classificação de dados pessoais em amostras, Engine para o relatório.",
+   "data": [
+    "Fontes abertas e serviços de rating",
+    "Políticas, RIPD, contratos com operadores",
+    "Amostras de bases e logs de incidentes"
+   ],
+   "ai_role": [
+    "Classifica dados pessoais e sensíveis em amostras",
+    "Lê políticas e contratos contra a LGPD e aponta lacunas",
+    "Gera cenários de perda e o rascunho das cláusulas"
+   ],
+   "productize": [
+    "Pacotes por porte com score padrão",
+    "Add-on do DD 360 e do Red Flag",
+    "Monitoramento trimestral no hold (mesmo score)"
+   ],
+   "effort": {
+    "size": "P–M",
+    "months": "2–3 meses",
+    "team": "1 cyber + 1 privacidade + Engine",
+    "prereq": "Parceria de rating externo; método de quantificação"
+   },
+   "kpis": [
+    "Exposição estimada vs incidentes realizados",
+    "Tempo de remediação dos achados críticos",
+    "Cláusulas de proteção obtidas no SPA",
+    "Aderência LGPD (itens críticos fechados)"
+   ],
+   "evidence": [
+    {
+     "id": "C01",
+     "text": "Big Four separam três camadas: IT Due Diligence (função de TI), Technology Due Diligence / Tech DD (produto, arquitetura, código) e, desde 2024–25, AI Due Diligence; Cyber DD é linha própria em todas",
+     "src": "Deloitte UK/NL; PwC US/BE; KPMG CH/DK; EY US · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D02",
+     "text": "Deloitte 2026 GenAI in M&A Pulse: 90% usam GenAI em M&A, 37% em múltiplas fases; barreiras: segurança de dados (67%) e qualidade/disponibilidade de dados (65%)",
+     "src": "Deloitte 2026 Pulse Study (via Forbes) · fev/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "L04",
+     "text": "Nenhum caso brasileiro público e nominado em que cyber/dados tenham alterado preço ou condições de um deal foi encontrado; há caso anonimizado (fintech brasileira comprada por fundo internacional, risco \"superior a dezenas de milhões de reais\", TI Inside, mai/2026)",
+     "src": "TI Inside · mai/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "X_LGPD",
+     "text": "LGPD (Lei 13.709/2018, art. 52): multa simples de até 2% do faturamento do grupo no Brasil, limitada a R$ 50 milhões por infração, além de multa diária, bloqueio e eliminação de dados",
+     "src": "Lei 13.709/2018, art. 52 (texto legal; não aberto nesta sessão)",
+     "type": "am"
+    },
+    {
+     "id": "X_IBM",
+     "text": "Custo médio de uma violação de dados no Brasil: R$ 6,75 milhões (IBM Cost of a Data Breach 2024) — referência de conhecimento prévio, a confirmar na edição 2025/2026",
+     "src": "IBM Cost of a Data Breach Report 2024 (não aberto nesta sessão)",
+     "type": "hypothesis"
+    },
+    {
+     "id": "Q02",
+     "text": "Scanners de composição e licenças: Black Duck Detect (componentes open source, licenças e vulnerabilidades), Snyk (Open Source, Code, Container, IaC) e Revenera Code Insight (SBOM SPDX/CycloneDX); ratings cyber externos (BitSight) expõem score atual e histórico via API sem acesso ao alvo",
+     "src": "Documentação oficial no GitHub (Black Duck, Snyk, Flexera/Revenera; NVISO BitSight tool) · out/2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p06",
+   "num": "06",
+   "status": "create",
+   "phase": "Pré-deal",
+   "band": "c-gold",
+   "name": "Software, Cloud & FinOps DD",
+   "old": "hoje \"qualidade de código\" é um item da lente Sistemas",
+   "tag": "o valor está no código e no custo de escalar",
+   "duration": "1–2 semanas",
+   "ai": 3,
+   "model": "Add-on para alvos de software e plataformas digitais; versão sell-side (hipótese)",
+   "audience": "Investidores em software/SaaS, marketplaces e fintechs; corporates adquirindo plataformas digitais.",
+   "problem": "O valor do alvo está no software e no custo de escalá-lo: dívida técnica, dependência de pessoas-chave, licenças open source e custo de cloud crescendo mais que a receita.",
+   "deliverables": [
+    "Qualidade e manutenibilidade do código (métricas) e arquitetura",
+    "Licenças open source, PI e riscos de contaminação",
+    "Práticas de engenharia (CI/CD, testes, segurança) e bus factor",
+    "Custo de cloud e unit economics (custo por cliente/transação)",
+    "Roadmap de produto vs promessas comerciais",
+    "Investimento para escalar (R$) e plano de redução de custos"
+   ],
+   "steps": [
+    "Acesso read-only a repositórios e faturas de cloud",
+    "Scan automatizado + entrevistas com engenharia",
+    "Análise de unit economics e de escalabilidade",
+    "Relatório com riscos, custos e plano"
+   ],
+   "skills": [
+    "Engenharia de software",
+    "Arquitetura cloud",
+    "FinOps",
+    "Produto"
+   ],
+   "system": "Scanners de código (ferramentas de mercado e open source), analisador de billing de cloud, Engine.",
+   "data": [
+    "Repositórios e pipelines",
+    "Faturas e tags de cloud",
+    "Backlog e roadmap de produto",
+    "Métricas de SaaS (ARR, churn, NRR)"
+   ],
+   "ai_role": [
+    "Lê o código para mapear módulos, riscos e licenças",
+    "Resume a arquitetura e aponta gargalos de escala",
+    "Projeta custos de cloud por cenário de crescimento"
+   ],
+   "productize": [
+    "\"Software DD kit\" com métricas e benchmarks padrão",
+    "Add-on do DD 360 e do Red Flag",
+    "Versão sell-side: preparar o código para a diligência do comprador"
+   ],
+   "effort": {
+    "size": "M",
+    "months": "3–4 meses",
+    "team": "2 engenheiros + 1 FinOps + Engine",
+    "prereq": "Ferramentas de scan licenciadas; 2 pilotos"
+   },
+   "kpis": [
+    "Dívida técnica quantificada (R$ e meses)",
+    "Economia de cloud identificada (%)",
+    "Riscos de PI/licença resolvidos antes do closing",
+    "Bus factor e plano de retenção"
+   ],
+   "evidence": [
+    {
+     "id": "T02",
+     "text": "Dívida técnica: McKinsey — 10–20% do orçamento de novos produtos é desviado para dívida técnica, que equivale a 20–40% do valor do parque tecnológico; Stripe — devs gastam 42% da semana com dívida técnica e código ruim (~US$ 85 bi/ano)",
+     "src": "McKinsey (2020); Stripe Developer Coefficient (2018) · 2018–2020",
+     "type": "evidence"
+    },
+    {
+     "id": "T03",
+     "text": "Cloud: Flexera State of the Cloud 2026 — 29% do gasto em IaaS/PaaS é desperdício (27% em 2025, primeira alta em 5 anos, puxada por IA/GPU), orçamentos de nuvem estouram 17%, gestão de custos é o desafio nº 1 para 85%; Brasil: nuvem pública US$ 3,5 bi em 2025 (+20%, ABES/IDC) e mercado de TI US$ 67,8 bi (+18,5%)",
+     "src": "Flexera 2026 via ProsperOps/SHI; ABES/IDC via Mobile Time e The Shift · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "S06",
+     "text": "Escritórios de advocacia (2026) apontam que PI do software fora da empresa (cessão de direitos por desenvolvedores) reduz valuation ou vira condição suspensiva — a dor jurídica mais citada em DD de startups",
+     "src": "NDM Advogados; Economia SC 27/05/2026; Barioni e Macedo · 2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C09",
+     "text": "Deloitte concluiu uma Tech DD de plataforma de e-commerce (300 mil linhas de código) em menos de 10 dias usando CAST Highlight, com scripts executados pelo próprio alvo",
+     "src": "CAST case study · 2024–2025",
+     "type": "evidence"
+    },
+    {
+     "id": "S02",
+     "text": "Consolidadores de software em ritmo de roll-up: TOTVS comprou a Linx por R$ 3,05 bi (out/2025); Sankhya fez a 11ª aquisição e reservou R$ 200 mi; Senior comprou a Salú por R$ 318,7 mi (2026); Nuvini tem US$ 127 mi para aquisições; Stefanini reservou R$ 2 bi para M&A em 2025–27",
+     "src": "Mercado Hoje/UAI; Sankhya; Economia SC; Portal No Varejo; Convergência Digital · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "Q01",
+     "text": "SIG Sigrid é vendido como motor de Tech DD para \"consultancy partners\": scan rodado por funcionário do alvo (Sigrid Local), benchmark de 25.000 sistemas (ISO 25010), escala 1–5 estrelas, Open Source Health em 6 riscos, detecção de código gerado por IA com 95–99% de acurácia e relatórios automáticos em PowerPoint",
+     "src": "Software Improvement Group, documentação oficial do Sigrid (GitHub) · out/2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p07",
+   "num": "07",
+   "status": "improve",
+   "phase": "Sign-to-Close",
+   "band": "c-blue",
+   "name": "Carve-out Strategy & TSA Design",
+   "old": "IT Separation Strategy & Design",
+   "tag": "entanglements em grafo, TSA desenhado, stranded costs evitados",
+   "duration": "4–8 semanas",
+   "ai": 2,
+   "model": "Projeto; pacote \"carve-out readiness\" para vendedores (hipótese)",
+   "audience": "Vendedores desinvestindo unidades, compradores de carve-outs (PE) e NewCos.",
+   "problem": "Entanglements de TI mal mapeados geram TSAs longos e caros, stranded costs para o vendedor e rupturas no Day 1 da NewCo.",
+   "deliverables": [
+    "Entanglement log priorizado (grafo de dependências)",
+    "Cenários Build Duplicate / Rebuild / New Build e landscape futuro",
+    "TSA de TI: catálogo de serviços, custos, prazos e critérios de saída",
+    "One-time e stranded costs",
+    "Organização de TI da NewCo e roadmap de separação"
+   ],
+   "steps": [
+    "Compreender: estratégia do deal e cenário as-is",
+    "Capturar & avaliar: entanglements nas 5 dimensões",
+    "Definir: cenários e investimentos",
+    "Desenhar: TSA, organização e roadmap"
+   ],
+   "skills": [
+    "Arquitetura",
+    "Contratos e TSA",
+    "Finanças",
+    "PMO"
+   ],
+   "system": "Entanglement Graph: grafo de dependências (sistemas, dados, contratos, pessoas, infra) montado por IA a partir de inventários, CMDB e contratos; simulador de cenários e custos; gerador de catálogo de TSA.",
+   "data": [
+    "Inventários e CMDB",
+    "Contratos e licenças",
+    "Fluxos de dados e integrações",
+    "Organograma e alocação"
+   ],
+   "ai_role": [
+    "Extrai dependências de documentos e inventários para o grafo",
+    "Simula cenários de separação e custos",
+    "Gera o rascunho do catálogo de serviços e do TSA"
+   ],
+   "productize": [
+    "Templates de TSA de TI e catálogo padrão de serviços",
+    "Calculadora de stranded costs",
+    "Pacote \"carve-out readiness\" para vendedores"
+   ],
+   "effort": {
+    "size": "M",
+    "months": "3–4 meses",
+    "team": "2 consultores + Engine",
+    "prereq": "Grafo de entanglements no Engine; templates de TSA"
+   },
+   "kpis": [
+    "Duração e custo do TSA",
+    "Entanglements resolvidos antes do Day 1",
+    "Incidentes no Day 1",
+    "Stranded costs evitados (R$)"
+   ],
+   "evidence": [
+    {
+     "id": "D03",
+     "text": "KPMG Global M&A Outlook 2026 (n=700 dealmakers): 56% usam IA em due diligence e valuation, 53% em sourcing; 71% dos investidores de PE avaliam ou perseguem carve-outs de portfólio e 55% já têm transações no pipeline",
+     "src": "KPMG press release · mar/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D06",
+     "text": "KPMG \"Winning the carve-out relay\" (mar/2026): IA reduz ~15% do esforço total do workstream de tecnologia (até 50% em algumas tarefas); no desenho de TSA, esforço -50% e tempo de redação -70%",
+     "src": "KPMG International · mar/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C06",
+     "text": "PwC: aplicação de IA para separação de aplicações em carve-outs completa tarefas \"4x faster with over 90% accuracy\"",
+     "src": "PwC US tech-effect · 2025",
+     "type": "evidence"
+    },
+    {
+     "id": "E09",
+     "text": "Carve-outs e desinvestimentos por desalavancagem: Natura concluiu venda da Avon International (31/12/2025); Raízen reciclou >R$ 4,2 bi em usinas; Braskem trocou de controle; Hapvida avalia vender ativos no Sul (R$ 500–800 mi); Motiva vendeu a CPC por R$ 5,1 bi (ago/2026)",
+     "src": "Exame; NeoFeed; SEC 6-K Braskem; InfoMoney; TTR · 2025–2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p08",
+   "num": "08",
+   "status": "improve",
+   "phase": "Sign-to-Close",
+   "band": "c-blue",
+   "name": "Day-1 & 100-Day Planning",
+   "old": "IT Integration & Separation Planning",
+   "tag": "da diligência ao plano executável, com sinergias rastreadas",
+   "duration": "3–6 semanas",
+   "ai": 2,
+   "model": "Projeto; biblioteca de charters por tipo de deal (hipótese)",
+   "audience": "Compradores corporativos e fundos entre o signing e o closing.",
+   "problem": "Entre signing e closing há pouco tempo para converter os achados da diligência em plano executável; charters são escritos à mão e as sinergias de TI não têm baseline.",
+   "deliverables": [
+    "Checklist de tomada de controle Day 1 (acessos, cyber, contratos, LGPD)",
+    "Project charters priorizados (escopo, custo, benefício, riscos)",
+    "Cronograma dos 100 dias e matriz de riscos",
+    "Heatmap de pessoas e plano de comunicação",
+    "Baseline e metas de sinergias de TI",
+    "Governança do IMO"
+   ],
+   "steps": [
+    "Descobrir: achados da DD, portfólio de projetos e baselines",
+    "Planejar: tomada de controle e governança",
+    "Desenvolver: charters, fornecedores e orçamento",
+    "Consolidar: cronograma, riscos e transição para o IMO"
+   ],
+   "skills": [
+    "PMO",
+    "Arquitetura",
+    "Gestão de mudança",
+    "Finanças"
+   ],
+   "system": "Engine converte findings da DD em charters-rascunho e plano; Synergy Tracker com baseline e metas.",
+   "data": [
+    "Relatório e registro de riscos da DD",
+    "Portfólio de projetos e contratos",
+    "Orçamento de TI das duas empresas"
+   ],
+   "ai_role": [
+    "Gera charters a partir dos findings e da tese",
+    "Detecta dependências e propõe sequenciamento",
+    "Monta cenários de orçamento e sinergias"
+   ],
+   "productize": [
+    "Biblioteca de charters por tipo de deal (roll-up, carve-out, fusão)",
+    "Checklists padrão por setor",
+    "Cockpit entregue ao cliente e reutilizado pelo IMO"
+   ],
+   "effort": {
+    "size": "P–M",
+    "months": "2–3 meses",
+    "team": "2 consultores + Engine",
+    "prereq": "Taxonomia da DD ligada aos charters"
+   },
+   "kpis": [
+    "% de iniciativas com charter no closing",
+    "Prontidão Day 1 (checklist 100%)",
+    "Sinergias de TI capturadas em 100 dias vs plano",
+    "Desvio de custo das iniciativas"
+   ],
+   "evidence": [
+    {
+     "id": "D08",
+     "text": "PwC 2026 M&A Integration Survey (n=530): só 27% dos adquirentes de \"sucesso limitado\" confiam que as sinergias reportadas são reais e auditáveis, contra 62% dos bem-sucedidos; 59% vs 28% atribuem dono, prazo e verba a cada iniciativa antes da integração",
+     "src": "PwC US · 2026",
+     "type": "evidence"
+    },
+    {
+     "id": "D10",
+     "text": "Deloitte Brasil: TI é tipicamente uma das maiores despesas de uma transação, chegando em alguns casos a 70% do custo total",
+     "src": "Deloitte Brasil, IT M&A · s.d.",
+     "type": "evidence"
+    },
+    {
+     "id": "E08",
+     "text": "Buy-and-build é a tese dominante: Chambers cita Sinqia, Alloha, Cruzeiro do Sul e Smart Fit; hospitais e laboratórios +37% em deals (jan–set/2025, KPMG); Alper (Pátria/Warburg) fez 6 aquisições em 2025 e tem ≥10 no radar",
+     "src": "Chambers PE 2025 Brazil; KPMG via Medicina S/A; Sonho Seguro · 2025",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p09",
+   "num": "09",
+   "status": "keep",
+   "phase": "100 days",
+   "band": "c-green",
+   "name": "IMO / SMO com Integration Cockpit",
+   "old": "IT Integration / Separation Management Office",
+   "tag": "execução hands-on, agora com status único e agentes",
+   "duration": "3–12 meses",
+   "ai": 2,
+   "model": "Projeto mensal; \"IMO as a service\" para plataformas de roll-up (hipótese)",
+   "audience": "Compradores e fundos após o closing; teses de buy-and-build com várias investidas.",
+   "problem": "A execução falha por falta de capacidade interna e de visibilidade executiva: continuidade do negócio, captura de sinergias e mudança competem pela mesma agenda.",
+   "deliverables": [
+    "Execução do roadmap e checklist Day 1",
+    "Governança (comitês, rituais) e gestão de riscos e issues",
+    "Captura e reporte de sinergias",
+    "Gestão da mudança e elevação de maturidade",
+    "Transição para o time interno"
+   ],
+   "steps": [
+    "Executar: estratégia de integração/separação com foco em continuidade",
+    "Capturar: sinergias e alavancas de valor",
+    "Gerir: mudança, riscos e orçamento"
+   ],
+   "skills": [
+    "PMO sênior hands-on",
+    "Change management",
+    "Arquitetura",
+    "Finanças"
+   ],
+   "system": "Integration Cockpit: status único de iniciativas, riscos, sinergias e prontidão Day 1, com agentes que consolidam atualizações, geram o relatório semanal e alertam desvios.",
+   "data": [
+    "Plano e charters",
+    "Atualizações das frentes",
+    "Baseline de sinergias e orçamento"
+   ],
+   "ai_role": [
+    "Consolida status e gera o relatório semanal",
+    "Alerta desvios de prazo, custo e sinergia",
+    "Responde perguntas executivas com dados do cockpit"
+   ],
+   "productize": [
+    "Cockpit padrão + rituais",
+    "\"IMO as a service\": mesmo cockpit em todas as investidas de uma tese",
+    "Transferência do cockpit ao cliente ao final"
+   ],
+   "effort": {
+    "size": "P",
+    "months": "1–2 meses",
+    "team": "1 consultor + Engine",
+    "prereq": "Cockpit sobre o Engine"
+   },
+   "kpis": [
+    "Sinergias capturadas vs plano (R$ e prazo)",
+    "Incidentes e rupturas no Day 1 e nos 100 dias",
+    "Aderência ao cronograma",
+    "Adoção pelo time interno"
+   ],
+   "evidence": [
+    {
+     "id": "D08",
+     "text": "PwC 2026 M&A Integration Survey (n=530): só 27% dos adquirentes de \"sucesso limitado\" confiam que as sinergias reportadas são reais e auditáveis, contra 62% dos bem-sucedidos; 59% vs 28% atribuem dono, prazo e verba a cada iniciativa antes da integração",
+     "src": "PwC US · 2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C07",
+     "text": "EY-Parthenon: US$ 250 mi nas plataformas Edge (Diligence Edge, Capital Edge, Competitive Edge) com Microsoft/OpenAI; Diligence Edge automatiza ingestão, extração e red flags; Capital Edge tem 30+ apps e visibilidade de TSA em tempo real",
+     "src": "EY; Zawya · mar/2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "E08",
+     "text": "Buy-and-build é a tese dominante: Chambers cita Sinqia, Alloha, Cruzeiro do Sul e Smart Fit; hospitais e laboratórios +37% em deals (jan–set/2025, KPMG); Alper (Pátria/Warburg) fez 6 aquisições em 2025 e tem ≥10 no radar",
+     "src": "Chambers PE 2025 Brazil; KPMG via Medicina S/A; Sonho Seguro · 2025",
+     "type": "evidence"
+    },
+    {
+     "id": "S01",
+     "text": "KPMG: TI liderou o M&A no Brasil em 2023 (345 ops), 2024 (355) e jan–set/2025 (415, das quais 278 — 67% — com fundos de PE/VC)",
+     "src": "KPMG Pesquisa Fusões e Aquisições (via IT Forum e kpmg.com/br) · 2024–jan/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "B05",
+     "text": "BCG nomeia ferramentas de IA no PMI: \"Post-Merger Integration Ignite by BCG X\", \"Synergy Builder by BCG\" e \"KEY Impact Management by BCG X\"; declara 7.000+ transações em 10 anos e que \"mais da metade das transações e integrações destroem valor\"; DD categorizada inclui \"HR and technology/IT\"",
+     "src": "BCG, páginas M&A, Transactions & PMI (espelho público 2026) · 2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p10",
+   "num": "10",
+   "status": "improve",
+   "phase": "Hold period",
+   "band": "c-blue",
+   "name": "Portfolio Tech Value Office",
+   "old": "IT Synergies & Value Creation (VCaaS) + VMaaS",
+   "tag": "o mesmo score da diligência, trimestre a trimestre, em todo o portfólio",
+   "duration": "Assinatura anual",
+   "ai": 3,
+   "model": "Assinatura por investida (tiers), com crédito da DD (hipótese)",
+   "audience": "Fundos de PE/growth com portfólio de investidas e holdings com várias empresas.",
+   "problem": "Depois do deal, a tecnologia some do radar do fundo até o exit; riscos e oportunidades (IA, cloud, cyber, dados) não são comparáveis entre as investidas.",
+   "deliverables": [
+    "Tech Health Score trimestral por investida (mesmas 8 lentes da DD)",
+    "Ranking de oportunidades de valor (custos, IA, dados, receita digital)",
+    "Plano de valor por investida e acompanhamento",
+    "Alertas de risco (cyber, licenças, pessoas-chave)",
+    "Exit readiness progressivo"
+   ],
+   "steps": [
+    "Onboarding: baseline a partir da DD",
+    "Trimestral: coleta de dados, score e alertas",
+    "Sprints de valor nas investidas priorizadas",
+    "Revisão anual com o comitê de portfólio"
+   ],
+   "skills": [
+    "Value creation",
+    "Arquitetura",
+    "IA e dados",
+    "Finanças"
+   ],
+   "system": "Portal do fundo (dashboard) alimentado pelo Engine; coleta automatizada de indicadores das investidas.",
+   "data": [
+    "Indicadores trimestrais das investidas",
+    "Faturas de cloud e licenças",
+    "Incidentes e exposição externa",
+    "Baseline da DD"
+   ],
+   "ai_role": [
+    "Coleta e analisa indicadores automaticamente",
+    "Gera alertas e recomendações por investida",
+    "Prepara o material do comitê"
+   ],
+   "productize": [
+    "Assinatura anual por investida em tiers",
+    "Bundle com DD (crédito) e com o exit",
+    "Mesmo score do pré-deal ao exit"
+   ],
+   "effort": {
+    "size": "M",
+    "months": "3–4 meses após o Engine",
+    "team": "1 líder + 1 analista + Engine",
+    "prereq": "Engine V1 e portal"
+   },
+   "kpis": [
+    "Valor capturado por investida (EBITDA, R$)",
+    "Redução de custo de TI e cloud",
+    "Riscos mitigados antes de virarem incidentes",
+    "Exit readiness score"
+   ],
+   "evidence": [
+    {
+     "id": "E06",
+     "text": "PE voltou: R$ 15,9 bi investidos em jan–set/2025 (51 deals), acima de todo 2024 (R$ 13,3 bi, 72 deals); desinvestimentos de PE caíram de R$ 10 bi (2024) para R$ 1,54 bi (2025 acumulado)",
+     "src": "ABVCAP/TTR Data, Consolidação de Dados 3T2025 · nov/2025",
+     "type": "evidence"
+    },
+    {
+     "id": "D03",
+     "text": "KPMG Global M&A Outlook 2026 (n=700 dealmakers): 56% usam IA em due diligence e valuation, 53% em sourcing; 71% dos investidores de PE avaliam ou perseguem carve-outs de portfólio e 55% já têm transações no pipeline",
+     "src": "KPMG press release · mar/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "E07",
+     "text": "Fundos de PE/VC participaram de 50% dos deals no Brasil em 2025 (43% em 2024)",
+     "src": "Compilação Capital Invest sobre base KPMG · 2025",
+     "type": "evidence"
+    },
+    {
+     "id": "T01",
+     "text": "FGVcia 36ª Pesquisa Anual do Uso de TI (2025, 2.672 empresas): gasto e investimento em TI = 10% da receita (média); Financeiro 21%, Serviços 14,5%, Indústria 5,5%, Comércio 4,8%; expectativa >11% em 2026",
+     "src": "FGVcia via pdcati / TI Especialistas · 2025",
+     "type": "evidence"
+    },
+    {
+     "id": "B04",
+     "text": "McKinsey Global Private Markets Report 2026: 53% dos LPs colocam a estratégia de value creation do GP entre os 5 principais critérios de seleção; firmas líderes levam o upside e o downside de IA para a diligência, o comitê de investimento e o plano de valor",
+     "src": "McKinsey, Global Private Markets Report 2026 (fonte secundária) · 2026",
+     "type": "evidence"
+    },
+    {
+     "id": "B03",
+     "text": "Bain Global Private Equity Report 2026: os dois obstáculos mais comuns para fechar deals em 2025 foram \"expectativas infladas do vendedor e red flags de diligência\"; pede \"full potential due diligence\" multidisciplinar; holding period ~7 anos; distribuições abaixo de 15% do NAV por 4 anos; buyouts US$ 904 bi (+44%)",
+     "src": "Bain & Company, Global Private Equity Report 2026 (cópia verbatim em espelho público) · fev/2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p11",
+   "num": "11",
+   "status": "improve",
+   "phase": "Exit",
+   "band": "c-blue",
+   "name": "Vendor Tech DD & Exit Readiness",
+   "old": "IT Due Diligence (Sell Side)",
+   "tag": "fact book, VDR organizado e Q&A com evidências",
+   "duration": "6–12 meses antes do deal · ou 3–4 semanas na diligência",
+   "ai": 3,
+   "model": "Pacotes por horizonte de entrada (hipótese)",
+   "audience": "Vendedores: fundos no exit, famílias e corporates desinvestindo.",
+   "problem": "Compradores descontam o preço por incerteza tecnológica; VDR desorganizado e Q&A lento geram surpresas na diligência do comprador.",
+   "deliverables": [
+    "Diagnóstico nas 5 dimensões e \"fix the basics\"",
+    "Vendor DD report (fact book de tecnologia)",
+    "VDR estruturado e gabarito de Q&A",
+    "Suporte às rodadas de diligência",
+    "Roadmap de mitigação e exit readiness score"
+   ],
+   "steps": [
+    "Descoberta: cenário atual e riscos",
+    "Preparação: fact book, VDR e correções rápidas",
+    "Aconselhamento: suporte ao Q&A e à negociação"
+   ],
+   "skills": [
+    "Due diligence",
+    "Arquitetura",
+    "Gestão de VDR",
+    "Negociação técnica"
+   ],
+   "system": "Data Room Copilot: organiza o VDR, gera o fact book e responde ao Q&A com evidências (com revisão humana); Engine para o score.",
+   "data": [
+    "Documentação de TI do vendedor",
+    "Contratos, licenças, políticas",
+    "Histórico de incidentes e projetos"
+   ],
+   "ai_role": [
+    "Organiza e indexa o VDR",
+    "Gera o fact book e respostas de Q&A com citações",
+    "Detecta lacunas que o comprador vai encontrar"
+   ],
+   "productize": [
+    "Pacotes por horizonte (12 meses, 6 meses, na diligência)",
+    "Fact book padrão",
+    "Exit readiness score reutilizado do hold"
+   ],
+   "effort": {
+    "size": "P–M",
+    "months": "2–3 meses",
+    "team": "2 consultores + Engine",
+    "prereq": "Copiloto de VDR"
+   },
+   "kpis": [
+    "Tempo de resposta do Q&A",
+    "Nº de findings do comprador",
+    "Desconto evitado no preço (hipótese a medir)",
+    "Tempo até o signing"
+   ],
+   "evidence": [
+    {
+     "id": "E06",
+     "text": "PE voltou: R$ 15,9 bi investidos em jan–set/2025 (51 deals), acima de todo 2024 (R$ 13,3 bi, 72 deals); desinvestimentos de PE caíram de R$ 10 bi (2024) para R$ 1,54 bi (2025 acumulado)",
+     "src": "ABVCAP/TTR Data, Consolidação de Dados 3T2025 · nov/2025",
+     "type": "evidence"
+    },
+    {
+     "id": "C02",
+     "text": "KPMG (Suíça) lista 7 linhas: Technology DD, IT DD, Cybersecurity DD, Software DD, Carve-out DD, IT & Tech Vendor DD e IT Integration & Separation; KPMG (Dinamarca) publica duração típica de Tech DD: 2 a 4 semanas em deals de software mid-market",
+     "src": "KPMG CH; KPMG DK · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "L02",
+     "text": "Harvey atende 80+ equipes jurídicas em 13 países da América Latina, \"incluindo a maioria dos escritórios líderes\"; Datasite tem entidade em São Paulo desde 2010 e IA nativa (primeiro VDR com ISO/IEC 42001); a VDR brasileira Deallink lançou a IA \"Dex\" e lista Itaú BBA, BTG, XP, Bradesco BBI entre clientes",
+     "src": "Harvey blog; Datasite; Deallink · 2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C05",
+     "text": "PwC + Harvey (jul/2025): workflow de due diligence \"executed over 10,000 times\" gerando relatórios iniciais de red flags; PwC + Palantir (set/2026): \"AI-native deals IT platform\" com deals \"up to 50% faster\" e custos one-time até 45% menores; PwC + ToltIQ (jun/2026)",
+     "src": "PwC press releases · jul/2025–set/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "B03",
+     "text": "Bain Global Private Equity Report 2026: os dois obstáculos mais comuns para fechar deals em 2025 foram \"expectativas infladas do vendedor e red flags de diligência\"; pede \"full potential due diligence\" multidisciplinar; holding period ~7 anos; distribuições abaixo de 15% do NAV por 4 anos; buyouts US$ 904 bi (+44%)",
+     "src": "Bain & Company, Global Private Equity Report 2026 (cópia verbatim em espelho público) · fev/2026",
+     "type": "evidence"
+    }
+   ]
+  },
+  {
+   "id": "p12",
+   "num": "12",
+   "status": "create",
+   "phase": "Plataforma",
+   "band": "c-gold",
+   "name": "A&M Tech Diligence Engine",
+   "old": "novo (ativo interno com camada cliente)",
+   "tag": "o sistema que faz cada diligência começar do ponto em que a última parou",
+   "duration": "MVP em 3 meses · V1 em 6–9 meses",
+   "ai": 3,
+   "model": "Ativo interno; licenciável no Playbook e no portal do fundo (hipótese)",
+   "audience": "Times da A&M (todos os produtos) e, como produto, fundos (portal) e clientes do Playbook.",
+   "problem": "Diligências artesanais: cada projeto recomeça; o conhecimento de 100+ projetos não está estruturado; prazo e custo altos; pouca comparabilidade e rastreabilidade de evidências.",
+   "deliverables": [
+    "Ingestão de VDR e documentos com trilha de evidências",
+    "Extração automática de inventário (sistemas, contratos, licenças, infra, time)",
+    "Scanners: superfície externa, código, billing de cloud",
+    "Taxonomia e score das 8 lentes + base de benchmarks",
+    "Modelos de CAPEX/OPEX e gerador de relatórios e dashboards",
+    "Ambiente isolado por deal e controles de confidencialidade"
+   ],
+   "steps": [
+    "MVP (3 meses): ingestão + inventário + relatório",
+    "V1 (6–9 meses): scores, benchmarks, scanners, charters",
+    "V2: portal do cliente, monitoramento e copilotos (VDR, Playbook, Cockpit)"
+   ],
+   "skills": [
+    "Engenharia de software e IA",
+    "Dados",
+    "Segurança",
+    "Gestão de produto"
+   ],
+   "system": "LLMs em ambiente privado (sem treinar com dados de clientes), RAG com citações, agentes por lente, avaliação contínua de qualidade com humano no circuito.",
+   "data": [
+    "Documentos dos deals (segregados por cliente)",
+    "Base de benchmarks anonimizada",
+    "Fontes externas (ratings, scanners, mercado)"
+   ],
+   "ai_role": [
+    "Lê, extrai, cruza e resume; nunca decide sozinha",
+    "Cita a evidência de cada afirmação",
+    "Aprende padrões anonimizados entre projetos"
+   ],
+   "productize": [
+    "Reduz custo e prazo de todos os produtos",
+    "Licenciável no Playbook (copiloto) e no portal do fundo",
+    "Diferencial comercial: comparabilidade e evidências rastreáveis"
+   ],
+   "effort": {
+    "size": "G",
+    "months": "6–9 meses até a V1",
+    "team": "Squad de 4–6 (produto, IA, dados, segurança) + parcerias",
+    "prereq": "Política de uso de IA e de dados de clientes; parcerias de scan e rating; patrocínio executivo"
+   },
+   "kpis": [
+    "Horas por diligência (meta: -40%, hipótese)",
+    "Prazo e margem por produto",
+    "Reuso de conteúdo entre projetos",
+    "Evidências rastreáveis por finding (100%)"
+   ],
+   "evidence": [
+    {
+     "id": "C04",
+     "text": "Deloitte lançou (22/09/2026) o \"M&A Platform\": IA e agentes em todo o ciclo do deal, \"in use across more than 1,000 client engagements\", entregue via Ascend",
+     "src": "Deloitte US press room · set/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C05",
+     "text": "PwC + Harvey (jul/2025): workflow de due diligence \"executed over 10,000 times\" gerando relatórios iniciais de red flags; PwC + Palantir (set/2026): \"AI-native deals IT platform\" com deals \"up to 50% faster\" e custos one-time até 45% menores; PwC + ToltIQ (jun/2026)",
+     "src": "PwC press releases · jul/2025–set/2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C07",
+     "text": "EY-Parthenon: US$ 250 mi nas plataformas Edge (Diligence Edge, Capital Edge, Competitive Edge) com Microsoft/OpenAI; Diligence Edge automatiza ingestão, extração e red flags; Capital Edge tem 30+ apps e visibilidade de TSA em tempo real",
+     "src": "EY; Zawya · mar/2025–2026",
+     "type": "evidence"
+    },
+    {
+     "id": "C08",
+     "text": "KPMG Workbench (jun/2025): plataforma multiagente com 50+ agentes, base das plataformas Clara, Digital Gateway e Velocity; KPMG foi a primeira organização a obter a certificação ISO/IEC 42001",
+     "src": "KPMG press release · jun/2025",
+     "type": "evidence"
+    },
+    {
+     "id": "D05",
+     "text": "KPMG Canadá: clientes maduros no uso de IA em sourcing e diligência inicial registram ganhos de produtividade de 15% a 35%, chegando a 40%",
+     "src": "KPMG Canada · abr/2025",
+     "type": "evidence"
+    },
+    {
+     "id": "D02",
+     "text": "Deloitte 2026 GenAI in M&A Pulse: 90% usam GenAI em M&A, 37% em múltiplas fases; barreiras: segurança de dados (67%) e qualidade/disponibilidade de dados (65%)",
+     "src": "Deloitte 2026 Pulse Study (via Forbes) · fev/2026",
+     "type": "evidence"
+    }
+   ]
+  }
+ ]
+}

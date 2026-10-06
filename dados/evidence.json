@@ -1,0 +1,684 @@
+{
+ "_note": "Registro de evidências. type: evidence (trecho/número literal atribuído à fonte, obtido via motor de busca; páginas não abertas integralmente nesta sessão) | hypothesis (inferência). conf: high (2+ fontes/trechos independentes) | med (1 trecho literal) | low (snippet com divergência ou fonte secundária).",
+ "items": [
+  {
+   "id": "E01",
+   "topic": "mercado",
+   "claim": "Brasil: 1.877 transações de M&A em 2025 (+7% em número, +15% em capital vs 2024); 4T25 = 487 deals / BRL 101,8 bi",
+   "src": "TTR Data, Relatório anual 4Q2025",
+   "url": "https://blog.ttrdata.com/relatorio-mensal-sobre-o-mercado-transacional-brasileiro-4q2025/",
+   "date": "jan/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E02",
+   "topic": "mercado",
+   "claim": "Série TTR (nº de transações): 2.387 (2022) → 2.008 (2023) → 1.674 (2024) → 1.877 (2025) → 834 (jan–ago/2026, -31% em número, +11% em capital: BRL 210,7 bi)",
+   "src": "TTR Data, relatórios anuais 2022–2025 e mensal ago/2026 (via InfoMoney/BPMoney)",
+   "url": "https://www.infomoney.com.br/business/fusoes-e-aquisicoes-somam-r-2107-bi-em-2026-com-queda-no-numero-de-operacoes/",
+   "date": "2023–set/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E03",
+   "topic": "mercado",
+   "claim": "Capital mobilizado cresce enquanto o número de deals cai: BRL 215,7 bi (2023) → 260,0 bi (2024) → ~303,5 bi (2025) — \"menos deals, mais capital por operação\"",
+   "src": "TTR Data / Aon",
+   "url": "https://exame.com/invest/mercados/brasil-lidera-fusoes-e-aquisicoes-na-america-latina-com-r-300-bilhoes/",
+   "date": "jan/2026",
+   "type": "evidence",
+   "conf": "med",
+   "note": "valor 2025 com divergência entre trechos (303,5 vs 313,5)"
+  },
+  {
+   "id": "E04",
+   "topic": "mercado",
+   "claim": "Tecnologia é o setor nº 1 em M&A no Brasil em todas as bases: TTR \"Internet, Software & IT Services\" 340 deals em 2025 (18%); KPMG \"Tecnologia da Informação\" 415 operações jan–set/2025 (278 com PE/VC, ~36%); PwC 453 operações em tecnologia jan–set/2025 (31,6%)",
+   "src": "TTR Data 4Q2025; KPMG Pesquisa F&A 3T2025; PwC Fusões e Aquisições no Brasil (via Forbes)",
+   "url": "https://forbes.com.br/forbes-money/2025/10/fusoes-e-aquisicoes-somam-1-087-transacoes-em-2025-diz-pwc/",
+   "date": "out/2025–jan/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E05",
+   "topic": "mercado",
+   "claim": "Bain: M&A no Brasil 2025 ≈ US$ 51 bi (+8%); valor dos deals de tecnologia +77%; mais de 40% dos deals são transformacionais",
+   "src": "Bain & Company, press release Brasil",
+   "url": "https://www.bain.com/pt-br/about/media-center/press-releases/south-america/2026/volume-de-ma-no-brasil-aumenta-8-e-ultrapassa-os-us$-50-bi-aponta-relatorio-anual-da-bain/",
+   "date": "fev/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "E06",
+   "topic": "mercado",
+   "claim": "PE voltou: R$ 15,9 bi investidos em jan–set/2025 (51 deals), acima de todo 2024 (R$ 13,3 bi, 72 deals); desinvestimentos de PE caíram de R$ 10 bi (2024) para R$ 1,54 bi (2025 acumulado)",
+   "src": "ABVCAP/TTR Data, Consolidação de Dados 3T2025",
+   "url": "https://abvcap.com.br/en/publicacao/consolidacao-de-dados-3o-trimestre-2025/",
+   "date": "nov/2025",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E07",
+   "topic": "mercado",
+   "claim": "Fundos de PE/VC participaram de 50% dos deals no Brasil em 2025 (43% em 2024)",
+   "src": "Compilação Capital Invest sobre base KPMG",
+   "url": "https://capitalinvest-group.com/pt/tendencias-ma-brasil-2025/",
+   "date": "2025",
+   "type": "evidence",
+   "conf": "low",
+   "note": "fonte secundária"
+  },
+  {
+   "id": "E08",
+   "topic": "mercado",
+   "claim": "Buy-and-build é a tese dominante: Chambers cita Sinqia, Alloha, Cruzeiro do Sul e Smart Fit; hospitais e laboratórios +37% em deals (jan–set/2025, KPMG); Alper (Pátria/Warburg) fez 6 aquisições em 2025 e tem ≥10 no radar",
+   "src": "Chambers PE 2025 Brazil; KPMG via Medicina S/A; Sonho Seguro",
+   "url": "https://practiceguides.chambers.com/practice-guides/private-equity-2025/brazil/trends-and-developments",
+   "date": "2025",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E09",
+   "topic": "mercado",
+   "claim": "Carve-outs e desinvestimentos por desalavancagem: Natura concluiu venda da Avon International (31/12/2025); Raízen reciclou >R$ 4,2 bi em usinas; Braskem trocou de controle; Hapvida avalia vender ativos no Sul (R$ 500–800 mi); Motiva vendeu a CPC por R$ 5,1 bi (ago/2026)",
+   "src": "Exame; NeoFeed; SEC 6-K Braskem; InfoMoney; TTR",
+   "url": "https://neofeed.com.br/negocios/raizen-vende-novas-usinas-e-pacote-de-desinvestimentos-ja-soma-mais-de-r-27-bilhoes/",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "E10",
+   "topic": "mercado",
+   "claim": "Cross-border foi 56,5% do valor de M&A no 1S2026; EUA (162) e Reino Unido (33) lideram em nº de deals em 2025; Warburg Pincus >US$ 1 bi no Brasil 2022–24; General Atlantic ~US$ 450 mi em 2025 e >US$ 500 mi previstos para 2026",
+   "src": "Dealogic/Valor via M&A Community; TTR; Bloomberg Línea; General Atlantic",
+   "url": "https://mnacommunity.com/mna-brasil-em-2025/",
+   "date": "2025–jul/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "E11",
+   "topic": "mercado",
+   "claim": "Macro 2026–27 (Focus 02/10/2026): Selic 13,50% (2026) e 12,00% (2027); eleições de 2026 \"precificadas\": M&A + dívida somaram R$ 1 tri entre out/2025 e set/2026 (+20% vs ciclo 2022)",
+   "src": "BACEN Boletim Focus via InfoMoney; O Povo",
+   "url": "https://www.opovo.com.br/noticias/economia/2026/10/05/eleicao-deixa-de-assustar-mercado-de-fusoes-aquisicoes-e-dividas-negocios-somam-rs-1-tri.html",
+   "date": "out/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "E12",
+   "topic": "deck",
+   "claim": "Verificação do deck A&M (\"+112% nas transações 1S2017–1S2022\"): TTR 1S2017 = 513 deals e 1S2022 = 1.130 → +120% em número e só +12,6% em valor; o dado precisa ser substituído pela série 2023–2026",
+   "src": "TTR Data 1S2017 e 1S2022 (via Portal F&A)",
+   "url": "https://fusoesaquisicoes.com/acontece-no-setor/volume-de-fusoes-e-aquisicoes-registra-crescimento-de-2-no-primeiro-semestre-de-2022/",
+   "date": "2017; 2022",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "E13",
+   "topic": "mercado",
+   "claim": "KPMG Brasil: M&A em TMT no 1S2026 movimentou R$ 19 bi (quase 5x os R$ 3,85 bi do 1S2025), com 114 transações (-26%); 12 deals responderam por 95% do valor",
+   "src": "KPMG Brasil via TI Inside",
+   "url": "https://tiinside.com.br/22/09/2026/kpmg-valor-de-fusoes-e-aquisicoes-no-setor-de-tecnologia-midia-e-telecomunicacao-cresce-400-e-movimenta-r19-bi/",
+   "date": "set/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "C01",
+   "topic": "concorrencia",
+   "claim": "Big Four separam três camadas: IT Due Diligence (função de TI), Technology Due Diligence / Tech DD (produto, arquitetura, código) e, desde 2024–25, AI Due Diligence; Cyber DD é linha própria em todas",
+   "src": "Deloitte UK/NL; PwC US/BE; KPMG CH/DK; EY US",
+   "url": "https://kpmg.com/ch/en/services/deal-advisory/technology-it-consulting-due-diligence.html",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "C02",
+   "topic": "concorrencia",
+   "claim": "KPMG (Suíça) lista 7 linhas: Technology DD, IT DD, Cybersecurity DD, Software DD, Carve-out DD, IT & Tech Vendor DD e IT Integration & Separation; KPMG (Dinamarca) publica duração típica de Tech DD: 2 a 4 semanas em deals de software mid-market",
+   "src": "KPMG CH; KPMG DK",
+   "url": "https://kpmg.com/dk/en/insights/deals/what-is-tech-due-diligence-and-why-does-it-matter-in-ma.html",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "C03",
+   "topic": "concorrencia",
+   "claim": "PwC (Bélgica) vende dois formatos: \"red-flag analysis\" (rápida, baixa/média complexidade) e \"full-scope due diligence\" (alta complexidade, com carve-out/integração)",
+   "src": "PwC Belgium, Technology due diligence",
+   "url": "https://www.pwc.be/en/services/deals/technology-due-diligence.html",
+   "date": "s.d.",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "C04",
+   "topic": "concorrencia",
+   "claim": "Deloitte lançou (22/09/2026) o \"M&A Platform\": IA e agentes em todo o ciclo do deal, \"in use across more than 1,000 client engagements\", entregue via Ascend",
+   "src": "Deloitte US press room",
+   "url": "https://www.deloitte.com/us/en/about/press-room/deloitte-announces-ma-platform.html",
+   "date": "set/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "C05",
+   "topic": "concorrencia",
+   "claim": "PwC + Harvey (jul/2025): workflow de due diligence \"executed over 10,000 times\" gerando relatórios iniciais de red flags; PwC + Palantir (set/2026): \"AI-native deals IT platform\" com deals \"up to 50% faster\" e custos one-time até 45% menores; PwC + ToltIQ (jun/2026)",
+   "src": "PwC press releases",
+   "url": "https://www.pwc.com/gx/en/news-room/press-releases/2025/aipowered-deals-pwcs-latest-mna-technology-platform-reimagines-the-way-clients-do-deals.html",
+   "date": "jul/2025–set/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "C06",
+   "topic": "concorrencia",
+   "claim": "PwC: aplicação de IA para separação de aplicações em carve-outs completa tarefas \"4x faster with over 90% accuracy\"",
+   "src": "PwC US tech-effect",
+   "url": "https://www.pwc.com/us/en/tech-effect/innovation/ai-powered-it-separation-for-deals.html",
+   "date": "2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "C07",
+   "topic": "concorrencia",
+   "claim": "EY-Parthenon: US$ 250 mi nas plataformas Edge (Diligence Edge, Capital Edge, Competitive Edge) com Microsoft/OpenAI; Diligence Edge automatiza ingestão, extração e red flags; Capital Edge tem 30+ apps e visibilidade de TSA em tempo real",
+   "src": "EY; Zawya",
+   "url": "https://www.ey.com/en_us/services/strategy/dilligence-edge",
+   "date": "mar/2025–2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "C08",
+   "topic": "concorrencia",
+   "claim": "KPMG Workbench (jun/2025): plataforma multiagente com 50+ agentes, base das plataformas Clara, Digital Gateway e Velocity; KPMG foi a primeira organização a obter a certificação ISO/IEC 42001",
+   "src": "KPMG press release",
+   "url": "https://kpmg.com/xx/en/media/press-releases/2025/06/kpmg-launches-a-multi-agent-ai-platform-transforming-client-delivery-and-ways-of-working-across-the-global-organization.html",
+   "date": "jun/2025",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "C09",
+   "topic": "concorrencia",
+   "claim": "Deloitte concluiu uma Tech DD de plataforma de e-commerce (300 mil linhas de código) em menos de 10 dias usando CAST Highlight, com scripts executados pelo próprio alvo",
+   "src": "CAST case study",
+   "url": "https://learn.castsoftware.com/case-studies/deloitte-completes-m-and-a-technology-due-diligence-of-enterprise-e-commerce-platform-in-days",
+   "date": "2024–2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "C10",
+   "topic": "concorrencia",
+   "claim": "No Brasil a oferta pública é rasa: Deloitte BR é a única com página dedicada em português (\"IT M&A\" / \"Due Diligence de TI\", com o claim de que TI pode chegar a 70% do custo total da transação); EY BR traduz páginas globais; PwC BR só menciona \"due diligence de TI\"; KPMG BR não tem página de Tech/IT DD. Nenhuma publica prazo, preço, profundidade ou uso de IA em Tech DD no Brasil",
+   "src": "deloitte.com/br; ey.com/pt_br; pwc.com.br; kpmg.com/br (ausência verificada em 8 buscas)",
+   "url": "https://www.deloitte.com/br/pt/services/consulting/services/ti-fusoes-aquisicoes.html",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "med",
+   "note": "ausência = não encontrado em buscas; não prova inexistência"
+  },
+  {
+   "id": "D01",
+   "topic": "demanda_ia",
+   "claim": "Deloitte (out/2025, n=1.000 líderes corporativos e de PE): 86% integraram GenAI aos fluxos de M&A; 35% usam em due diligence; 83% investiram US$ 1 mi ou mais",
+   "src": "Deloitte 2025 Generative AI in M&A Survey",
+   "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions-restructuring/articles/m-and-a-generative-ai-study.html",
+   "date": "out/2025",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "D02",
+   "topic": "demanda_ia",
+   "claim": "Deloitte 2026 GenAI in M&A Pulse: 90% usam GenAI em M&A, 37% em múltiplas fases; barreiras: segurança de dados (67%) e qualidade/disponibilidade de dados (65%)",
+   "src": "Deloitte 2026 Pulse Study (via Forbes)",
+   "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/mergers-acquisitions-restructuring/articles/m-and-a-generative-ai-study.html",
+   "date": "fev/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D03",
+   "topic": "demanda_ia",
+   "claim": "KPMG Global M&A Outlook 2026 (n=700 dealmakers): 56% usam IA em due diligence e valuation, 53% em sourcing; 71% dos investidores de PE avaliam ou perseguem carve-outs de portfólio e 55% já têm transações no pipeline",
+   "src": "KPMG press release",
+   "url": "https://kpmg.com/xx/en/media/press-releases/2026/03/kpmg-survey-of-global-dealmakers-reveals-rising-m-and-a-expectations.html",
+   "date": "mar/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "D04",
+   "topic": "demanda_ia",
+   "claim": "KPMG \"The AI blind spot in M&A\" (n=135): só 33% dos dealmakers priorizam investigar dívida técnica e de IA no pré-deal, embora 66% discutam o tema no planejamento; 59% veem ferramentas de IA redundantes como risco emergente",
+   "src": "KPMG US",
+   "url": "https://kpmg.com/us/en/articles/2026/ai-blind-spot-ma.html",
+   "date": "2026 (pesquisa set/2025)",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D05",
+   "topic": "demanda_ia",
+   "claim": "KPMG Canadá: clientes maduros no uso de IA em sourcing e diligência inicial registram ganhos de produtividade de 15% a 35%, chegando a 40%",
+   "src": "KPMG Canada",
+   "url": "https://kpmg.com/ca/en/insights/2025/04/harnessing-digital-trends-for-mergers-acquisitions-success.html",
+   "date": "abr/2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D06",
+   "topic": "demanda_ia",
+   "claim": "KPMG \"Winning the carve-out relay\" (mar/2026): IA reduz ~15% do esforço total do workstream de tecnologia (até 50% em algumas tarefas); no desenho de TSA, esforço -50% e tempo de redação -70%",
+   "src": "KPMG International",
+   "url": "https://kpmg.com/xx/en/our-insights/value-creation/winning-the-carve-out-relay.html",
+   "date": "mar/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D07",
+   "topic": "demanda_ia",
+   "claim": "PwC Global M&A Trends 2026 (mid-year): \"Dealmakers should make AI due diligence a core part of every deal\"; valor global de deals a caminho de US$ 4 tri em 2026",
+   "src": "PwC Global M&A Industry Trends",
+   "url": "https://www.pwc.com/gx/en/services/deals/trends.html",
+   "date": "jun/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D08",
+   "topic": "integracao",
+   "claim": "PwC 2026 M&A Integration Survey (n=530): só 27% dos adquirentes de \"sucesso limitado\" confiam que as sinergias reportadas são reais e auditáveis, contra 62% dos bem-sucedidos; 59% vs 28% atribuem dono, prazo e verba a cada iniciativa antes da integração",
+   "src": "PwC US",
+   "url": "https://www.pwc.com/us/en/services/consulting/deals/library/ma-integration-survey.html",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D09",
+   "topic": "demanda_ia",
+   "claim": "Deloitte Brasil (\"Futuro Estratégico de M&A no Brasil\", 122 empresas): 61% usaram IA ou analytics para apoiar operações de M&A; 46% planejam fazer M&A",
+   "src": "Deloitte Brasil press room",
+   "url": "https://www.deloitte.com/br/pt/about/press-room/estrategia-fusoes-brasil.html",
+   "date": "c. 2024–2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "D10",
+   "topic": "integracao",
+   "claim": "Deloitte Brasil: TI é tipicamente uma das maiores despesas de uma transação, chegando em alguns casos a 70% do custo total",
+   "src": "Deloitte Brasil, IT M&A",
+   "url": "https://www.deloitte.com/br/pt/services/consulting/services/ti-fusoes-aquisicoes.html",
+   "date": "s.d.",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "S01",
+   "topic": "software",
+   "claim": "KPMG: TI liderou o M&A no Brasil em 2023 (345 ops), 2024 (355) e jan–set/2025 (415, das quais 278 — 67% — com fundos de PE/VC)",
+   "src": "KPMG Pesquisa Fusões e Aquisições (via IT Forum e kpmg.com/br)",
+   "url": "https://kpmg.com/br/pt/insights/2026/01/pesquisa-fusoes-aquisicoes-2025-3-trimestre.html",
+   "date": "2024–jan/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "S02",
+   "topic": "software",
+   "claim": "Consolidadores de software em ritmo de roll-up: TOTVS comprou a Linx por R$ 3,05 bi (out/2025); Sankhya fez a 11ª aquisição e reservou R$ 200 mi; Senior comprou a Salú por R$ 318,7 mi (2026); Nuvini tem US$ 127 mi para aquisições; Stefanini reservou R$ 2 bi para M&A em 2025–27",
+   "src": "Mercado Hoje/UAI; Sankhya; Economia SC; Portal No Varejo; Convergência Digital",
+   "url": "https://mercadohoje.uai.com.br/2025/10/08/totvs-compra-linx-por-valor-bilionario-saiba-quanto/",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "S03",
+   "topic": "software",
+   "claim": "M&A de startups no Brasil: 112 (2023, Distrito), 153 (2024, Sling Hub/Itaú BBA, 77% da América Latina), +71% no 1S2025 (Distrito) e queda para 87 no 1S2026 (vs 131 no 1S2025, -33%), com \"IA como fator decisivo\" e prêmio por software vertical com dado proprietário",
+   "src": "Distrito; Sling Hub/Itaú BBA (via Forbes); Startups.com.br",
+   "url": "https://startups.com.br/exclusivo/com-regua-mais-alta-mas-caem-no-1o-semestre-de-2026/",
+   "date": "2024–2026",
+   "type": "evidence",
+   "conf": "med",
+   "note": "contagens de 2024 divergem entre fontes (153/191/210)"
+  },
+  {
+   "id": "S04",
+   "topic": "software",
+   "claim": "Fundos de software ativos no Brasil: Riverwood planeja ~US$ 200 mi/ano em 2025–26 (US$ 600 mi disponíveis); Warburg Pincus investiu >US$ 1 bi em 2022–24 (Sólides R$ 530 mi, Contabilizei US$ 125 mi)",
+   "src": "Bloomberg Línea; LexLatin",
+   "url": "https://www.bloomberglinea.com.br/2025/06/12/riverwood-quer-investir-us-400-milhoes-e-mira-fatias-maiores-de-empresas-no-pais/",
+   "date": "jun–jul/2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "S05",
+   "topic": "software",
+   "claim": "Oferta local de tech DD é incipiente: único prestador brasileiro especializado localizado foi a Raketo (\"Due Diligence Técnica\"); nenhuma vaga brasileira de \"tech DD\" e nenhuma presença declarada de Sema, SIG, CAST ou Crosslake no Brasil foram encontradas",
+   "src": "Raketo; buscas de vagas e de prestadores",
+   "url": "https://info.raketo.com.br/due-diligence-tecnica",
+   "date": "out/2026",
+   "type": "evidence",
+   "conf": "low",
+   "note": "ausência em buscas; não prova inexistência"
+  },
+  {
+   "id": "S06",
+   "topic": "software",
+   "claim": "Escritórios de advocacia (2026) apontam que PI do software fora da empresa (cessão de direitos por desenvolvedores) reduz valuation ou vira condição suspensiva — a dor jurídica mais citada em DD de startups",
+   "src": "NDM Advogados; Economia SC 27/05/2026; Barioni e Macedo",
+   "url": "https://economiasc.com/2026/05/27/due-diligence-juridica-antes-do-aporte-o-que-os-investidores-realmente-olham/",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "S07",
+   "topic": "software",
+   "claim": "Benchmarks de SaaS brasileiros não foram localizados; as diligências usam referências globais (NRR mediana ~101%, CAC payback ~20 meses, churn de receita ~12,5%, Rule of 40)",
+   "src": "SaaS Rise; CFO Advisors (globais)",
+   "url": "https://www.saasrise.com/blog/saas-benchmark-report-2026",
+   "date": "2025–2026",
+   "type": "hypothesis",
+   "conf": "low"
+  },
+  {
+   "id": "L01",
+   "topic": "ia_local",
+   "claim": "Cinco escritórios brasileiros de primeira linha (Demarest, BMA, Cescon Barrieu, TozziniFreire e Lobo de Rizzo) são clientes da lawtech Lexter.ai \"para due diligence em fusões e aquisições\" (até 50% de produtividade declarada); Mattos Filho e Machado Meyer são clientes do Harvey (Mattos Filho: ~3 h/semana economizadas por advogado)",
+   "src": "Exame; Harvey (customers); Rest of World 2025",
+   "url": "https://exame.com/negocios/lexter-ai-capta-r-16-milhoes-para-popularizar-uso-de-ia-nos-escritorios-de-advocacia/",
+   "date": "2023–2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "L02",
+   "topic": "ia_local",
+   "claim": "Harvey atende 80+ equipes jurídicas em 13 países da América Latina, \"incluindo a maioria dos escritórios líderes\"; Datasite tem entidade em São Paulo desde 2010 e IA nativa (primeiro VDR com ISO/IEC 42001); a VDR brasileira Deallink lançou a IA \"Dex\" e lista Itaú BBA, BTG, XP, Bradesco BBI entre clientes",
+   "src": "Harvey blog; Datasite; Deallink",
+   "url": "https://www.harvey.ai/blog/harvey-expands-local-presence-in-latin-america-to-support-growing-legal-market",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "L03",
+   "topic": "ia_local",
+   "claim": "Bain (fev/2025): 21% dos praticantes de M&A usam IA generativa (16% em 2023); Deloitte: 86% (2025) e 90% (2026) nos EUA; no Brasil não existe survey público de IA em due diligence — só de adoção geral (PwC CEO Survey Brasil 2025: 52% relatam ganhos de eficiência com GenAI)",
+   "src": "Bain; Deloitte; PwC Brasil",
+   "url": "https://www.bain.com/insights/generative-ai-m-and-a-report-2025/",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med",
+   "note": "a ausência de survey brasileiro é um gap, não um dado"
+  },
+  {
+   "id": "L04",
+   "topic": "ia_local",
+   "claim": "Nenhum caso brasileiro público e nominado em que cyber/dados tenham alterado preço ou condições de um deal foi encontrado; há caso anonimizado (fintech brasileira comprada por fundo internacional, risco \"superior a dezenas de milhões de reais\", TI Inside, mai/2026)",
+   "src": "TI Inside",
+   "url": "https://tiinside.com.br/01/05/2026/ma-e-seguranca-da-informacao-o-risco-invisivel-que-pode-comprometer-o-valor-da-aquisicao/",
+   "date": "mai/2026",
+   "type": "evidence",
+   "conf": "low"
+  },
+  {
+   "id": "P01",
+   "topic": "pessoas",
+   "claim": "Pejotização (STF, Tema 1.389): suspensão nacional dos processos em abr/2025; julgamento interrompido por pedido de vista em dez/2025; em jun/2026 o STF liberou a tramitação em 1ª instância e TRTs; sem tese fixada até out/2026. Ações de reconhecimento de vínculo: 285.055 em 2024 (+57%)",
+   "src": "Conjur; STF Notícias; Istoé Dinheiro (dados TST)",
+   "url": "https://noticias.stf.jus.br/postsnoticias/stf-retira-suspensao-de-processos-sobre-pejotizacao-na-primeira-instancia-e-nos-trts/",
+   "date": "abr/2025–jun/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "P02",
+   "topic": "pessoas",
+   "claim": "Brasscom (2025): do crescimento de profissionais de TI, 55,6% veio via MEI e informalidade (88,5 mil MEI vs 23,7 mil CLT); devs PJ ganham ~32% mais que CLT (R$ 13.436 vs R$ 10.166, Código Fonte TV 2026); engenheiro de IA: R$ 19,5–27,1 mil/mês (Robert Half 2026)",
+   "src": "Brasscom via Abruc; Código Fonte TV; Robert Half via Canaltech",
+   "url": "https://www.abruc.org.br/deficit-de-profissionais-de-tecnologia-reduz-mas-setor-enfrenta-pejotizacao-e-fuga-das-universidades/",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "P03",
+   "topic": "pessoas",
+   "claim": "Déficit de talentos: Brasscom projetou demanda de 797 mil profissionais de TIC (2021–2025) com 53 mil formados/ano (déficit de 530 mil); 92% das startups dizem faltar profissionais de tecnologia (Google/Abstartups/Brasscom, 2023); turnover em TI de 30–35% ao ano (atribuído ao LinkedIn, não verificado)",
+   "src": "Brasscom; Olhar Digital; CartaCapital",
+   "url": "https://brasscom.org.br/estudo-da-brasscom-aponta-demanda-de-797-mil-profissionais-de-tecnologia-ate-2025/",
+   "date": "2021–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "T01",
+   "topic": "legado",
+   "claim": "FGVcia 36ª Pesquisa Anual do Uso de TI (2025, 2.672 empresas): gasto e investimento em TI = 10% da receita (média); Financeiro 21%, Serviços 14,5%, Indústria 5,5%, Comércio 4,8%; expectativa >11% em 2026",
+   "src": "FGVcia via pdcati / TI Especialistas",
+   "url": "https://eaesp.fgv.br/sites/eaesp.fgv.br/files/u68/pesti_fgvcia_resumo_2025.pdf",
+   "date": "2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "T02",
+   "topic": "legado",
+   "claim": "Dívida técnica: McKinsey — 10–20% do orçamento de novos produtos é desviado para dívida técnica, que equivale a 20–40% do valor do parque tecnológico; Stripe — devs gastam 42% da semana com dívida técnica e código ruim (~US$ 85 bi/ano)",
+   "src": "McKinsey (2020); Stripe Developer Coefficient (2018)",
+   "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/tech-debt-reclaiming-tech-equity",
+   "date": "2018–2020",
+   "type": "evidence",
+   "conf": "med",
+   "note": "dados globais e datados"
+  },
+  {
+   "id": "T03",
+   "topic": "legado",
+   "claim": "Cloud: Flexera State of the Cloud 2026 — 29% do gasto em IaaS/PaaS é desperdício (27% em 2025, primeira alta em 5 anos, puxada por IA/GPU), orçamentos de nuvem estouram 17%, gestão de custos é o desafio nº 1 para 85%; Brasil: nuvem pública US$ 3,5 bi em 2025 (+20%, ABES/IDC) e mercado de TI US$ 67,8 bi (+18,5%)",
+   "src": "Flexera 2026 via ProsperOps/SHI; ABES/IDC via Mobile Time e The Shift",
+   "url": "https://www.prosperops.com/blog/flexeras-2026-state-of-the-cloud-report-takeaways/",
+   "date": "2025–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "T04",
+   "topic": "licencas",
+   "claim": "Base legal do risco de licenciamento: Lei 9.609/98 art. 12 (violação de direitos de autor de programa de computador: detenção de 6 meses a 2 anos ou multa; reprodução para comércio: reclusão de 1 a 4 anos) e Lei 9.610/98 art. 103, parágrafo único (não se conhecendo o número de exemplares, paga-se o valor de 3.000 exemplares, além dos apreendidos). O \"até 3.000 vezes\" do deck é a regra do art. 103, não uma multa administrativa",
+   "src": "Lei 9.609/1998; Lei 9.610/1998 (textos via repositórios secundários; conferir no Planalto)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm",
+   "date": "1998",
+   "type": "evidence",
+   "conf": "med",
+   "note": "aplicação a software depende de jurisprudência"
+  },
+  {
+   "id": "T05",
+   "topic": "licencas",
+   "claim": "Auditorias de licenças no Brasil são conduzidas por Microsoft (via escritórios terceirizados, início extrajudicial), Oracle (LMS) e SAP (medições periódicas, multas retroativas); consultorias SAM citam \"até 60% de não conformidade\" (atribuído à Gartner, sem ano)",
+   "src": "Inforsense; ITACS; 4MATT",
+   "url": "https://4matt.com.br/en/auditoria-de-licencas-de-software-em-2026",
+   "date": "2025–2026",
+   "type": "hypothesis",
+   "conf": "low"
+  },
+  {
+   "id": "X_LGPD",
+   "claim": "LGPD (Lei 13.709/2018, art. 52): multa simples de até 2% do faturamento do grupo no Brasil, limitada a R$ 50 milhões por infração, além de multa diária, bloqueio e eliminação de dados",
+   "src": "Lei 13.709/2018, art. 52 (texto legal; não aberto nesta sessão)",
+   "type": "law",
+   "conf": "med",
+   "topic": "regulatorio",
+   "url": "",
+   "date": "—"
+  },
+  {
+   "id": "X_IBM",
+   "claim": "Custo médio de uma violação de dados no Brasil: R$ 6,75 milhões (IBM Cost of a Data Breach 2024) — referência de conhecimento prévio, a confirmar na edição 2025/2026",
+   "src": "IBM Cost of a Data Breach Report 2024 (não aberto nesta sessão)",
+   "type": "hypothesis",
+   "conf": "low",
+   "topic": "regulatorio",
+   "url": "",
+   "date": "—"
+  },
+  {
+   "id": "X_AIACT",
+   "claim": "Regulação de IA: EU AI Act em vigor desde ago/2024 com obrigações escalonadas até 2026–27; ISO/IEC 42001 (dez/2023) já é usada como referência por KPMG e Datasite; no Brasil o PL 2.338/2023 (Marco Legal da IA) foi aprovado no Senado em dez/2024 e segue na Câmara — status em 2026 a confirmar",
+   "src": "Regulamento (UE) 2024/1689; ISO/IEC 42001; PL 2.338/2023 (status não verificado nesta sessão)",
+   "type": "hypothesis",
+   "conf": "med",
+   "topic": "regulatorio",
+   "url": "",
+   "date": "—"
+  },
+  {
+   "id": "B01",
+   "topic": "demanda_ia",
+   "claim": "Bain M&A Report 2025 (fev/2025): 21% dos praticantes de M&A usam IA generativa (16% em 2023), 36% entre adquirentes muito ativos e mais de 60% dos fundos de PE; projeção de mais da metade das empresas até 2027; sumarização de dados cai de ~1 semana para 1 dia; ~80% das empresas que adotaram relatam menos trabalho manual",
+   "src": "Bain & Company, Generative AI in M&A (M&A Report 2025), via espelho público da página",
+   "url": "https://www.bain.com/insights/generative-ai-in-m-and-a-m-and-a-report-2025/",
+   "date": "fev/2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "B02",
+   "topic": "demanda_ia",
+   "claim": "Bain Software M&A Report 2026: quase metade dos deals de tecnologia em 2025 tinha um componente de IA, contra cerca de um em quatro no ano anterior",
+   "src": "Bain & Company, Software M&A Report 2026 (fonte secundária)",
+   "url": "https://www.bain.com/insights/software-m-and-a-report-2026/",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "low"
+  },
+  {
+   "id": "B03",
+   "topic": "pe",
+   "claim": "Bain Global Private Equity Report 2026: os dois obstáculos mais comuns para fechar deals em 2025 foram \"expectativas infladas do vendedor e red flags de diligência\"; pede \"full potential due diligence\" multidisciplinar; holding period ~7 anos; distribuições abaixo de 15% do NAV por 4 anos; buyouts US$ 904 bi (+44%)",
+   "src": "Bain & Company, Global Private Equity Report 2026 (cópia verbatim em espelho público)",
+   "url": "https://www.bain.com/insights/outlook-gaining-traction-global-private-equity-report-2026/",
+   "date": "fev/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "B04",
+   "topic": "pe",
+   "claim": "McKinsey Global Private Markets Report 2026: 53% dos LPs colocam a estratégia de value creation do GP entre os 5 principais critérios de seleção; firmas líderes levam o upside e o downside de IA para a diligência, o comitê de investimento e o plano de valor",
+   "src": "McKinsey, Global Private Markets Report 2026 (fonte secundária)",
+   "url": "https://www.mckinsey.com/industries/private-capital/our-insights/global-private-markets-report/private-equity",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "low"
+  },
+  {
+   "id": "B05",
+   "topic": "concorrencia",
+   "claim": "BCG nomeia ferramentas de IA no PMI: \"Post-Merger Integration Ignite by BCG X\", \"Synergy Builder by BCG\" e \"KEY Impact Management by BCG X\"; declara 7.000+ transações em 10 anos e que \"mais da metade das transações e integrações destroem valor\"; DD categorizada inclui \"HR and technology/IT\"",
+   "src": "BCG, páginas M&A, Transactions & PMI (espelho público 2026)",
+   "url": "https://www.bcg.com/capabilities/mergers-acquisitions-transactions-pmi/post-merger-integration",
+   "date": "2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "B06",
+   "topic": "concorrencia",
+   "claim": "Bain vende \"Due Diligence\" para PE como avaliação do \"full potential, including its operations and tech\"; DealEdge (Bain + CEPRES) oferece benchmarks de fluxo de caixa de mais de 30.000 deals em 560+ subsetores",
+   "src": "Bain, Private Equity services; DealEdge landing page (espelho)",
+   "url": "https://www.dealedge.com/",
+   "date": "2024–2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "B07",
+   "topic": "capacidades",
+   "claim": "Accenture: US$ 3 bi em 3 anos em Data & AI, dobrando o time de 40 mil para 80 mil; para PE, IA generativa reduz 50–60% o tempo de screening inicial. McKinsey: plataforma interna Lilli com 92% de adoção e ~17 mil agentes criados por funcionários (ago/2025)",
+   "src": "Accenture newsroom (13/06/2023); McKinsey/QuantumBlack (13/08/2025)",
+   "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/reconfiguring-work-change-management-in-the-age-of-gen-ai",
+   "date": "2023–2025",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "B08",
+   "topic": "am",
+   "claim": "A&M global reforça \"Carve-out and Merger Integration\" dentro da PEPI (Private Equity Performance Improvement) com nomeação anunciada em 14/07/2026; firma com mais de 10.000 pessoas em seis continentes; o release não menciona IA",
+   "src": "Alvarez & Marsal, press release (14/07/2026)",
+   "url": "https://www.alvarezandmarsal.com/",
+   "date": "jul/2026",
+   "type": "evidence",
+   "conf": "med"
+  },
+  {
+   "id": "Q01",
+   "topic": "plataformas",
+   "claim": "SIG Sigrid é vendido como motor de Tech DD para \"consultancy partners\": scan rodado por funcionário do alvo (Sigrid Local), benchmark de 25.000 sistemas (ISO 25010), escala 1–5 estrelas, Open Source Health em 6 riscos, detecção de código gerado por IA com 95–99% de acurácia e relatórios automáticos em PowerPoint",
+   "src": "Software Improvement Group, documentação oficial do Sigrid (GitHub)",
+   "url": "https://github.com/Software-Improvement-Group/sigridci",
+   "date": "out/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "Q02",
+   "topic": "plataformas",
+   "claim": "Scanners de composição e licenças: Black Duck Detect (componentes open source, licenças e vulnerabilidades), Snyk (Open Source, Code, Container, IaC) e Revenera Code Insight (SBOM SPDX/CycloneDX); ratings cyber externos (BitSight) expõem score atual e histórico via API sem acesso ao alvo",
+   "src": "Documentação oficial no GitHub (Black Duck, Snyk, Flexera/Revenera; NVISO BitSight tool)",
+   "url": "https://github.com/blackducksoftware/synopsys-detect",
+   "date": "out/2026",
+   "type": "evidence",
+   "conf": "high"
+  },
+  {
+   "id": "Q03",
+   "topic": "plataformas",
+   "claim": "IA agêntica sobre o data room já é commodity técnica: 34 repositórios open-source automatizam DD sobre data rooms com LLMs; o mais popular usa 13 agentes em 9 domínios e \"rastreia cada achado até a página e a citação exata\"; outro anuncia \"48 horas e US$ 45 mil por deal\" contra \"3–4 semanas e US$ 75–150 mil\" (claim auto-declarado, não auditado)",
+   "src": "GitHub (busca e repositórios zoharbabin/due-diligence-agents; AAH20/ma-vdr-diligence-os)",
+   "url": "https://github.com/zoharbabin/due-diligence-agents",
+   "date": "set–out/2026",
+   "type": "evidence",
+   "conf": "med",
+   "note": "preços e prazos são auto-declarados"
+  },
+  {
+   "id": "Q04",
+   "topic": "plataformas",
+   "claim": "Nomes de boutiques globais (Crosslake/Corsis, West Monroe, Ankura/Intechnica, Kroll Cyber DD, Sema) e de VDRs (Datasite Diligence, Intralinks DealCentre AI) não puderam ser verificados nesta sessão; não há repositório em português sobre \"due diligence de TI\" e nenhuma boutique brasileira com produto público de Tech DD foi confirmada",
+   "src": "R4 (sites bloqueados; buscas no GitHub)",
+   "url": "",
+   "date": "out/2026",
+   "type": "hypothesis",
+   "conf": "low"
+  }
+ ]
+}
